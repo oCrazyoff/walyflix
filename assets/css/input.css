@@ -1,0 +1,33 @@
+@import "tailwindcss";
+@import "./landing.css";
+
+/* variaveis */
+@theme {
+    --color-azul: #398FF9;
+    --color-azul-hover: #095FC9;
+    --color-azul-escuro: #18202B;
+    --color-preto: #141414;
+    --color-cinza: #1F1F1F;
+    --color-cinza-claro: #2B2B2B;
+}
+
+@layer base {
+    * {
+        transition: background-color 0.3s ease, color 0.1s, opacity 0.3s, scale 0.2s;
+        /*outline: 1px solid red;*/
+    }
+
+    body {
+        @apply bg-preto text-white;
+    }
+}
+
+@layer components {
+    .logo {
+        @apply text-3xl font-bold;
+
+        & span {
+            @apply text-azul;
+        }
+    }
+}

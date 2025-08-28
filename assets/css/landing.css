@@ -1,0 +1,5 @@
+@layer components {
+    .interface {
+        @apply mx-auto max-w-[1280px] w-full p-5;
+    }
+}
