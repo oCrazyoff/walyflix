@@ -1,6 +1,12 @@
-<?php include("includes/inicio.php"); ?>
+<?php
+$titulo = "Login";
+$n_valida = true;
+include("includes/inicio.php");
+?>
     <div class="container-form">
         <form action="backend/auth/login.php" method="POST">
+            <!--inputs escondidos-->
+            <input type="hidden" name="csrf" id="csrf" value="<?= gerarCSRF() ?>">
             <h1 class="logo">Waly<span>Flix</span></h1>
             <h2 class="text-2xl font-bold mt-5">Entrar na sua conta</h2>
             <p class="text-white/70">Bem-vindo de volta ao WalyFlix</p>
@@ -12,7 +18,7 @@
                 <label for="senha">Senha</label>
                 <input type="password" name="senha" id="senha" placeholder="Sua senha" required>
             </div>
-            <button class="btn-enviar">Entrar</button>
+            <button class="btn-enviar"> Entrar</button>
 
             <div class="container-links">
                 <p>Não tem uma conta? <a href="cadastro">Cadastre-se aqui</a></p>

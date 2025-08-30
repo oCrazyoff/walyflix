@@ -10,8 +10,16 @@ $routes = [
     'login' => 'auth/login.php',
     'cadastro' => 'auth/cadastro.php',
 
+    //rotas do usuario comum
+    'filmes' => 'pages/filmes.php',
+    'minha-lista' => 'pages/minha_lista.php',
+    'buscar' => 'pages/buscar.php',
+
     // rotas do adm
     'dashboard' => 'adm/dashboard.php',
+    'filmes-adm' => 'adm/filmes_adm.php',
+    'usuarios' => 'adm/usuarios.php',
+    'categorias' => 'adm/categorias.php',
 ];
 
 if (array_key_exists($url, $routes)) {

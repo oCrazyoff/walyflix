@@ -1,4 +1,8 @@
-<?php include("includes/inicio.php"); ?>
+<?php
+$titulo = "Cadastro";
+$n_valida = true;
+include("includes/inicio.php");
+?>
     <div class="container-form">
         <form action="../backend/auth/cadastro.php" method="POST">
             <h1 class="logo">Waly<span>Flix</span></h1>

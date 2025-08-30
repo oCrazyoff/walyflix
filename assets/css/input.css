@@ -21,14 +21,73 @@
     body {
         @apply bg-preto text-white;
     }
+
+    main {
+        @apply h-[calc(100dvh-5rem)] p-3 pt-10;
+    }
 }
 
 @layer components {
+    /* geral */
+    .interface {
+        @apply mx-auto max-w-[1280px] w-full px-5;
+    }
+
     .logo {
         @apply text-3xl font-bold;
 
         & span {
             @apply text-azul;
         }
+    }
+
+    #div-erro {
+        @apply flex items-center justify-center gap-4 text-lg rounded-xl fixed right-8 bottom-[-50%] shadow-lg bg-white px-8 py-2 animate-[show_5s] text-black;
+
+        & i {
+            @apply text-2xl;
+        }
+    }
+
+    @keyframes show {
+        0% {
+            bottom: -50%;
+        }
+        20% {
+            bottom: 2rem;
+        }
+        80% {
+            bottom: 2rem;
+        }
+        100% {
+            bottom: -50%;
+        }
+    }
+
+    .titulo {
+        @apply flex items-center justify-between;
+
+        & .txt-titulo {
+            & h2 {
+                @apply text-3xl;
+
+                & i {
+                    @apply text-azul;
+                }
+            }
+
+            & p {
+                @apply text-white/70 text-xl;
+            }
+        }
+
+        & a {
+            @apply rounded-lg px-5 py-2 text-xl bg-azul hover:bg-azul-hover;
+        }
+    }
+
+    /* menu */
+    .link-menu {
+        @apply hover:text-white/70;
     }
 }

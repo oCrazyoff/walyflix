@@ -1,5 +1,8 @@
-<?php include("includes/inicio.php"); ?>
-    <header class="sticky top-0 left-0 h-[5rem]">
+<?php
+$n_valida = true;
+include("includes/inicio.php");
+?>
+    <header class="sticky top-0 left-0 h-[5rem] p-5">
         <div class="interface flex justify-between w-full">
             <h1 class="logo">Waly<span>Flix</span></h1>
             <div class="flex gap-5">

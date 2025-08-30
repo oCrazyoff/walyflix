@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . 'funcoes/geral.php';
+require_once __DIR__ . '/funcoes/geral.php';
 
 // Carrega o .env
 carregarEnv(__DIR__ . '/../senhas.env');
