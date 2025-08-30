@@ -1,6 +1,7 @@
 <?php
 date_default_timezone_set('America/Sao_Paulo');
 include(__DIR__ . "/../backend/funcoes/geral.php");
+include(__DIR__ . "/../backend/valida.php");
 
 ?>
 <!doctype html>
