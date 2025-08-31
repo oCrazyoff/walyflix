@@ -1,0 +1,53 @@
+@layer components {
+    .container-table-titulo {
+        @apply border border-borda  bg-cinza-claro p-5 rounded-lg;
+
+        & h3 {
+            @apply text-2xl font-bold;
+        }
+
+        & p {
+            @apply text-branco-texto-opaco;
+        }
+
+        & .container-table {
+            @apply border border-borda rounded-lg mt-3 w-full overflow-auto;
+
+            & table {
+                @apply w-full;
+
+                & thead th {
+                    @apply p-3 text-center font-bold border-b border-borda;
+                }
+
+                & tbody tr {
+                    @apply border-b border-borda last:border-b-0 hover:bg-cinza;
+                }
+
+                & tbody td {
+                    @apply text-center p-5;
+
+                    & #catalogo {
+                        @apply w-full text-sm border border-borda rounded-full px-3;
+                    }
+
+                    & #destaque {
+                        @apply w-max text-white font-bold text-sm bg-amber-500 rounded-full px-3;
+                    }
+                }
+
+                & .container-acoes {
+                    @apply flex items-center justify-center gap-3 w-full text-lg;
+
+                    & a, form, button {
+                        @apply flex items-center justify-center cursor-pointer w-10 h-10 p-3 rounded-md hover:bg-borda;
+                    }
+
+                    & .deletar {
+                        @apply text-red-600;
+                    }
+                }
+            }
+        }
+    }
+}

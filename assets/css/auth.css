@@ -9,10 +9,10 @@
                 @apply flex flex-col gap-2 w-full mt-3;
 
                 & input {
-                    @apply border-2 p-2 rounded-md border-cinza-claro;
+                    @apply border-2 p-2 rounded-md border-borda;
 
                     &::placeholder {
-                        @apply opacity-50;
+                        @apply opacity-90;
                     }
                 }
             }

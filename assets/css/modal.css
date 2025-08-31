@@ -1,0 +1,12 @@
+@layer components {
+    #modal-form {
+        & label {
+            @apply inline-block mt-3;
+        }
+    }
+
+
+    .input-modal {
+        @apply w-full border border-borda p-2 rounded-lg;
+    }
+}

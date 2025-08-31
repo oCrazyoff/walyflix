@@ -20,6 +20,29 @@ $routes = [
     'filmes-adm' => 'adm/filmes_adm.php',
     'usuarios' => 'adm/usuarios.php',
     'categorias' => 'adm/categorias.php',
+
+    // rotas de busca
+    'buscar_filmes' => 'backend/buscar/filmes.php',
+    'buscar_categorias' => 'backend/buscar/categorias.php',
+    'buscar_usuarios' => 'backend/buscar/usuarios.php',
+
+    // rotas de cadastro
+    'cadastrar_filmes' => 'backend/cadastrar/filmes.php',
+    'cadastrar_categorias' => 'backend/cadastrar/categorias.php',
+    'cadastrar_usuarios' => 'backend/cadastrar/usuarios.php',
+
+    // rotas de edição
+    'editar_filmes' => 'backend/editar/filmes.php',
+    'editar_categorias' => 'backend/editar/categorias.php',
+    'editar_usuarios' => 'backend/editar/usuarios.php',
+
+    // rotas de deletar
+    'deletar_filmes' => 'backend/deletar/filmes.php',
+    'deletar_categorias' => 'backend/deletar/categorias.php',
+    'deletar_usuarios' => 'backend/deletar/usuarios.php',
+
+    // rotas especificas
+    'filme_destaque' => 'backend/editar/filme_destaque.php',
 ];
 
 if (array_key_exists($url, $routes)) {

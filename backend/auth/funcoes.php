@@ -4,8 +4,11 @@ function validarNome($nome)
     // Remove espaços no início/fim
     $nome = trim($nome);
 
-    // Regex: letras (com acento), espaço, mínimo 3 e máximo 50 caracteres
-    if (!preg_match('/^[\p{L} ]{3,50}$/u', $nome)) {
+    // Remove tudo que não for letra ou espaço
+    $nome = preg_replace('/[^\\p{L} ]/u', '', $nome);
+
+    // Se após a limpeza não sobrar nada válido
+    if (mb_strlen($nome) < 3 || mb_strlen($nome) > 50) {
         return false;
     }
 

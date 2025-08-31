@@ -1,12 +1,11 @@
 <?php
 date_default_timezone_set('America/Sao_Paulo');
+$rota = $_GET['url'] ?? ''; // rota atual
 
 // verificando se precisa incluir o valida ou não
 if (isset($n_valida) && $n_valida == true) {
     session_start();
     include(__DIR__ . "/../backend/conexao.php");
-    $rota = $_GET['url'] ?? ''; // rota da landing page
-
 } else {
     include(__DIR__ . "/../backend/valida.php");
 }

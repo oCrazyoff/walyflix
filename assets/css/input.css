@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "./landing.css";
 @import "./auth.css";
+@import "./tabela.css";
+@import "./modal.css";
+@import "./categorias.css";
 
 /* variaveis */
 @theme {
@@ -10,6 +13,8 @@
     --color-preto: #141414;
     --color-cinza: #1F1F1F;
     --color-cinza-claro: #2B2B2B;
+    --color-branco-texto-opaco: #BFBFBF;
+    --color-borda: #404040;
 }
 
 @layer base {
@@ -23,7 +28,7 @@
     }
 
     main {
-        @apply h-[calc(100dvh-5rem)] p-3 pt-10;
+        @apply h-[calc(100dvh-5rem)];
     }
 }
 
@@ -65,7 +70,7 @@
     }
 
     .titulo {
-        @apply flex items-center justify-between;
+        @apply flex items-center justify-between pt-10 pb-5;
 
         & .txt-titulo {
             & h2 {
@@ -77,17 +82,21 @@
             }
 
             & p {
-                @apply text-white/70 text-xl;
+                @apply text-branco-texto-opaco text-xl;
             }
         }
 
-        & a {
-            @apply rounded-lg px-5 py-2 text-xl bg-azul hover:bg-azul-hover;
+        & button {
+            @apply rounded-lg px-5 py-2 text-xl cursor-pointer bg-azul hover:bg-azul-hover;
         }
     }
 
     /* menu */
     .link-menu {
-        @apply hover:text-white/70;
+        @apply text-white/90 hover:text-branco-texto-opaco;
+    }
+
+    .ativo {
+        @apply font-bold text-white hover:text-white;
     }
 }

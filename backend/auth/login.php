@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Verificar o email
     if (validarEmail($email) == false) {
         $_SESSION['resposta'] = "Email inválido!";
-        header("Location: " . BASE_URL);
+        header("Location: " . BASE_URL . "login");
         exit;
     }
 
@@ -19,14 +19,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $csrf = trim(strip_tags($_POST["csrf"]));
     if (validarCSRF($csrf) == false) {
         $_SESSION['resposta'] = "Método invalido!";
-        header("Location: " . BASE_URL);
+        header("Location: " . BASE_URL . "login");
         exit;
     }
 
     //Validadar senha
     if (validarSenha($senha) == false) {
         $_SESSION['resposta'] = "Senha inválida!";
-        header("Location: " . BASE_URL);
+        header("Location: " . BASE_URL . "login");
         exit;
     }
 
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             if (!$usuarioEncontrado) {
                 $_SESSION['resposta'] = "E-mail ou senha incorretos!";
-                header("Location: " . BASE_URL);
+                header("Location: " . BASE_URL . "login");
                 exit;
             }
 
@@ -71,12 +71,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     }
                 } else {
                     $_SESSION['resposta'] = "E-mail ou senha incorretos!";
-                    header("Location: " . BASE_URL);
+                    header("Location: " . BASE_URL . "login");
                     exit;
                 }
             } else {
                 $_SESSION['resposta'] = "Acesso negado!";
-                header("Location: " . BASE_URL);
+                header("Location: " . BASE_URL . "login");
                 exit;
             }
         } catch (Exception $erro) {
@@ -86,11 +86,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 // erro de quantidade de paramêtros erro
                 case 1136:
                     $_SESSION['resposta'] = "Quantidade de dados inseridos inválida!";
-                    header("Location: " . BASE_URL);
+                    header("Location: " . BASE_URL . "login");
                     exit;
                 default:
                     $_SESSION['resposta'] = "Erro inesperado. Tente novamente.";
-                    header("Location: " . BASE_URL);
+                    header("Location: " . BASE_URL . "login");
                     exit;
             }
         }
@@ -100,5 +100,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 } else {
     $_SESSION['resposta'] = "Variável POST ínvalida!";
 }
-header("Location: " . BASE_URL);
+header("Location: " . BASE_URL . "login");
 exit;

@@ -12,4 +12,4 @@ include __DIR__ . "/../includes/inicio.php";
         </div>
     </div>
 </main>
-<?php include __DIR__ . "/../includes/final.php";; ?>
+<?php include __DIR__ . "/../includes/final.php"; ?>
