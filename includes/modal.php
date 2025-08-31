@@ -39,6 +39,10 @@
                     <input type="text" name="imagem_url" id="imagem_url" class="input-modal"
                            placeholder="Endereço da capa do filme"
                            required>
+                    <label for="imagem_deitada_url">URL da Imagem Deitada</label>
+                    <input type="text" name="imagem_deitada_url" id="imagem_deitada_url" class="input-modal"
+                           placeholder="Endereço da capa deitada do filme"
+                           required>
                     <label for="link_filme">Link do Filme</label>
                     <input type="text" name="link_filme" id="link_filme" class="input-modal"
                            placeholder="Link do filme (DROPBOX)"

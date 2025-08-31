@@ -4,6 +4,7 @@
 @import "./tabela.css";
 @import "./modal.css";
 @import "./categorias.css";
+@import "./destaque.css";
 
 /* variaveis */
 @theme {
@@ -19,7 +20,11 @@
 
 @layer base {
     * {
-        transition: background-color 0.3s ease, color 0.1s, opacity 0.3s, scale 0.2s;
+        transition: background-color 0.3s ease,
+        color 0.1s ease,
+        opacity 0.3s ease,
+        scale 0.2s ease,
+        box-shadow 0.3s ease;
         /*outline: 1px solid red;*/
     }
 
@@ -28,7 +33,7 @@
     }
 
     main {
-        @apply h-[calc(100dvh-5rem)];
+        @apply min-h-[calc(100dvh-5rem)] pb-5;
     }
 }
 
@@ -74,7 +79,7 @@
 
         & .txt-titulo {
             & h2 {
-                @apply text-3xl;
+                @apply text-3xl font-bold;
 
                 & i {
                     @apply text-azul;

@@ -9,7 +9,7 @@
                     ?>
                     <a class="link-menu <?= ($rota === 'dashboard') ? 'ativo' : '' ?>" href="dashboard"><i
                                 class="bi bi-columns-gap"></i> Dashboard</a>
-                    <a class="link-menu <?= ($rota === 'filmes-adm') ? 'ativo' : '' ?>" href="filmes-adm"><i
+                    <a class="link-menu <?= ($rota === 'filmes_adm') ? 'ativo' : '' ?>" href="filmes_adm"><i
                                 class="bi bi-collection-play"></i> Gerenciar Filmes</a>
                     <a class="link-menu <?= ($rota === 'usuarios') ? 'ativo' : '' ?>" href="usuarios"><i
                                 class="bi bi-people"></i> Usuários</a>
@@ -19,7 +19,7 @@
 
                 <a class="link-menu <?= ($rota === 'filmes') ? 'ativo' : '' ?>" href="filmes"><i class="bi bi-film"></i>
                     Filmes</a>
-                <a class="link-menu <?= ($rota === 'minha-lista') ? 'ativo' : '' ?>" href="minha-lista"><i
+                <a class="link-menu <?= ($rota === 'minha_lista') ? 'ativo' : '' ?>" href="minha_lista"><i
                             class="bi bi-bookmark-star"></i> Minha Lista</a>
                 <a class="link-menu <?= ($rota === 'buscar') ? 'ativo' : '' ?>" href="buscar"><i
                             class="bi bi-search"></i> Buscar</a>

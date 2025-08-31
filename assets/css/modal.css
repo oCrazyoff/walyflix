@@ -5,8 +5,12 @@
         }
     }
 
-
     .input-modal {
         @apply w-full border border-borda p-2 rounded-lg;
     }
+
+    .input-modal option {
+        @apply bg-cinza;
+    }
+
 }

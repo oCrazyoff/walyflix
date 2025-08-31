@@ -68,4 +68,16 @@ function registrarErro($usuario, $mensagem, $erro){
         return false;
     }
 }
+
+function validarURL(string $url): bool {
+    $url = trim($url);
+
+    // Valida a URL usando FILTER_VALIDATE_URL
+    if (!filter_var($url, FILTER_VALIDATE_URL)) {
+        return false;
+    }
+
+    return true;
+}
+
 ?>

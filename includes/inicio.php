@@ -20,12 +20,17 @@ if (isset($n_valida) && $n_valida == true) {
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
         <link href="<?= BASE_URL ?>assets/css/output.css" rel="stylesheet">
-        <title><?= htmlspecialchars($titulo ?? 'WalyFlix') ?></title>
+
+        <!--SWIPER-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+        <title><?= htmlspecialchars($titulo . " • WalyFlix" ?? 'WalyFlix') ?></title>
     </head>
     <body>
 <?php
-// removendo o header das paginas landing page, formulario de login e cadastro
-if (isset($_SESSION['id']) && $rota !== '' && $rota !== 'login' && $rota !== 'cadastro') {
+// removendo o header das paginas landing page, assistir, formulario de login e cadastro
+if (isset($_SESSION['id']) && $rota !== '' && $rota !== 'login' && $rota !== 'cadastro' && $rota !== 'assistir') {
     include("header.php");
 }
 ?>

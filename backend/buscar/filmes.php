@@ -13,7 +13,7 @@ if (!$id) {
 try {
     // Consulta segura usando prepared statement
     $stmt = $conexao->prepare("
-        SELECT titulo, descricao, ano, categoria_id, imagem_url, link_filme
+        SELECT titulo, descricao, ano, categoria_id, imagem_url, imagem_deitada_url, link_filme
         FROM filmes
         WHERE id = ?
     ");

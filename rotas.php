@@ -12,12 +12,12 @@ $routes = [
 
     //rotas do usuario comum
     'filmes' => 'pages/filmes.php',
-    'minha-lista' => 'pages/minha_lista.php',
+    'minha_lista' => 'pages/minha_lista.php',
     'buscar' => 'pages/buscar.php',
 
     // rotas do adm
     'dashboard' => 'adm/dashboard.php',
-    'filmes-adm' => 'adm/filmes_adm.php',
+    'filmes_adm' => 'adm/filmes_adm.php',
     'usuarios' => 'adm/usuarios.php',
     'categorias' => 'adm/categorias.php',
 
@@ -41,8 +41,14 @@ $routes = [
     'deletar_categorias' => 'backend/deletar/categorias.php',
     'deletar_usuarios' => 'backend/deletar/usuarios.php',
 
+    //rotas da minha lista
+    'adicionar_minha_lista' => 'backend/minha_lista/adicionar.php',
+    'remover_minha_lista' => 'backend/minha_lista/remover.php',
+
     // rotas especificas
     'filme_destaque' => 'backend/editar/filme_destaque.php',
+    'info' => 'pages/info.php',
+    'assistir' => 'pages/assistir.php',
 ];
 
 if (array_key_exists($url, $routes)) {

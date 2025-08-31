@@ -3,7 +3,7 @@ $titulo = "Gerenciar Filmes";
 include __DIR__ . "/../includes/inicio.php";
 
 // puxando todos os filmes
-$sql = "SELECT id, titulo, descricao, categoria_id, ano, imagem_url, destaque FROM filmes";
+$sql = "SELECT id, titulo, descricao, categoria_id, ano, imagem_url, imagem_deitada_url, destaque FROM filmes";
 $stmt = $conexao->prepare($sql);
 $stmt->execute();
 $resultado = $stmt->get_result();
@@ -29,6 +29,7 @@ $stmt->close();
                         <thead>
                         <tr>
                             <th>Capa</th>
+                            <th>Capa Deitada</th>
                             <th>Título</th>
                             <th>Descrição</th>
                             <th>Categoria</th>
@@ -41,11 +42,30 @@ $stmt->close();
                         <?php while ($row = $resultado->fetch_assoc()): ?>
                             <tr>
                                 <td>
-                                    <img class="w-60 rounded-sm" src="<?= htmlspecialchars($row['imagem_url']) ?>"
-                                         alt="Capa do filmes <?= htmlspecialchars($row['titulo']) ?>">
+                                    <?php
+                                    // caso não tiver imagem cadastrada mostrar placeholder
+                                    if (!empty($row['imagem_url'])): ?>
+                                        <img class="capa" src="<?= htmlspecialchars($row['imagem_url']) ?>"
+                                             alt="Capa do filme <?= htmlspecialchars($row['titulo']) ?>">
+                                    <?php else: ?>
+                                        <img class="capa" src="https://i0.wp.com/www.bishoprook.com/wp-content/uploads/2021/05/placeholder-image-gray-16x9-1.png?ssl=1"
+                                             alt="Filme sem capa">
+                                    <?php endif; ?>
+                                </td>
+                                <td>
+                                    <?php
+                                    // caso não tenha imagem deitada cadastrada mostrar placeholder
+                                    if (!empty($row['imagem_deitada_url'])): ?>
+                                        <img class="capa" src="<?= htmlspecialchars($row['imagem_deitada_url']) ?>"
+                                             alt="Capa do filme <?= htmlspecialchars($row['titulo']) ?>">
+                                    <?php else: ?>
+                                        <img class="capa" src="https://i0.wp.com/www.bishoprook.com/wp-content/uploads/2021/05/placeholder-image-gray-16x9-1.png?ssl=1"
+                                             alt="Filme sem capa">
+                                    <?php endif; ?>
+
                                 </td>
                                 <td><?= htmlspecialchars($row['titulo']) ?></td>
-                                <td><?= htmlspecialchars($row['descricao']) ?></td>
+                                <td class="truncate max-w-50"><?= htmlspecialchars($row['descricao']) ?></td>
                                 <td>
                                     <?php
                                     // buscando o nome da categoria

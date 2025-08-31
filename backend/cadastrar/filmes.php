@@ -12,28 +12,50 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // URLs (remove caracteres inválidos)
     $imagem_url = trim(filter_input(INPUT_POST, 'imagem_url', FILTER_SANITIZE_URL));
+    $imagem_deitada_url = trim(filter_input(INPUT_POST, 'imagem_deitada_url', FILTER_SANITIZE_URL));
     $link_filme = trim(filter_input(INPUT_POST, 'link_filme', FILTER_SANITIZE_URL));
+
+    //validar imagem
+    if (validarURL($imagem_url) == false) {
+        $_SESSION['resposta'] = "Imagem inválida.";
+        header("Location: " . BASE_URL . "filmes_adm");
+        exit;
+    }
+
+    //validar imagem deitada
+    if (validarURL($imagem_deitada_url) == false) {
+        $_SESSION['resposta'] = "Imagem deitada inválida.";
+        header("Location: " . BASE_URL . "filmes_adm");
+        exit;
+    }
+
+    //validar link filme
+    if (validarURL($link_filme) == false) {
+        $_SESSION['resposta'] = "Filme inválido.";
+        header("Location: " . BASE_URL . "filmes_adm");
+        exit;
+    }
 
     // Verificar token CSRF
     $csrf = trim(strip_tags($_POST["csrf"]));
     if (validarCSRF($csrf) == false) {
         $_SESSION['resposta'] = "Token Inválido";
-        header("Location: " . BASE_URL . "filmes-adm");
+        header("Location: " . BASE_URL . "filmes_adm");
         exit;
     }
     try {
-        $sql = "INSERT INTO filmes (titulo, descricao, ano, categoria_id, imagem_url, link_filme) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO filmes (titulo, descricao, ano, categoria_id, imagem_url, imagem_deitada_url, link_filme) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conexao->prepare($sql);
-        $stmt->bind_param("ssiiss", $titulo, $descricao, $ano, $categoria_id, $imagem_url, $link_filme);
+        $stmt->bind_param("ssiisss", $titulo, $descricao, $ano, $categoria_id, $imagem_url, $imagem_deitada_url, $link_filme);
 
         if ($stmt->execute()) {
             $_SESSION['resposta'] = "Filme cadastrado com sucesso!";
-            header("Location: " . BASE_URL . "filmes-adm");
+            header("Location: " . BASE_URL . "filmes_adm");
             $stmt->close();
             exit;
         } else {
             $_SESSION['resposta'] = "Ocorreu um erro!";
-            header("Location: " . BASE_URL . "filmes-adm");
+            header("Location: " . BASE_URL . "filmes_adm");
             $stmt->close();
             exit;
         }
@@ -43,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         switch ($erro->getCode()) {
             default:
                 $_SESSION['resposta'] = "Erro inesperado. Tente novamente.";
-                header("Location: " . BASE_URL . "filmes-adm");
+                header("Location: " . BASE_URL . "filmes_adm");
                 exit;
         }
     }
@@ -51,6 +73,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $_SESSION['resposta'] = "Método de solicitação ínvalido!";
 }
 
-header("Location: " . BASE_URL . "filmes-adm");
+header("Location: " . BASE_URL . "filmes_adm");
 $stmt = null;
 exit;

@@ -6,14 +6,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if (!$id) {
         $_SESSION['resposta'] = "ID do filme é inválido!";
-        header("Location: " . BASE_URL . "filmes-adm");
+        header("Location: " . BASE_URL . "filmes_adm");
         exit;
     }
 
     $csrf = trim(strip_tags($_POST["csrf"]));
     if (validarCSRF($csrf) == false) {
         $_SESSION['resposta'] = "Token de segurança inválido!";
-        header("Location: " . BASE_URL . "filmes-adm");
+        header("Location: " . BASE_URL . "filmes_adm");
         exit;
     }
 
@@ -51,11 +51,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION['resposta'] = "Erro inesperado ao destacar o filme.";
     }
 
-    header("Location: " . BASE_URL . "filmes-adm");
+    header("Location: " . BASE_URL . "filmes_adm");
     exit;
 
 } else {
     $_SESSION['resposta'] = "Método de solicitação inválido!";
-    header("Location: " . BASE_URL . "filmes-adm");
+    header("Location: " . BASE_URL . "filmes_adm");
     exit;
 }
