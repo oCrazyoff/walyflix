@@ -1,16 +1,16 @@
 @layer components {
     .section-destaque {
-        @apply relative w-full h-[calc(100dvh-5rem)] overflow-hidden;
+        @apply relative w-full h-[calc(80dvh)] overflow-hidden;
 
         & .container-info-destaque {
-            @apply flex flex-col gap-5 absolute top-1/3 px-20 left-0 w-3/5 z-100;
+            @apply flex flex-col gap-5 absolute top-1/3 px-20 left-0 w-3/5 z-500;
 
             & .titulo-destaque {
                 @apply text-6xl font-bold text-shadow-lg/30;
             }
 
             & .descricao-destaque {
-                @apply text-branco-texto-opaco text-2xl text-shadow-lg/30;
+                @apply text-white/80 text-2xl text-shadow-lg/30;
             }
 
             & .categoria-span{
@@ -27,15 +27,12 @@
                 & .btn-minha-lista {
                     @apply flex items-center justify-center border-3 border-borda w-14 h-14 rounded-full bg-cinza-claro/70 text-4xl cursor-pointer hover:border-white hover:bg-cinza-claro/40;
                 }
-
-                & .btn-mais-info{
-                    @apply flex items-center justify-center gap-3 px-15 rounded-lg py-3 text-3xl bg-cinza-claro hover:bg-cinza-claro/60;
-                }
             }
         }
 
         .sombra-destaque {
-            @apply absolute bottom-0 left-0 w-full h-1/2 shadow-[inset_0_-200px_100px_-100px_rgb(20,20,20),_inset_0_-200px_100px_-100px_rgb(20,20,20)];
+            @apply absolute bottom-0 left-0 w-full h-32
+            bg-gradient-to-t from-[rgb(20,20,20)] to-transparent z-250;
         }
 
         .sombra-preto-destaque {
@@ -44,10 +41,10 @@
     }
 
     #video-destaque {
-        @apply object-cover h-[calc(100dvh-5rem)] w-full opacity-80;
+        @apply object-cover h-[calc(80dvh)] w-full opacity-80;
     }
 
     .capa-info{
-        @apply object-cover !h-full !w-full opacity-50;
+        @apply object-cover !h-full !w-full brightness-50 z-200;
     }
 }

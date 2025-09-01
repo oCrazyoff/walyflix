@@ -33,10 +33,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (!empty($email) && !empty($senha)) {
         try {
             // Faz a verificação no banco de dados
-            $stmt = $conexao->prepare("SELECT id, nome, email, senha_hash, cargo, status FROM usuarios WHERE email = ?");
+            $stmt = $conexao->prepare("SELECT id, nome, email, senha_hash, cargo FROM usuarios WHERE email = ?");
             $stmt->bind_param("s", $email);
             $stmt->execute();
-            $stmt->bind_result($id, $nome, $email, $senha_db, $cargo, $status);
+            $stmt->bind_result($id, $nome, $email, $senha_db, $cargo);
 
             $usuarioEncontrado = $stmt->fetch();
             $stmt->close();
@@ -80,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 exit;
             }
         } catch (Exception $erro) {
-            registrarErro($email, "Erro ao logar usuario!", $erro);
+            registrarErro(null, "Erro ao logar usuario!", $erro);
             // Caso houver erro ele retorna
             switch ($erro->getCode()) {
                 // erro de quantidade de paramêtros erro

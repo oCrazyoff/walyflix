@@ -34,7 +34,7 @@ $titulo = $titulo_filme;
 include __DIR__ . "/../includes/inicio.php";
 ?>
 <main class="p-0">
-    <section class="section-destaque">
+    <section class="section-destaque h-[calc(100dvh-5rem)]">
         <?php
         // verificando se tem capa cadastrada
         if (!empty($capa_deitada)):?>
@@ -65,6 +65,7 @@ include __DIR__ . "/../includes/inicio.php";
                     <form action="remover_minha_lista" method="POST">
                         <!--csrf-->
                         <input type="hidden" name="csrf" id="csrf" value="<?= gerarCSRF() ?>">
+                        <input type="hidden" name="info" id="info" value="1">
                         <input type="hidden" name="id" id="id" value="<?= htmlspecialchars($id) ?>">
                         <button type="submit" class="btn-minha-lista"><i class="bi bi-check2"></i></button>
                     </form>
@@ -72,6 +73,7 @@ include __DIR__ . "/../includes/inicio.php";
                     <form action="adicionar_minha_lista" method="POST">
                         <!--csrf-->
                         <input type="hidden" name="csrf" id="csrf" value="<?= gerarCSRF() ?>">
+                        <input type="hidden" name="info" id="info" value="1">
                         <input type="hidden" name="filme_id" id="filme_id" value="<?= htmlspecialchars($id) ?>">
                         <button type="submit" class="btn-minha-lista"><i class="bi bi-plus-lg"></i></button>
                     </form>
@@ -81,15 +83,4 @@ include __DIR__ . "/../includes/inicio.php";
         <div class="sombra-preto-destaque"></div>
     </section>
 </main>
-<script>
-    // colocando filme na metade
-    const video = document.getElementById("video-destaque");
-
-    video.addEventListener("loadedmetadata", () => {
-        video.currentTime = video.duration / 2;
-
-        // abaixando o volume
-        video.volume = 0.5;
-    });
-</script>
 <?php include __DIR__ . "/../includes/final.php"; ?>

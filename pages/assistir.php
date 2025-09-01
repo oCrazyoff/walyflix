@@ -25,7 +25,7 @@ $titulo = $titulo_filme;
 include __DIR__ . "/../includes/inicio.php";
 ?>
 <main class="p-0">
-    <a class="fixed top-[2rem] left-[2rem] text-3xl z-100" href="filmes"><i class="bi bi-arrow-left"></i></a>
+    <a class="fixed top-[0.5rem] left-[2rem] text-3xl z-100" href="filmes"><i class="bi bi-arrow-left"></i></a>
     <video class="relative min-w-full h-dvh" autoplay controls>
         <source src="<?= htmlspecialchars($link_filme) ?>" type="video/mp4">
         Seu navegador não suporta o elemento de vídeo.

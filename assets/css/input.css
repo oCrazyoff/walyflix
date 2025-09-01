@@ -52,7 +52,7 @@
     }
 
     #div-erro {
-        @apply flex items-center justify-center gap-4 text-lg rounded-xl fixed right-8 bottom-[-50%] shadow-lg bg-white px-8 py-2 animate-[show_5s] text-black;
+        @apply flex items-center justify-center gap-4 text-lg rounded-xl fixed right-8 bottom-[-50%] shadow-lg bg-white px-8 py-2 animate-[show_5s] text-black z-750;
 
         & i {
             @apply text-2xl;
@@ -102,6 +102,6 @@
     }
 
     .ativo {
-        @apply font-bold text-white hover:text-white;
+        @apply font-bold text-white border-b pb-1 hover:text-white;
     }
 }

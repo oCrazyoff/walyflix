@@ -9,8 +9,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Define a URL padrão de redirecionamento
     if (!empty($_POST['minha_lista'])) {
         $redirecionamento = BASE_URL . "minha_lista";
+    } elseif (!empty($_POST['destaque'])) {
+        $redirecionamento = BASE_URL . "filmes";
+    } elseif (!empty($_POST['info'])) {
+        $redirecionamento = BASE_URL . "info?filme=" . $id;
     } else {
-        $redirecionamento = BASE_URL . "info?filme=" . htmlspecialchars($id);
+        $redirecionamento = BASE_URL . "filmes";
     }
 
     // Se o ID for inválido ou não existir, interrompe o processo

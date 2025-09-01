@@ -44,8 +44,8 @@ $stmt_lista->close();
                     $stmt_categoria->fetch();
                     $stmt_categoria->close();
                     ?>
-                    <article
-                            class="flex justify-between items-center gap-3 rounded-lg p-5 bg-cinza-claro border border-borda hover:bg-borda">
+                    <a href="assistir?filme=<?= htmlspecialchars($row_lista['filme_id']) ?>" class="flex justify-between
+                    items-center gap-3 rounded-lg p-5 bg-cinza-claro border border-borda hover:bg-borda">
                         <div class="flex gap-3 items-center justify-center">
                             <img class="w-30 rounded-lg border border-borda"
                                  src="<?= htmlspecialchars($row_filme['imagem_url']) ?>"
@@ -60,23 +60,18 @@ $stmt_lista->close();
                                 <p class="text-branco-texto-opaco"><?= htmlspecialchars($row_filme['descricao']) ?></p>
                             </div>
                         </div>
-                        <div class="flex gap-3">
-                            <a class="flex items-center justify-center px-10 rounded-lg text-xl bg-white text-black hover:bg-white/80"
-                               href="assistir?filme=<?= htmlspecialchars($row_lista['filme_id']) ?>"><i
-                                        class="bi bi-play-fill"></i> Assistir</a>
-                            <form action="remover_minha_lista" method="POST">
-                                <!--csrf-->
-                                <input type="hidden" name="csrf" id="csrf" value="<?= gerarCSRF() ?>">
-                                <input type="hidden" name="id" id="id"
-                                       value="<?= htmlspecialchars($row_filme['id']) ?>">
-                                <input type="hidden" name="minha_lista" id="minha_lista" value="1">
-                                <button type="submit"
-                                        class="flex items-center justify-center border-3 border-borda w-10 h-10 rounded-full bg-cinza-claro/70 text-2xl cursor-pointer hover:border-white hover:bg-cinza-claro/40">
-                                    <i class="bi bi-x-lg"></i>
-                                </button>
-                            </form>
-                        </div>
-                    </article>
+                        <form action="remover_minha_lista" method="POST">
+                            <!--csrf-->
+                            <input type="hidden" name="csrf" id="csrf" value="<?= gerarCSRF() ?>">
+                            <input type="hidden" name="id" id="id"
+                                   value="<?= htmlspecialchars($row_filme['id']) ?>">
+                            <input type="hidden" name="minha_lista" id="minha_lista" value="1">
+                            <button type="submit"
+                                    class="text-3xl p-2 rounded-md cursor-pointer hover:bg-cinza">
+                                <i class="bi bi-trash3"></i>
+                            </button>
+                        </form>
+                    </a>
                 <?php endwhile; ?>
             </div>
         <?php endif; ?>
