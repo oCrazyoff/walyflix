@@ -25,6 +25,7 @@ $routes = [
 
     // rotas de busca
     'buscar_filmes' => 'backend/buscar/filmes.php',
+    'procurar_filmes' => 'backend/buscar/procurar_filmes.php',
     'buscar_categorias' => 'backend/buscar/categorias.php',
     'buscar_usuarios' => 'backend/buscar/usuarios.php',
 

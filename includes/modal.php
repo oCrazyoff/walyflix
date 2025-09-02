@@ -1,5 +1,5 @@
 <!--modal-->
-<div id="modal" class="hidden fixed inset-0 flex items-center justify-center bg-black/80">
+<div id="modal" class="hidden fixed inset-0 flex items-center justify-center bg-black/80 z-850">
     <div class="bg-cinza border border-borda p-5 rounded-lg w-xl">
         <h2 id="modal-title" class="text-xl font-bold mb-4"></h2>
         <form id="modal-form" action="#" method="POST">
