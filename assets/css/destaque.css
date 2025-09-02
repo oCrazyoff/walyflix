@@ -3,7 +3,7 @@
         @apply relative w-full h-[calc(80dvh)] overflow-hidden;
 
         & .container-info-destaque {
-            @apply flex flex-col gap-5 absolute top-1/3 px-20 left-0 w-3/5 z-500;
+            @apply flex flex-col gap-5 absolute top-1/4 px-20 left-0 w-3/5 z-500;
 
             & .titulo-destaque {
                 @apply text-6xl font-bold text-shadow-lg/30;
