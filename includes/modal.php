@@ -47,7 +47,6 @@
                     <input type="text" name="link_filme" id="link_filme" class="input-modal"
                            placeholder="Link do filme (DROPBOX)"
                            required>
-
                 <?php elseif
                 ($tipoModal == 'categorias'): ?>
                     <!--categorias-->

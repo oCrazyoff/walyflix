@@ -1,0 +1,21 @@
+@layer components {
+    .interface-perfil {
+        @apply flex items-center justify-center w-full;
+
+        .input-group {
+            @apply flex flex-col gap-1 h-1/2;
+
+            & label {
+                @apply text-xl text-branco-texto-opaco;
+            }
+
+            & input {
+                @apply border border-borda h-full px-10 text-2xl rounded-lg;
+            }
+        }
+
+        & .input-senha {
+            @apply border border-borda w-full py-2 my-2 px-5 text-2xl rounded-lg;
+        }
+    }
+}

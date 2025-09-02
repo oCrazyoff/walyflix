@@ -9,11 +9,13 @@ $routes = [
     // autenticação
     'login' => 'auth/login.php',
     'cadastro' => 'auth/cadastro.php',
+    'deslogar' => 'backend/auth/deslogar.php',
 
     //rotas do usuario comum
     'filmes' => 'pages/filmes.php',
     'minha_lista' => 'pages/minha_lista.php',
     'buscar' => 'pages/buscar.php',
+    'perfil' => 'pages/perfil.php',
 
     // rotas do adm
     'dashboard' => 'adm/dashboard.php',
@@ -35,6 +37,7 @@ $routes = [
     'editar_filmes' => 'backend/editar/filmes.php',
     'editar_categorias' => 'backend/editar/categorias.php',
     'editar_usuarios' => 'backend/editar/usuarios.php',
+    'atualizar_perfil' => 'backend/editar/perfil.php',
 
     // rotas de deletar
     'deletar_filmes' => 'backend/deletar/filmes.php',
@@ -56,7 +59,5 @@ if (array_key_exists($url, $routes)) {
     exit;
 }
 
-// rotas dinâmicas
-// ...
 http_response_code(404);
 echo "Página não encontrada!";

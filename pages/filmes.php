@@ -83,7 +83,8 @@ if ($resultado->num_rows > 0) {
                             <!--csrf-->
                             <input type="hidden" name="csrf" id="csrf" value="<?= gerarCSRF() ?>">
                             <input type="hidden" name="destaque" id="destaque" value="1">
-                            <input type="hidden" name="filme_id" id="filme_id" value="<?= htmlspecialchars($id_destaque) ?>">
+                            <input type="hidden" name="filme_id" id="filme_id"
+                                   value="<?= htmlspecialchars($id_destaque) ?>">
                             <button type="submit" class="btn-minha-lista"><i class="bi bi-plus-lg"></i></button>
                         </form>
                     <?php endif; ?>
@@ -156,26 +157,8 @@ if ($resultado->num_rows > 0) {
         ?>
     </section>
 </main>
+<script src="<?= BASE_URL . "assets/js/swiper.js" ?>"></script>
 <script>
-    // swiper
-    const swiper = new Swiper('.swiper', {
-        // Melhora a UX ao mostrar um cursor de "agarrar"
-        grabCursor: true,
-
-        // botões de navegação
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-
-        // espaço entre slides
-        spaceBetween: 20,
-
-        // responsivo
-        slidesPerView: "auto",
-        freeMode: true
-    });
-
     // botão de desmutar filme destaque
     const btn_desmutar = document.getElementById("btn-desmutar");
     const icone_btn_desmutar = btn_desmutar.querySelector("i");

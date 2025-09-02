@@ -33,10 +33,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (!empty($email) && !empty($senha)) {
         try {
             // Faz a verificação no banco de dados
-            $stmt = $conexao->prepare("SELECT id, nome, email, senha_hash, cargo FROM usuarios WHERE email = ?");
+            $stmt = $conexao->prepare("SELECT id, nome, email, senha_hash, img_perfil, cargo FROM usuarios WHERE email = ?");
             $stmt->bind_param("s", $email);
             $stmt->execute();
-            $stmt->bind_result($id, $nome, $email, $senha_db, $cargo);
+            $stmt->bind_result($id, $nome, $email, $senha_db, $img_perfil, $cargo);
 
             $usuarioEncontrado = $stmt->fetch();
             $stmt->close();
@@ -47,35 +47,39 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 exit;
             }
 
-            // Verifica se usuário está ativo no sistema
-            if ($status == 0) {
-                // verifica se a senha esta correta
-                if (password_verify($senha, $senha_db)) {
+            // verifica se a senha esta correta
+            if (password_verify($senha, $senha_db)) {
 
-                    // atualiza as variaveis sessions
-                    $_SESSION["id"] = $id;
-                    $_SESSION["nome"] = $nome;
-                    $_SESSION["email"] = $email;
-                    $_SESSION["cargo"] = $cargo;
+                // atualiza as variaveis sessions
+                $_SESSION["id"] = $id;
+                $_SESSION["nome"] = $nome;
+                $_SESSION["email"] = $email;
+                $_SESSION["cargo"] = $cargo;
 
-                    $_SESSION['resposta'] = "Bem Vindo! " . $_SESSION['nome'];
-
-                    if ($cargo == 0) {
-                        // caso o usuario for comum
-                        header("Location: " . BASE_URL . "filmes");
-                        exit;
-                    } elseif ($cargo == 1) {
-                        // caso o usuario for adm
-                        header("Location: " . BASE_URL . "dashboard");
-                        exit;
-                    }
+                // trocando o caminho da imagem de perfil conforme o banco
+                if ($img_perfil == 0) {
+                    $_SESSION["img_perfil"] = BASE_URL . "assets/img/perfil/macaco.webp";
+                } elseif ($img_perfil == 1) {
+                    $_SESSION["img_perfil"] = BASE_URL . "assets/img/perfil/macaca.webp";
+                } elseif ($img_perfil == 2) {
+                    $_SESSION["img_perfil"] = BASE_URL . "assets/img/perfil/macagay.webp";
                 } else {
-                    $_SESSION['resposta'] = "E-mail ou senha incorretos!";
-                    header("Location: " . BASE_URL . "login");
+                    $_SESSION["img_perfil"] = "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png";
+                }
+
+                $_SESSION['resposta'] = "Bem Vindo! " . $_SESSION['nome'];
+
+                if ($cargo == 0) {
+                    // caso o usuario for comum
+                    header("Location: " . BASE_URL . "filmes");
+                    exit;
+                } elseif ($cargo == 1) {
+                    // caso o usuario for adm
+                    header("Location: " . BASE_URL . "dashboard");
                     exit;
                 }
             } else {
-                $_SESSION['resposta'] = "Acesso negado!";
+                $_SESSION['resposta'] = "E-mail ou senha incorretos!";
                 header("Location: " . BASE_URL . "login");
                 exit;
             }

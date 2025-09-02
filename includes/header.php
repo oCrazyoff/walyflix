@@ -25,8 +25,10 @@
                             class="bi bi-search"></i> Buscar</a>
             </nav>
         </div>
-        <a class="flex items-center justify-center rounded-md p-2  w-10 h-10 text-3xl hover:bg-cinza-claro" href="#">
-            <i class="bi bi-person-circle"></i>
+        <a class="flex items-center justify-center rounded-md overflow-hidden p-1  w-12 h-12 hover:ring"
+           href="perfil">
+            <img src="<?= htmlspecialchars($_SESSION['img_perfil']) ?>" class="w-full h-full object-cover rounded-md"
+                 alt="Imagem de perfil">
         </a>
     </div>
 </header>
