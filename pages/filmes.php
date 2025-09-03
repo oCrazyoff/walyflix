@@ -68,26 +68,24 @@ if ($resultado->num_rows > 0) {
                     $stmt_lista = $conexao->prepare($sql_lista);
                     $stmt_lista->bind_param("ii", $id_destaque, $_SESSION['id']);
                     $stmt_lista->execute();
-                    $stmt_lista->store_result();
-
-                    if ($stmt_lista->num_rows() > 0): ?>
-                        <form action="remover_minha_lista" method="POST">
-                            <!--csrf-->
-                            <input type="hidden" name="csrf" id="csrf" value="<?= gerarCSRF() ?>">
-                            <input type="hidden" name="destaque" id="destaque" value="1">
-                            <input type="hidden" name="id" id="id" value="<?= htmlspecialchars($id_destaque) ?>">
-                            <button type="submit" class="btn-minha-lista"><i class="bi bi-check2"></i></button>
-                        </form>
-                    <?php else: ?>
-                        <form action="adicionar_minha_lista" method="POST">
-                            <!--csrf-->
-                            <input type="hidden" name="csrf" id="csrf" value="<?= gerarCSRF() ?>">
-                            <input type="hidden" name="destaque" id="destaque" value="1">
-                            <input type="hidden" name="filme_id" id="filme_id"
-                                   value="<?= htmlspecialchars($id_destaque) ?>">
-                            <button type="submit" class="btn-minha-lista"><i class="bi bi-plus-lg"></i></button>
-                        </form>
-                    <?php endif; ?>
+                    $resultado_lista = $stmt_lista->get_result();
+                    $stmt_lista->close();
+                    ?>
+                    <form id="form-minha-lista" action="toggle_minha_lista" method="POST">
+                        <!--csrf-->
+                        <input type="hidden" name="csrf" id="csrf" value="<?= gerarCSRF() ?>">
+                        <input type="hidden" name="filme_id" id="filme_id"
+                               value="<?= htmlspecialchars($id_destaque) ?>">
+                        <button type="submit"
+                                id="btn-minha-lista"
+                                class="btn-minha-lista">
+                            <?php if ($resultado_lista->num_rows > 0): ?>
+                                <i class="bi bi-check2"></i>
+                            <?php else: ?>
+                                <i class="bi bi-plus-lg"></i>
+                            <?php endif; ?>
+                        </button>
+                    </form>
                 </div>
             </div>
             <div class="sombra-destaque"></div>
@@ -188,4 +186,5 @@ if ($resultado->num_rows > 0) {
         video.currentTime = video.duration / 2;
     });
 </script>
+<script src="<?= BASE_URL . "assets/js/minha_lista.js" ?>"></script>
 <?php include __DIR__ . "/../includes/final.php"; ?>

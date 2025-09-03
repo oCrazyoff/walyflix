@@ -1,6 +1,6 @@
 <?php
 // pegando o ID do filme a ser informado
-$id = filter_input(INPUT_GET, 'filme', FILTER_VALIDATE_INT);
+$filme_id = filter_input(INPUT_GET, 'filme', FILTER_VALIDATE_INT);
 
 session_start();
 include __DIR__ . "/../backend/conexao.php";
@@ -8,7 +8,7 @@ include __DIR__ . "/../backend/conexao.php";
 // puxando informações do filme
 $sql = "SELECT titulo, descricao, categoria_id, ano, imagem_deitada_url FROM filmes WHERE id = ?";
 $stmt = $conexao->prepare($sql);
-$stmt->bind_param("i", $id);
+$stmt->bind_param("i", $filme_id);
 $stmt->execute();
 $stmt->bind_result($titulo_filme, $descricao, $categoria_id, $ano, $capa_deitada);
 
@@ -33,7 +33,7 @@ $stmt_categoria->close();
 // puxando filmes da mesma categoria menos o proprio filme
 $sql = "SELECT id, titulo, imagem_url FROM filmes WHERE categoria_id = ? AND id != ?";
 $stmt = $conexao->prepare($sql);
-$stmt->bind_param("ii", $categoria_id, $id);
+$stmt->bind_param("ii", $categoria_id, $filme_id);
 $stmt->execute();
 $resultado_recomendacao = $stmt->get_result();
 $stmt->close();
@@ -65,33 +65,32 @@ include __DIR__ . "/../includes/inicio.php";
                 <p><span class="categoria-span"><?= htmlspecialchars($nome_categoria) ?></span>
                     • <?= htmlspecialchars($ano) ?></p>
                 <div class="container-btn-destaque">
-                    <a class="btn-assistir" href="assistir?filme=<?= htmlspecialchars($id) ?>"><i
+                    <a class="btn-assistir" href="assistir?filme=<?= htmlspecialchars($filme_id) ?>"><i
                                 class="bi bi-play-fill"></i> Assistir</a>
                     <?php
                     // verificando se o filme esta na lista ou não
                     $sql_lista = "SELECT 1 FROM minha_lista WHERE filme_id = ? AND usuario_id = ?";
                     $stmt_lista = $conexao->prepare($sql_lista);
-                    $stmt_lista->bind_param("ii", $id, $_SESSION['id']);
+                    $stmt_lista->bind_param("ii", $filme_id, $_SESSION['id']);
                     $stmt_lista->execute();
-                    $stmt_lista->store_result();
-
-                    if ($stmt_lista->num_rows() > 0): ?>
-                        <form action="remover_minha_lista" method="POST">
-                            <!--csrf-->
-                            <input type="hidden" name="csrf" id="csrf" value="<?= gerarCSRF() ?>">
-                            <input type="hidden" name="info" id="info" value="1">
-                            <input type="hidden" name="id" id="id" value="<?= htmlspecialchars($id) ?>">
-                            <button type="submit" class="btn-minha-lista"><i class="bi bi-check2"></i></button>
-                        </form>
-                    <?php else: ?>
-                        <form action="adicionar_minha_lista" method="POST">
-                            <!--csrf-->
-                            <input type="hidden" name="csrf" id="csrf" value="<?= gerarCSRF() ?>">
-                            <input type="hidden" name="info" id="info" value="1">
-                            <input type="hidden" name="filme_id" id="filme_id" value="<?= htmlspecialchars($id) ?>">
-                            <button type="submit" class="btn-minha-lista"><i class="bi bi-plus-lg"></i></button>
-                        </form>
-                    <?php endif; ?>
+                    $resultado_lista = $stmt_lista->get_result();
+                    $stmt_lista->close();
+                    ?>
+                    <form id="form-minha-lista" action="toggle_minha_lista" method="POST">
+                        <!--csrf-->
+                        <input type="hidden" name="csrf" id="csrf" value="<?= gerarCSRF() ?>">
+                        <input type="hidden" name="filme_id" id="filme_id"
+                               value="<?= htmlspecialchars($filme_id) ?>">
+                        <button type="submit"
+                                id="btn-minha-lista"
+                                class="btn-minha-lista">
+                            <?php if ($resultado_lista->num_rows > 0): ?>
+                                <i class="bi bi-check2"></i>
+                            <?php else: ?>
+                                <i class="bi bi-plus-lg"></i>
+                            <?php endif; ?>
+                        </button>
+                    </form>
                 </div>
             </div>
             <div class="sombra-preto-destaque"></div>
@@ -136,4 +135,5 @@ include __DIR__ . "/../includes/inicio.php";
             <script src="<?= BASE_URL . "assets/js/swiper.js" ?>"></script>
         <?php endif; ?>
 </main>
+<script src="<?= BASE_URL . "assets/js/minha_lista.js" ?>"></script>
 <?php include __DIR__ . "/../includes/final.php"; ?>

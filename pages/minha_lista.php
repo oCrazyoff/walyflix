@@ -60,13 +60,14 @@ $stmt_lista->close();
                                 <p class="text-branco-texto-opaco"><?= htmlspecialchars($row_filme['descricao']) ?></p>
                             </div>
                         </div>
-                        <form action="remover_minha_lista" method="POST">
+                        <form id="form-minha-lista" action="toggle_minha_lista" method="POST">
                             <!--csrf-->
                             <input type="hidden" name="csrf" id="csrf" value="<?= gerarCSRF() ?>">
                             <input type="hidden" name="id" id="id"
                                    value="<?= htmlspecialchars($row_filme['id']) ?>">
                             <input type="hidden" name="minha_lista" id="minha_lista" value="1">
                             <button type="submit"
+                                    id="btn-minha-lista"
                                     class="text-3xl p-2 rounded-md cursor-pointer hover:bg-cinza">
                                 <i class="bi bi-trash3"></i>
                             </button>
@@ -77,4 +78,5 @@ $stmt_lista->close();
         <?php endif; ?>
     </div>
 </main>
+<script src="<?= BASE_URL . "assets/js/minha_lista.js" ?>"></script>
 <?php include __DIR__ . "/../includes/final.php"; ?>

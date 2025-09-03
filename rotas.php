@@ -45,14 +45,11 @@ $routes = [
     'deletar_categorias' => 'backend/deletar/categorias.php',
     'deletar_usuarios' => 'backend/deletar/usuarios.php',
 
-    //rotas da minha lista
-    'adicionar_minha_lista' => 'backend/minha_lista/adicionar.php',
-    'remover_minha_lista' => 'backend/minha_lista/remover.php',
-
     // rotas especificas
     'filme_destaque' => 'backend/editar/filme_destaque.php',
     'info' => 'pages/info.php',
     'assistir' => 'pages/assistir.php',
+    'toggle_minha_lista' => 'backend/minha_lista/toggle.php',
 ];
 
 if (array_key_exists($url, $routes)) {
