@@ -42,7 +42,7 @@
 @layer components {
     /* geral */
     .interface {
-        @apply mx-auto max-w-[1280px] w-full px-5;
+        @apply mx-auto max-w-[1280px] w-full px-3 lg:px-5;
     }
 
     .logo {
@@ -100,10 +100,10 @@
 
     /* menu */
     .link-menu {
-        @apply text-white/90 hover:text-branco-texto-opaco;
+        @apply flex flex-col text-white/90 hover:text-branco-texto-opaco text-center whitespace-nowrap lg:whitespace-normal;
     }
 
     .ativo {
-        @apply font-bold text-white border-b pb-1 hover:text-white;
+        @apply font-bold text-white border-b p-0 lg:pb-1 hover:text-white;
     }
 }

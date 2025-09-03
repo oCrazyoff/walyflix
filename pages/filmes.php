@@ -71,13 +71,12 @@ if ($resultado->num_rows > 0) {
                     $resultado_lista = $stmt_lista->get_result();
                     $stmt_lista->close();
                     ?>
-                    <form id="form-minha-lista" action="toggle_minha_lista" method="POST">
+                    <form class="form-minha-lista" action="toggle_minha_lista" method="POST">
                         <!--csrf-->
                         <input type="hidden" name="csrf" id="csrf" value="<?= gerarCSRF() ?>">
                         <input type="hidden" name="filme_id" id="filme_id"
                                value="<?= htmlspecialchars($id_destaque) ?>">
                         <button type="submit"
-                                id="btn-minha-lista"
                                 class="btn-minha-lista">
                             <?php if ($resultado_lista->num_rows > 0): ?>
                                 <i class="bi bi-check2"></i>

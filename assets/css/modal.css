@@ -1,6 +1,6 @@
 @layer components {
     #modal-form {
-        @apply max-h-[80dvh] overflow-auto;
+        @apply max-h-[80dvh] overflow-auto px-1;
 
         & label {
             @apply inline-block mt-3;

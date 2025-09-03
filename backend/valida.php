@@ -21,6 +21,9 @@ if (!isset($_SESSION["cargo"]) || $_SESSION["cargo"] == 0) {
         $rota != "login" &&
         $rota != "cadastro" &&
         $rota != "perfil" &&
+        $rota != "atualizar_perfil" &&
+        $rota != "toggle_minha_lista" &&
+        $rota != "procurar_filmes" &&
         $rota != ""
     ) {
         $_SESSION['resposta'] = "Acesso negado!";
