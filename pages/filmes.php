@@ -120,11 +120,11 @@ if ($resultado->num_rows > 0) {
                                         <?php
                                         // verificando se tem capa ou não
                                         if (!empty($row_filmes['imagem_url'])): ?>
-                                            <img class="ml-1 p-1 w-[7rem] h-[10rem] lg:w-[20rem] lg:h-[30rem] object-cover rounded-lg hover:ring-2"
+                                            <img class="ml-1 p-1 w-[9rem] h-[13rem] lg:w-[20rem] lg:h-[30rem] object-cover rounded-lg hover:ring-2"
                                                  src="<?= htmlspecialchars($row_filmes['imagem_url']) ?>"
                                                  alt="Capa do filme <?= htmlspecialchars($row_filmes['titulo']) ?>">
                                         <?php else: ?>
-                                            <img class="ml-1 p-1 w-[7rem] h-[10rem] lg:w-[20rem] lg:h-[30rem] object-cover rounded-lg hover:ring-2"
+                                            <img class="ml-1 p-1 w-[9rem] h-[13rem] lg:w-[20rem] lg:h-[30rem] object-cover rounded-lg hover:ring-2"
                                                  src="https://www.protrusmoto.com/wp-content/uploads/revslider/home5/placeholder-1200x500.png"
                                                  alt="Filme sem capa">
                                         <?php endif; ?>
