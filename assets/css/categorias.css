@@ -1,6 +1,6 @@
 @layer components {
     .container-categorias {
-        @apply grid grid-cols-3 gap-5;
+        @apply grid grid-cols-1 lg:grid-cols-3 gap-5;
 
         & .item-categoria {
             @apply border border-borda rounded-lg bg-cinza-claro p-5 hover:scale-105;

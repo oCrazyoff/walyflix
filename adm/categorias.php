@@ -16,7 +16,8 @@ $stmt->close();
                     <h2><i class="bi bi-tags"></i> Categorias</h2>
                     <p>Gerencie as categorias de filmes do WalyFlix</p>
                 </div>
-                <button onclick="abrirCadastrarModal('categorias')"><i class="bi bi-plus"></i> Nova Categoria</button>
+                <button onclick="abrirCadastrarModal('categorias')"><i class="bi bi-plus"></i>
+                    <span>Nova Categoria</span></button>
             </div>
             <div class="container-categorias">
                 <?php

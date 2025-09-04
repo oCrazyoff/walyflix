@@ -16,7 +16,7 @@ $stmt->close();
                 <h2><i class="bi bi-collection-play"></i> Gerenciar Filmes</h2>
                 <p>Visualize, adicione e gerencie todos os filmes do catálogo.</p>
             </div>
-            <button onclick="abrirCadastrarModal('filmes')"><i class="bi bi-plus"></i> Novo Filme</button>
+            <button onclick="abrirCadastrarModal('filmes')"><i class="bi bi-plus"></i> <span>Novo Filme</span></button>
         </div>
         <div class="container-table-titulo">
             <h3>Catálogo de Filmes</h3>

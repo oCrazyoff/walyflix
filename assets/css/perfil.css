@@ -10,7 +10,7 @@
             }
 
             & input {
-                @apply border border-borda h-full px-10 text-2xl rounded-lg;
+                @apply border border-borda h-full w-full px-3 py-2 lg:px-10 text-2xl rounded-lg;
             }
         }
 

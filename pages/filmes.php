@@ -90,7 +90,7 @@ if ($resultado->num_rows > 0) {
             <div class="sombra-destaque"></div>
         </section>
     <?php endif; ?>
-    <section class="px-20 py-5 -mt-12">
+    <section class="px-5 lg:px-20 py-5 -mt-12">
         <?php
         // puxando todas categorias
         $sql = "SELECT id, nome FROM categorias";
@@ -111,7 +111,7 @@ if ($resultado->num_rows > 0) {
                 $stmt_filmes->close();
 
                 if ($resultado_filmes->num_rows > 0) : ?>
-                    <h3 class="mt-8 -mb-5 pl-2 text-3xl font-bold !z-500 text-white"><?= htmlspecialchars($row_categoria['nome']) ?></h3>
+                    <h3 class="mt-5 lg:mt-8 -mb-5 pl-2 text-3xl font-bold !z-500 text-white"><?= htmlspecialchars($row_categoria['nome']) ?></h3>
                     <div class="swiper w-full">
                         <div class="swiper-wrapper">
                             <?php while ($row_filmes = $resultado_filmes->fetch_assoc()) : ?>
@@ -120,11 +120,11 @@ if ($resultado->num_rows > 0) {
                                         <?php
                                         // verificando se tem capa ou não
                                         if (!empty($row_filmes['imagem_url'])): ?>
-                                            <img class="ml-1 p-1 w-[20rem] h-[30rem] object-cover rounded-lg hover:ring-2"
+                                            <img class="ml-1 p-1 w-[7rem] h-[10rem] lg:w-[20rem] lg:h-[30rem] object-cover rounded-lg hover:ring-2"
                                                  src="<?= htmlspecialchars($row_filmes['imagem_url']) ?>"
                                                  alt="Capa do filme <?= htmlspecialchars($row_filmes['titulo']) ?>">
                                         <?php else: ?>
-                                            <img class="ml-1 p-1 w-[20rem] h-[30rem] object-cover rounded-lg hover:ring-2"
+                                            <img class="ml-1 p-1 w-[7rem] h-[10rem] lg:w-[20rem] lg:h-[30rem] object-cover rounded-lg hover:ring-2"
                                                  src="https://www.protrusmoto.com/wp-content/uploads/revslider/home5/placeholder-1200x500.png"
                                                  alt="Filme sem capa">
                                         <?php endif; ?>
@@ -134,16 +134,10 @@ if ($resultado->num_rows > 0) {
                         </div>
 
                         <!-- Botão anterior -->
-                        <div class="swiper-button-prev !text-white !left-0 !top-1/2 !h-[90%] !w-20 flex items-center
-                        justify-start bg-gradient-to-r from-black/60 to-transparent cursor-pointer z-10 !m-0
-                        !-translate-y-1/2">
-                        </div>
+                        <div class="swiper-button-prev"></div>
 
                         <!-- Botão próximo -->
-                        <div class="swiper-button-next !text-white !right-0 !top-1/2 !h-[90%] !w-20 flex items-center
-                        justify-end bg-gradient-to-l from-black to-transparent cursor-pointer z-10 !m-0
-                        !-translate-y-1/2">
-                        </div>
+                        <div class="swiper-button-next"></div>
                     </div>
 
                 <?php endif; ?>

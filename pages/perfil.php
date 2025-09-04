@@ -12,10 +12,10 @@ include __DIR__ . "/../includes/inicio.php";
         </div>
         <div class="interface-perfil">
             <form id="form-perfil"
-                  class="flex flex-col justify-center items-center gap-8 max-w-1/2"
+                  class="flex flex-col justify-center items-center gap-8 w-full lg:max-w-1/2"
                   action="atualizar_perfil"
                   method="POST">
-                <div class="flex justify-between gap-2 w-full">
+                <div class="flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-2 w-full">
                     <button onclick="mostrarModalFoto()" type="button"
                             class="relative flex items-center justify-center w-50 h-50 rounded-lg overflow-hidden cursor-pointer p-1 hover:ring">
                         <img id="foto-perfil"
@@ -28,7 +28,7 @@ include __DIR__ . "/../includes/inicio.php";
                     </button>
                     <input type="hidden" name="csrf" id="csrf" value="<?= gerarCSRF() ?>">
                     <input type="hidden" name="img-perfil" id="img-perfil" value="">
-                    <div class="flex flex-col gap-3 min-h-full">
+                    <div class="flex flex-col gap-3 min-h-full w-full">
                         <div class="input-group">
                             <label for="nome">Nome</label>
                             <input type="text" name="nome" id="nome"

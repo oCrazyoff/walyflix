@@ -1,22 +1,29 @@
 @layer components {
-    #modal-form {
-        @apply max-h-[80dvh] overflow-auto px-1;
+    #modal {
+        @apply w-full;
 
-        & label {
-            @apply inline-block mt-3;
+        & #div-form {
+            @apply max-w-[90vw];
+
+            & #modal-form {
+                @apply max-h-[80dvh] overflow-auto px-1;
+
+                & label {
+                    @apply inline-block mt-3;
+                }
+            }
+
+            & .input-modal {
+                @apply w-full border border-borda p-2 rounded-lg;
+            }
+
+            & textarea.input-modal {
+                @apply min-h-15;
+            }
+
+            & .input-modal option {
+                @apply bg-cinza;
+            }
         }
     }
-
-    .input-modal {
-        @apply w-full border border-borda p-2 rounded-lg;
-    }
-
-    & textarea.input-modal {
-        @apply min-h-15;
-    }
-
-    .input-modal option {
-        @apply bg-cinza;
-    }
-
 }

@@ -2,7 +2,7 @@
     <div class=" interface flex justify-between items-center">
         <div class="flex items-center justify-center gap-2">
             <h1 class="logo mr-5">Waly<span>Flix</span></h1>
-            <nav class="hidden lg:static flex items-center justify-center gap-5">
+            <nav class="hidden lg:flex flex items-center justify-center gap-5">
                 <?php include("links_nav.php"); ?>
             </nav>
         </div>
@@ -14,6 +14,6 @@
     </div>
 </header>
 <!--menu mobile-->
-<nav class="fixed flex gap-3 overflow-auto max-w-full p-3 border-t border-borda bg-cinza/80 backdrop-blur-lg z-700 bottom-0 left-0">
+<nav class="fixed lg:hidden flex gap-3 overflow-auto h-[4.5rem] max-w-full p-2 border-t border-borda bg-cinza/80 backdrop-blur-lg z-700 bottom-0 left-0">
     <?php include("links_nav.php"); ?>
 </nav>

@@ -1,6 +1,6 @@
 @layer components {
     .container-cards{
-        @apply grid grid-cols-4 gap-3;
+        @apply grid grid-cols-1 lg:grid-cols-4 gap-3;
         & .card{
             @apply flex flex-col gap-3 p-5 rounded-lg bg-cinza-claro border border-borda;
 

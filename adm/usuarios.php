@@ -16,7 +16,8 @@ $stmt->close();
                 <h2><i class="bi bi-people"></i> Gerenciar Usuários</h2>
                 <p>Visualize e gerencie todos os usuários da plataforma.</p>
             </div>
-            <button onclick="abrirCadastrarModal('usuarios')"><i class="bi bi-plus"></i> Novo Usuário</button>
+            <button onclick="abrirCadastrarModal('usuarios')"><i class="bi bi-plus"></i> <span>Novo Usuário</span>
+            </button>
         </div>
         <div class="container-table-titulo">
             <h3>Lista de Usuários</h3>
