@@ -1,0 +1,16 @@
+# Dependências do Node
+node_modules/
+
+# Build / cache
+dist/
+build/
+.cache/
+
+# Arquivos de ambiente (nunca versionar senhas!)
+.env
+*.env
+senhas.env
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
