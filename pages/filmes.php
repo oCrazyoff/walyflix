@@ -46,7 +46,7 @@ if ($resultado->num_rows > 0) {
                      src="https://www.protrusmoto.com/wp-content/uploads/revslider/home5/placeholder-1200x500.png"
                      alt="Filme sem capa">
             <?php endif; ?>
-            <button class="absolute right-30 bottom-30 rounded-full w-15 h-15 bg-cinza/60 text-5xl
+            <button class="absolute right-[5%] lg:right-30 bottom-[80%] lg:bottom-30 rounded-full w-15 h-15 bg-cinza/60 text-5xl
             cursor-pointer opacity-0 z-200 hover:bg-cinza" id="btn-desmutar" onclick="toggleMute()">
                 <i class="bi bi-volume-mute"></i>
             </button>
@@ -71,7 +71,7 @@ if ($resultado->num_rows > 0) {
                     $resultado_lista = $stmt_lista->get_result();
                     $stmt_lista->close();
                     ?>
-                    <form class="form-minha-lista" action="toggle_minha_lista" method="POST">
+                    <form class="form-minha-lista hidden lg:flex" action="toggle_minha_lista" method="POST">
                         <!--csrf-->
                         <input type="hidden" name="csrf" id="csrf" value="<?= gerarCSRF() ?>">
                         <input type="hidden" name="filme_id" id="filme_id"
@@ -90,7 +90,7 @@ if ($resultado->num_rows > 0) {
             <div class="sombra-destaque"></div>
         </section>
     <?php endif; ?>
-    <section class="px-5 lg:px-20 py-5 -mt-12">
+    <section class="px-5 lg:px-20 py-5 -mt-8 lg:-mt-12">
         <?php
         // puxando todas categorias
         $sql = "SELECT id, nome FROM categorias";
@@ -111,7 +111,7 @@ if ($resultado->num_rows > 0) {
                 $stmt_filmes->close();
 
                 if ($resultado_filmes->num_rows > 0) : ?>
-                    <h3 class="mt-5 lg:mt-8 -mb-5 pl-2 text-3xl font-bold !z-500 text-white"><?= htmlspecialchars($row_categoria['nome']) ?></h3>
+                    <h3 class="mt-5 lg:mt-8 -mb-5 pl-2 text-2xl lg:text-3xl font-bold !z-500 text-white"><?= htmlspecialchars($row_categoria['nome']) ?></h3>
                     <div class="swiper w-full">
                         <div class="swiper-wrapper">
                             <?php while ($row_filmes = $resultado_filmes->fetch_assoc()) : ?>

@@ -45,7 +45,7 @@ include __DIR__ . "/../includes/inicio.php";
     <?php
     // trocando a altura da section caso tenha recomendações
     if ($resultado_recomendacao->num_rows > 0) : ?>
-    <section class="section-destaque h-[calc(90dvh-5rem)]">
+    <section class="section-destaque h-[60dvh] lg:h-[calc(90dvh-5rem)]">
         <?php else: ?>
         <section class="section-destaque h-[calc(100dvh-5rem)]">
             <?php endif; ?>
@@ -95,8 +95,8 @@ include __DIR__ . "/../includes/inicio.php";
             <div class="sombra-preto-destaque"></div>
         </section>
         <?php if ($resultado_recomendacao->num_rows > 0) : ?>
-            <section class="bg-black px-20">
-                <h2 class="w-full border-b font-bold text-3xl pb-2">Você também pode gostar</h2>
+            <section class="bg-black px-5 lg:px-20 pt-10 lg:pt-0 pb-15 lg:pb-0">
+                <h2 class="w-full border-b font-bold text-2xl lg:text-3xl pb-2">Você também pode gostar</h2>
                 <div class="swiper w-full">
                     <div class="swiper-wrapper">
                         <?php while ($row_filme = $resultado_recomendacao->fetch_assoc()) : ?>
@@ -105,11 +105,11 @@ include __DIR__ . "/../includes/inicio.php";
                                     <?php
                                     // verificando se tem capa ou não
                                     if (!empty($row_filme['imagem_url'])): ?>
-                                        <img class="ml-1 p-1 w-[20rem] h-[30rem] object-cover rounded-lg hover:ring-2"
+                                        <img class="ml-1 p-1 w-[7rem] h-[10rem] lg:w-[20rem] lg:h-[30rem] object-cover rounded-lg hover:ring-2"
                                              src="<?= htmlspecialchars($row_filme['imagem_url']) ?>"
                                              alt="Capa do filme <?= htmlspecialchars($row_filme['titulo']) ?>">
                                     <?php else: ?>
-                                        <img class="ml-1 p-1 w-[20rem] h-[30rem] object-cover rounded-lg hover:ring-2"
+                                        <img class="ml-1 p-1 w-[7rem] h-[10rem] lg:w-[20rem] lg:h-[30rem] object-cover rounded-lg hover:ring-2"
                                              src="https://www.protrusmoto.com/wp-content/uploads/revslider/home5/placeholder-1200x500.png"
                                              alt="Filme sem capa">
                                     <?php endif; ?>

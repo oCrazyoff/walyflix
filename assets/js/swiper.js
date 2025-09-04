@@ -10,7 +10,7 @@ const swiper = new Swiper('.swiper', {
     },
 
     // espaço entre slides
-    spaceBetween: 20,
+    spaceBetween: 10,
 
     // responsivo
     slidesPerView: "auto",

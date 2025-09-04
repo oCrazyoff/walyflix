@@ -82,7 +82,7 @@
 
         & .txt-titulo {
             & h2 {
-                @apply text-3xl font-bold;
+                @apply text-2xl lg:text-3xl font-bold;
 
                 & i {
                     @apply text-azul;
@@ -90,14 +90,14 @@
             }
 
             & p {
-                @apply text-branco-texto-opaco text-xl;
+                @apply text-branco-texto-opaco text-lg lg:text-xl;
             }
         }
 
         & button {
-            @apply rounded-lg lg:px-5 ml-5 lg:ml-0 text-4xl p-2 lg:py-2 lg:text-xl cursor-pointer bg-azul hover:bg-azul-hover;
+            @apply flex items-center justify-center gap-2 rounded-lg lg:px-5 ml-5 lg:ml-0 min-w-13 min-h-13 lg:w-auto lg:h-auto p-0 lg:py-2 text-4xl lg:text-xl cursor-pointer bg-azul hover:bg-azul-hover;
 
-            & span{
+            & span {
                 @apply hidden lg:block;
             }
         }

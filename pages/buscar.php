@@ -5,19 +5,19 @@ include __DIR__ . "/../includes/inicio.php";
 <main>
     <div class="interface">
         <div class="flex flex-col pt-10 items-center justify-center w-full">
-            <h2 class="text-4xl font-bold">Buscar Filmes e Séries</h2>
-            <p class="text-branco-texto-opaco text-xl">Encontre seus conteúdos favoritos</p>
+            <h2 class="text-3xl lg:text-4xl font-bold text-center">Buscar Filmes e Séries</h2>
+            <p class="text-branco-texto-opaco text-lg lg:text-xl">Encontre seus conteúdos favoritos</p>
         </div>
         <div class="flex items-center justify-center my-5 w-full">
-            <input class="w-2/3 border border-borda h-full p-3 text-xl rounded-lg ring-2 ring-azul" type="search"
+            <input class="w-full lg:w-2/3 border border-borda h-full p-3 text-xl rounded-lg ring-2 ring-azul" type="search"
                    name="buscar"
                    id="buscar"
                    placeholder="Buscar...">
         </div>
         <div id="placeholder-buscar" class="flex flex-col items-center jutifiy-center w-full">
-            <i class="bi bi-search text-7xl text-branco-texto-opaco mt-10"></i>
+            <i class="bi bi-search text-6xl lg:text-7xl text-branco-texto-opaco mt-0 lg:mt-10"></i>
             <h3 class="text-3xl my-5">Comece a pesquisar</h3>
-            <p class="text-branco-texto-opaco text-xl text-center max-w-1/2">
+            <p class="text-branco-texto-opaco text-xl text-center max-w-full lg:max-w-1/2">
                 Digite o nome do filme, série ou categoria que você está procurando na barra de busca acima.
             </p>
         </div>
