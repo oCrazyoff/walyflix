@@ -1,4 +1,5 @@
-<header class="flex sticky top-0 left-0 items-center justify-center w-full h-[4rem] lg:h-[5rem] p-0 lg:p-5 border-b bg-cinza/80 backdrop-blur-lg  border-borda z-700">
+<header class="flex sticky top-0 left-0 items-center justify-center w-full h-[4rem] lg:h-[5rem] p-0 lg:p-5 border-b
+bg-cinza/80 backdrop-blur-lg  border-borda z-700">
     <div class=" interface flex justify-between items-center">
         <div class="flex items-center justify-center gap-2">
             <h1 class="logo mr-5">Waly<span>Flix</span></h1>
@@ -14,6 +15,7 @@
     </div>
 </header>
 <!--menu mobile-->
-<nav class="fixed lg:hidden flex items-center justify-center gap-3 overflow-auto h-[4.5rem] min-w-full max-w-full p-2 border-t border-borda bg-cinza/80 backdrop-blur-lg z-700 bottom-0 left-0">
+<nav class="fixed lg:hidden flex items-center gap-3 overflow-auto h-[4.5rem] min-w-full max-w-full p-2
+border-t border-borda bg-cinza/80 backdrop-blur-lg z-700 bottom-0 left-0">
     <?php include("links_nav.php"); ?>
 </nav>

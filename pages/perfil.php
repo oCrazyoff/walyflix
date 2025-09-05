@@ -1,6 +1,15 @@
 <?php
 $titulo = "Editar Perfil";
 include __DIR__ . "/../includes/inicio.php";
+
+// puxando value da imagem de perfil
+$sql = "SELECT img_perfil FROM usuarios WHERE id = ?";
+$stmt = $conexao->prepare($sql);
+$stmt->bind_param("i", $_SESSION["id"]);
+$stmt->execute();
+$stmt->bind_result($img_perfil_id);
+$stmt->fetch();
+$stmt->close();
 ?>
 <main>
     <div class="interface">
@@ -19,7 +28,7 @@ include __DIR__ . "/../includes/inicio.php";
                     <button onclick="mostrarModalFoto()" type="button"
                             class="relative flex items-center justify-center w-50 h-50 rounded-lg overflow-hidden cursor-pointer p-1 hover:ring">
                         <img id="foto-perfil"
-                             src="<?= $_SESSION['img_perfil'] ?>"
+                             src="<?= htmlspecialchars($_SESSION['img_perfil']) ?>"
                              class="w-full h-full object-cover rounded-lg"
                              alt="Imagem do perfil">
                         <span class="absolute flex items-center justify-center text-3xl top-1/2 left-1/2 -translate-1/2 w-15 h-15 rounded-full bg-cinza/40 text-white/90">
@@ -27,8 +36,9 @@ include __DIR__ . "/../includes/inicio.php";
                         </span>
                     </button>
                     <input type="hidden" name="csrf" id="csrf" value="<?= gerarCSRF() ?>">
-                    <input type="hidden" name="img-perfil" id="img-perfil" value="">
-                    <div class="flex flex-col gap-3 min-h-full w-full">
+                    <input type="hidden" name="img-perfil" id="img-perfil"
+                           value="<?= htmlspecialchars($img_perfil_id) ?>">
+                    <div class="flex flex-col gap-3 min-h-full w-full lg:w-3/5">
                         <div class="input-group">
                             <label for="nome">Nome</label>
                             <input type="text" name="nome" id="nome"

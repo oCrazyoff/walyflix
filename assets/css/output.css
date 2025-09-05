@@ -18,6 +18,8 @@
     --container-xl: 36rem;
     --text-sm: 0.875rem;
     --text-sm--line-height: calc(1.25 / 0.875);
+    --text-base: 1rem;
+    --text-base--line-height: calc(1.5 / 1);
     --text-lg: 1.125rem;
     --text-lg--line-height: calc(1.75 / 1.125);
     --text-xl: 1.25rem;
@@ -886,6 +888,11 @@
       width: calc(2/3 * 100%);
     }
   }
+  .lg\:w-3\/5 {
+    @media (width >= 64rem) {
+      width: calc(3/5 * 100%);
+    }
+  }
   .lg\:w-30 {
     @media (width >= 64rem) {
       width: calc(var(--spacing) * 30);
@@ -1460,6 +1467,7 @@
     .input-group {
       display: flex;
       height: calc(1/2 * 100%);
+      width: 100%;
       flex-direction: column;
       gap: calc(var(--spacing) * 1);
       & label {
@@ -1651,19 +1659,30 @@
     gap: calc(var(--spacing) * 4);
     border-radius: var(--radius-xl);
     background-color: var(--color-white);
-    padding-inline: calc(var(--spacing) * 8);
+    padding-inline: calc(var(--spacing) * 3);
     padding-block: calc(var(--spacing) * 2);
-    font-size: var(--text-lg);
-    line-height: var(--tw-leading, var(--text-lg--line-height));
+    font-size: var(--text-base);
+    line-height: var(--tw-leading, var(--text-base--line-height));
     color: var(--color-black);
     --tw-shadow: 0 10px 15px -3px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
     @media (width >= 64rem) {
       animation: show 5s;
     }
+    @media (width >= 64rem) {
+      padding-inline: calc(var(--spacing) * 8);
+    }
+    @media (width >= 64rem) {
+      font-size: var(--text-lg);
+      line-height: var(--tw-leading, var(--text-lg--line-height));
+    }
     & i {
-      font-size: var(--text-2xl);
-      line-height: var(--tw-leading, var(--text-2xl--line-height));
+      font-size: var(--text-xl);
+      line-height: var(--tw-leading, var(--text-xl--line-height));
+      @media (width >= 64rem) {
+        font-size: var(--text-2xl);
+        line-height: var(--tw-leading, var(--text-2xl--line-height));
+      }
     }
   }
   @keyframes show {
@@ -1794,9 +1813,6 @@
     }
     @media (width >= 64rem) {
       gap: calc(var(--spacing) * 2);
-    }
-    @media (width >= 64rem) {
-      white-space: normal;
     }
   }
   .ativo {
