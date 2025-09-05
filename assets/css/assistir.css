@@ -1,0 +1,13 @@
+@layer components {
+    .assistir-filme {
+        @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+        rotate-90 lg:rotate-0 origin-center
+        w-[100dvh] lg:w-dvw h-[100vw] lg:h-dvh max-w-none max-h-none object-contain;
+    }
+}
+
+@layer utilities {
+    .assistir-filme:fullscreen {
+        @apply rotate-0 translate-x-0 translate-y-0 w-full h-full object-contain;
+    }
+}

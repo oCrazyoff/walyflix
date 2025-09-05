@@ -53,18 +53,22 @@ $stmt->close();
                                     <?php endif; ?>
                                 </td>
                                 <td>
-                                    <div class="container-acoes">
-                                        <button onclick="abrirEditarModal('usuarios', <?= htmlspecialchars($row['id']) ?>)">
-                                            <i class="bi bi-pencil-square"></i>
-                                        </button>
-                                        <form class="deletar"
-                                              action="deletar_usuarios?id=<?= htmlspecialchars($row['id']) ?>"
-                                              method="POST">
-                                            <input type="hidden" name="csrf" id="csrf"
-                                                   value="<?= htmlspecialchars(gerarCSRF()) ?>">
-                                            <button type="submit"><i class="bi bi-trash3"></i></button>
-                                        </form>
-                                    </div>
+                                    <?php
+                                    // inpedindo ações com o admin fundador (eu)
+                                    if ($row['id'] != 1 && $row['id'] != $_SESSION['id']): ?>
+                                        <div class="container-acoes">
+                                            <button onclick="abrirEditarModal('usuarios', <?= htmlspecialchars($row['id']) ?>)">
+                                                <i class="bi bi-pencil-square"></i>
+                                            </button>
+                                            <form class="deletar"
+                                                  action="deletar_usuarios?id=<?= htmlspecialchars($row['id']) ?>"
+                                                  method="POST">
+                                                <input type="hidden" name="csrf" id="csrf"
+                                                       value="<?= htmlspecialchars(gerarCSRF()) ?>">
+                                                <button type="submit"><i class="bi bi-trash3"></i></button>
+                                            </form>
+                                        </div>
+                                    <?php endif; ?>
                                 </td>
                             </tr>
                         <?php endwhile; ?>

@@ -105,11 +105,11 @@ include __DIR__ . "/../includes/inicio.php";
                                     <?php
                                     // verificando se tem capa ou não
                                     if (!empty($row_filme['imagem_url'])): ?>
-                                        <img class="ml-1 p-1 w-[7rem] h-[10rem] lg:w-[20rem] lg:h-[30rem] object-cover rounded-lg hover:ring-2"
+                                        <img class="capa-filme"
                                              src="<?= htmlspecialchars($row_filme['imagem_url']) ?>"
                                              alt="Capa do filme <?= htmlspecialchars($row_filme['titulo']) ?>">
                                     <?php else: ?>
-                                        <img class="ml-1 p-1 w-[7rem] h-[10rem] lg:w-[20rem] lg:h-[30rem] object-cover rounded-lg hover:ring-2"
+                                        <img class="capa-filme"
                                              src="https://www.protrusmoto.com/wp-content/uploads/revslider/home5/placeholder-1200x500.png"
                                              alt="Filme sem capa">
                                     <?php endif; ?>

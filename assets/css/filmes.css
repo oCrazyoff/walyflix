@@ -1,8 +1,12 @@
 @layer components {
+    .capa-filme {
+        @apply ml-1 p-1 w-[9rem] h-[13rem] lg:w-[20rem] lg:h-[30rem] object-cover rounded-lg hover:ring-2;
+    }
+
     .swiper-button-prev {
-        @apply !text-white !left-0 !top-1/2 !h-[75%] lg:!h-[90%] !w-7 lg:!w-20 flex items-center
+        @apply !text-white !left-0 !top-1/2 !h-[75%] lg:!h-[90%] !w-7 lg:!w-20 items-center
         justify-start bg-gradient-to-r from-black/60 to-transparent cursor-pointer z-10 !m-0
-        !-translate-y-1/2;
+        !-translate-y-1/2 !hidden lg:flex;
 
         &::after {
             @apply !text-2xl;
@@ -10,9 +14,9 @@
     }
 
     .swiper-button-next {
-        @apply !text-white !right-0 !top-1/2 !h-[75%] lg:!h-[90%] !w-7 lg:!w-20 flex items-center
+        @apply !text-white !right-0 !top-1/2 !h-[75%] lg:!h-[90%] !w-7 lg:!w-20 items-center
         justify-end bg-gradient-to-l from-black to-transparent cursor-pointer z-10 !m-0
-        !-translate-y-1/2;
+        !-translate-y-1/2 !hidden lg:flex;
 
         &::after {
             @apply !text-2xl;

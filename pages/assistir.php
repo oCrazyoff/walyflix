@@ -30,9 +30,7 @@ include __DIR__ . "/../includes/inicio.php";
         <i class="bi bi-arrow-left"></i>
     </a>
 
-    <video class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-               rotate-90 lg:rotate-0 origin-center
-               w-[100vh] lg:w-dvw h-[100vw] lg:h-dvh max-w-none max-h-none object-contain"
+    <video class="assistir-filme"
            autoplay
            controls>
         <source src="<?= htmlspecialchars($link_filme) ?>" type="video/mp4">
