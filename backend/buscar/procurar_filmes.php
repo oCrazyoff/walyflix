@@ -4,7 +4,8 @@ header('Content-Type: application/json; charset=utf-8');
 
 try {
     // Valida e sanitiza a query de busca
-    $q = trim(strip_tags($_GET['q']));
+    $q = isset($_GET['q']) ? trim(strip_tags($_GET['q'])) : '';
+
 
     if (!$q || mb_strlen($q) < 3) {
         echo json_encode([]);
@@ -12,7 +13,10 @@ try {
     }
 
     // Consulta segura usando LIKE com prepared statement
-    $sql = "SELECT id, imagem_url FROM filmes WHERE titulo LIKE CONCAT('%', ?, '%') LIMIT 20";
+    $sql = "SELECT id, imagem_url, titulo
+        FROM filmes
+        WHERE titulo LIKE CONCAT('%', ? COLLATE utf8mb4_general_ci, '%')
+        LIMIT 20";
     $stmt = $conexao->prepare($sql);
     $stmt->bind_param("s", $q);
     $stmt->execute();

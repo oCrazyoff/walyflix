@@ -67,6 +67,5 @@ include __DIR__ . "/../includes/inicio.php";
                 });
         }
     });
-
 </script>
 <?php include __DIR__ . "/../includes/final.php"; ?>
