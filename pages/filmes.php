@@ -71,7 +71,7 @@ if ($resultado->num_rows > 0) {
                     $resultado_lista = $stmt_lista->get_result();
                     $stmt_lista->close();
                     ?>
-                    <form class="form-minha-lista hidden lg:flex" action="toggle_minha_lista" method="POST">
+                    <form class="form-minha-lista" action="toggle_minha_lista" method="POST">
                         <!--csrf-->
                         <input type="hidden" name="csrf" id="csrf" value="<?= gerarCSRF() ?>">
                         <input type="hidden" name="filme_id" id="filme_id"

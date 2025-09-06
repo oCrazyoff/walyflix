@@ -14,14 +14,22 @@ $stmt_lista->close();
     <div class="interface">
         <div class="titulo">
             <div class="txt-titulo">
-                <h2><i class="bi bi-bookmark-star"></i> Minha Lista</h2>
+                <h2><i class="bi bi-bookmark"></i> Minha Lista</h2>
                 <p><?= $resultado_lista->num_rows ?> filmes salvos</p>
             </div>
         </div>
         <?php
         // caso não tenha filmes salvos
         if ($resultado_lista->num_rows <= 0): ?>
-            <h3>Sem filmes salvos!</h3>
+            <div class="flex flex-col gap-5 items-center justify-center mt-10">
+                <i class="bi bi-bookmark text-6xl text-branco-texto-opaco bg-cinza-claro p-5 rounded-full"></i>
+                <h3 class="text-2xl font-bold">A sua lista está vazia</h3>
+                <p class="text-xl text-branco-texto-opaco text-center w-full lg:w-1/2">
+                    Adicione filmes à sua lista para assistir depois. Você pode fazer isso a partir da página de
+                    filmes.
+                </p>
+                <a href="filmes" class="px-5 py-3 text-xl rounded-lg bg-azul hover:bg-azul-hover">Explorar Filmes</a>
+            </div>
         <?php else: ?>
             <div class="flex flex-col gap-5">
                 <?php

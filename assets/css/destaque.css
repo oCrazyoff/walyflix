@@ -1,23 +1,27 @@
 @layer components {
     .section-destaque {
-        @apply relative w-full h-[60dvh] lg:h-[80dvh] overflow-hidden;
+        @apply relative w-full h-[70dvh] lg:h-[80dvh] overflow-hidden;
 
         & .container-info-destaque {
-            @apply flex flex-col gap-5 absolute top-2/4 lg:top-1/4 px-5 lg:px-20 left-0 w-full lg:w-3/5 z-500;
+            @apply flex flex-col gap-5 absolute top-2/5 lg:top-1/4 px-5 lg:px-20 left-0 w-full lg:w-3/5 z-500;
 
             & .titulo-destaque {
                 @apply text-center lg:text-left text-4xl lg:text-6xl font-bold text-shadow-lg/30;
             }
 
             & .descricao-destaque {
-                @apply text-white/80 hidden lg:block text-2xl text-shadow-lg/30;
+                @apply text-center lg:text-left text-white/80 text-lg lg:text-2xl text-shadow-lg/30;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
             }
 
-            & p{
-                @apply flex items-center justify-center gap-2 lg:block;
+            & p {
+                @apply flex items-center justify-center gap-2 hidden lg:block;
             }
 
-            & .categoria-span{
+            & .categoria-span {
                 @apply rounded-sm bg-white/20 border px-1;
             }
 
@@ -25,11 +29,13 @@
                 @apply flex gap-3;
 
                 & .btn-assistir {
-                    @apply flex items-center justify-center px-15 rounded-lg w-full lg:w-auto text-3xl bg-white text-black hover:bg-white/80;
+                    @apply flex items-center justify-center px-15 rounded-lg w-full lg:w-auto text-3xl bg-white
+                    text-black hover:bg-white/80;
                 }
 
                 & .btn-minha-lista {
-                    @apply flex items-center justify-center border-3 border-borda w-12 lg:w-14 h-12 lg:h-14 rounded-full bg-cinza-claro/70 text-4xl cursor-pointer hover:border-white hover:bg-cinza-claro/40;
+                    @apply flex items-center justify-center border-3 border-borda w-12 lg:w-14 h-12 lg:h-14 rounded-full
+                    bg-cinza-claro/70 text-4xl cursor-pointer hover:border-white hover:bg-cinza-claro/40;
                 }
             }
         }
@@ -48,7 +54,7 @@
         @apply object-cover h-[80dvh] w-full opacity-80;
     }
 
-    .capa-info{
+    .capa-info {
         @apply object-cover !h-full !w-full brightness-50 z-200;
     }
 }

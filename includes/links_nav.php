@@ -14,7 +14,7 @@ if (isset($_SESSION['cargo']) && $_SESSION['cargo'] == 1):
 
 <a class="link-menu <?= ($rota === 'filmes') ? 'ativo' : '' ?>" href="filmes"><i class="bi bi-film"></i>
     Filmes</a>
-<a class="link-menu <?= ($rota === 'minha_lista') ? 'ativo' : '' ?>" href="minha_lista"><i
-            class="bi bi-bookmark-star"></i> Minha Lista</a>
+<a class="link-menu <?= ($rota === 'minha_lista') ? 'ativo' : '' ?>" href="minha_lista">
+    <i class="bi bi-bookmark"></i> Minha Lista</a>
 <a class="link-menu <?= ($rota === 'buscar') ? 'ativo' : '' ?>" href="buscar"><i
             class="bi bi-search"></i> Buscar</a>
