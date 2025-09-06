@@ -15,7 +15,7 @@ $stmt_lista->close();
         <div class="titulo">
             <div class="txt-titulo">
                 <h2><i class="bi bi-bookmark"></i> Minha Lista</h2>
-                <p><?= $resultado_lista->num_rows ?> filmes salvos</p>
+                <p><span id="num-filmes"><?= htmlspecialchars($resultado_lista->num_rows) ?></span> filmes salvos</p>
             </div>
         </div>
         <?php

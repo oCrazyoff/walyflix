@@ -11,6 +11,7 @@ document.querySelectorAll("form.form-minha-lista").forEach(form => {
         });
 
         let resultado = await response.json();
+        let num_filmes = document.getElementById("num-filmes");
 
         if (resultado.sucesso) {
             let btn = form.querySelector("button i");
@@ -22,8 +23,10 @@ document.querySelectorAll("form.form-minha-lista").forEach(form => {
                 btn.classList.add("bi-plus-lg");
                 btn.classList.remove("bi-check2");
 
-                // como aqui é lista, pode ser melhor remover o card do filme
+                // remover o card do filme e diminui a contagem de filmes
                 form.closest("a").remove();
+                num_filmes.textContent = parseInt(num_filmes.textContent, 10) - 1;
+                console.log("Teste")
             }
         } else {
             console.error(resultado.erro || "Erro desconhecido");

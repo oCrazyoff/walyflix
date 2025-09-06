@@ -15,7 +15,7 @@ try {
     // Consulta segura usando LIKE com prepared statement
     $sql = "SELECT id, imagem_url, titulo
         FROM filmes
-        WHERE titulo LIKE CONCAT('%', ? COLLATE utf8mb4_general_ci, '%')
+        WHERE titulo LIKE CONCAT('%', ? , '%')
         LIMIT 20";
     $stmt = $conexao->prepare($sql);
     $stmt->bind_param("s", $q);
