@@ -15,11 +15,11 @@ include("includes/inicio.php");
     <section
             class="flex items-center justify-center text-center h-auto lg:h-[calc(100dvh-5rem)]">
         <div class="interface flex flex-col gap-5 items-center justify-center">
-            <h2 class="text-5xl lg:text-6xl font-bold">Filmes e séries ilimitados</h2>
-            <p class="text-3xl text-white/70">
+            <h2 class="text-3xl lg:text-6xl font-bold">Filmes e séries ilimitados</h2>
+            <p class="text-xl lg:text-3xl text-white/70">
                 Assista onde quiser. Cancele quando quiser.
             </p>
-            <p class="text-justify lg:text-center text-2xl text-white/70">
+            <p class="text-justify lg:text-center lg:text-2xl text-white/70">
                 Pronto para assistir? Informe seu email para criar ou reiniciar sua assinatura.
             </p>
             <a href="cadastro"

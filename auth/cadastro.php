@@ -8,6 +8,14 @@ include("includes/inicio.php");
             <h1 class="logo">Waly<span>Flix</span></h1>
             <h2 class="text-2xl font-bold mt-5">Criar conta</h2>
             <p class="text-white/70">Junte-se ao WalyFlix gratuitamente</p>
+
+            <!--inputs escondidos-->
+            <input type="hidden" name="csrf" id="csrf" value="<?= gerarCSRF() ?>">
+
+            <div class="input-group">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome" placeholder="Seu nome" required>
+            </div>
             <div class="input-group">
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" placeholder="seu@email.com" required>
@@ -18,7 +26,8 @@ include("includes/inicio.php");
             </div>
             <div class="input-group">
                 <label for="confirmar-senha">Confirmar Senha</label>
-                <input type="password" name="confirmar-senha" id="confirmar-senha" placeholder="Confirme sua senha" required>
+                <input type="password" name="confirmar-senha" id="confirmar-senha" placeholder="Confirme sua senha"
+                       required>
             </div>
             <button class="btn-enviar">Criar Conta</button>
 

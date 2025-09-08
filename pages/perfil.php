@@ -76,7 +76,7 @@ $stmt->close();
 </main>
 <!--modal das fotos de perfil-->
 <div class="flex items-center hidden justify-center fixed top-0 left-0 w-full h-full bg-black/60" id="modal-perfil">
-    <div class="flex gap-3 bg-cinza p-5 rounded-lg border border-borda">
+    <div class="flex w-[90%] lg:w-max gap-3 bg-cinza p-5 rounded-lg border border-borda">
         <button onclick="mudarFoto(0, '<?= BASE_URL . "assets/img/perfil/macaco.webp" ?>')">
             <img src="<?= BASE_URL . "assets/img/perfil/macaco.webp" ?>"
                  class="p-1 w-35 h-35 object-cover rounded-lg hover:ring cursor-pointer"

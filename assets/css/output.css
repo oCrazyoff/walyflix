@@ -393,6 +393,9 @@
   .\!w-max {
     width: max-content !important;
   }
+  .w-1\/2 {
+    width: calc(1/2 * 100%);
+  }
   .w-12 {
     width: calc(var(--spacing) * 12);
   }
@@ -410,6 +413,9 @@
   }
   .w-\[10rem\] {
     width: 10rem;
+  }
+  .w-\[90\%\] {
+    width: 90%;
   }
   .w-full {
     width: 100%;
@@ -912,6 +918,16 @@
   .lg\:w-\[20rem\] {
     @media (width >= 64rem) {
       width: 20rem;
+    }
+  }
+  .lg\:w-full {
+    @media (width >= 64rem) {
+      width: 100%;
+    }
+  }
+  .lg\:w-max {
+    @media (width >= 64rem) {
+      width: max-content;
     }
   }
   .lg\:max-w-1\/2 {
