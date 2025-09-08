@@ -1,19 +1,40 @@
 @layer components {
-    .container-cards{
+    .container-cards {
         @apply grid grid-cols-1 lg:grid-cols-4 gap-3;
-        & .card{
+
+        & .card {
             @apply flex flex-col gap-3 p-5 rounded-lg bg-cinza-claro border border-borda;
 
-            & h3{
+            & h3 {
                 @apply flex items-center justify-between text-lg text-branco-texto-opaco;
 
-                & i{
+                & i {
                     @apply text-azul text-3xl;
                 }
             }
 
-            & span{
+            & span {
                 @apply text-2xl font-bold;
+            }
+        }
+    }
+
+    .container-graficos {
+        @apply grid grid-cols-1 lg:grid-cols-2 gap-3 mt-5;
+
+        & .grafico {
+            @apply flex flex-col gap-3 bg-cinza-claro border border-borda rounded-lg p-5;
+
+            & h3{
+                @apply text-2xl font-bold;
+
+                & i{
+                    @apply text-azul;
+                }
+            }
+
+            & p{
+                @apply text-branco-texto-opaco;
             }
         }
     }
