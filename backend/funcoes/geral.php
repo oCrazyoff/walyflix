@@ -80,4 +80,23 @@ function validarURL(string $url): bool {
     return true;
 }
 
+function ajustarDropboxLink($url) {
+    if (strpos($url, "dropbox.com") !== false) {
+        // Se o link já tiver "raw=1", retorna direto
+        if (strpos($url, "raw=1") !== false) {
+            return $url;
+        }
+        // Troca dl=0 ou dl=1 por raw=1
+        $url = preg_replace('/(\?|&)dl=\d/', '$1raw=1', $url);
+
+        // Se ainda não tiver raw, adiciona
+        if (strpos($url, "raw=1") === false) {
+            $separador = (strpos($url, '?') !== false) ? '&' : '?';
+            $url .= $separador . "raw=1";
+        }
+    }
+    return $url;
+}
+
+
 ?>

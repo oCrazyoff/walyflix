@@ -18,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $imagem_url = trim(filter_input(INPUT_POST, 'imagem_url', FILTER_SANITIZE_URL));
     $imagem_deitada_url = trim(filter_input(INPUT_POST, 'imagem_deitada_url', FILTER_SANITIZE_URL));
     $link_filme = trim(filter_input(INPUT_POST, 'link_filme', FILTER_SANITIZE_URL));
+    $link_filme = ajustarDropboxLink($link_filme);
 
     //validar imagem
     if (validarURL($imagem_url) == false) {
