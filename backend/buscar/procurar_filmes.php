@@ -12,15 +12,19 @@ try {
         exit;
     }
 
-    // Consulta segura usando LIKE com prepared statement
+    // consultando com LIKE
+    $busca = "%" . $q . "%";
+
     $sql = "SELECT id, imagem_url, titulo
         FROM filmes
-        WHERE titulo LIKE CONCAT('%', ? , '%')
+        WHERE titulo LIKE ?
         LIMIT 20";
+
     $stmt = $conexao->prepare($sql);
-    $stmt->bind_param("s", $q);
+    $stmt->bind_param("s", $busca);
     $stmt->execute();
     $resultado = $stmt->get_result();
+
 
     $filmes = [];
     while ($row = $resultado->fetch_assoc()) {

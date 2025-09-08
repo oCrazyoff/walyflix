@@ -4,7 +4,7 @@ $n_valida = true;
 include("includes/inicio.php");
 ?>
     <div class="container-form">
-        <form action="backend/auth/login.php" method="POST">
+        <form action="fazer_login" method="POST">
             <!--inputs escondidos-->
             <input type="hidden" name="csrf" id="csrf" value="<?= gerarCSRF() ?>">
             <h1 class="logo">Waly<span>Flix</span></h1>

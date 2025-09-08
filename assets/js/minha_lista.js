@@ -26,7 +26,10 @@ document.querySelectorAll("form.form-minha-lista").forEach(form => {
                 // remover o card do filme e diminui a contagem de filmes
                 form.closest("a").remove();
                 num_filmes.textContent = parseInt(num_filmes.textContent, 10) - 1;
-                console.log("Teste")
+
+                if (parseInt(num_filmes.textContent, 10) === 0) {
+                    location.reload();
+                }
             }
         } else {
             console.error(resultado.erro || "Erro desconhecido");

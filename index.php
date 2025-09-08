@@ -1,28 +1,63 @@
 <?php
-$n_valida = true;
-include("includes/inicio.php");
-?>
-    <header class="sticky top-0 left-0 h-[5rem] py-5">
-        <div class="interface flex justify-between w-full">
-            <h1 class="logo">Waly<span>Flix</span></h1>
-            <div class="flex gap-5">
-                <a href="login" class="py-2 px-4 rounded-lg hover:bg-cinza-claro">Entrar</a>
-                <a href="cadastro" class="hidden lg:block bg-azul py-2 px-4 rounded-lg hover:bg-azul-hover">Cadastrar</a>
-            </div>
-        </div>
-    </header>
-    <section class="flex items-center justify-center text-center h-[calc(100dvh-5rem)]">
-        <div class="interface flex flex-col gap-5 items-center justify-center">
-            <h2 class="text-5xl lg:text-6xl font-bold">Filmes e séries ilimitados</h2>
-            <p class="text-3xl text-white/70">
-                Assista onde quiser. Cancele quando quiser.
-            </p>
-            <p class="text-justify lg:text-center text-2xl text-white/70">
-                Pronto para assistir? Informe seu email para criar ou reiniciar sua assinatura.
-            </p>
-            <a href="cadastro"
-               class="flex items-center justify-center gap-2 rounded-lg p-3 lg:p-4 text-2xl w-full lg:w-1/2 bg-azul hover:bg-azul-hover"><i
-                        class="bi bi-play"></i> Começar Agora</a>
-        </div>
-    </section>
-<?php include("includes/final.php"); ?>
+$url = $_GET['url'] ?? '';
+$url = trim($url, '/');
+
+// rotas simples
+$routes = [
+    '' => 'pages/landing.php',
+
+    // autenticação
+    'login' => 'auth/login.php',
+    'cadastro' => 'auth/cadastro.php',
+    'deslogar' => 'backend/auth/deslogar.php',
+    'fazer_login' => 'backend/auth/login.php',
+    'fazer_cadastro' => 'backend/auth/cadastro.php',
+
+    //rotas do usuario comum
+    'filmes' => 'pages/filmes.php',
+    'minha_lista' => 'pages/minha_lista.php',
+    'buscar' => 'pages/buscar.php',
+    'perfil' => 'pages/perfil.php',
+
+    // rotas do adm
+    'dashboard' => 'adm/dashboard.php',
+    'filmes_adm' => 'adm/filmes_adm.php',
+    'usuarios' => 'adm/usuarios.php',
+    'categorias' => 'adm/categorias.php',
+
+    // rotas de busca
+    'buscar_filmes' => 'backend/buscar/filmes.php',
+    'procurar_filmes' => 'backend/buscar/procurar_filmes.php',
+    'buscar_categorias' => 'backend/buscar/categorias.php',
+    'buscar_usuarios' => 'backend/buscar/usuarios.php',
+
+    // rotas de cadastro
+    'cadastrar_filmes' => 'backend/cadastrar/filmes.php',
+    'cadastrar_categorias' => 'backend/cadastrar/categorias.php',
+    'cadastrar_usuarios' => 'backend/cadastrar/usuarios.php',
+
+    // rotas de edição
+    'editar_filmes' => 'backend/editar/filmes.php',
+    'editar_categorias' => 'backend/editar/categorias.php',
+    'editar_usuarios' => 'backend/editar/usuarios.php',
+    'atualizar_perfil' => 'backend/editar/perfil.php',
+
+    // rotas de deletar
+    'deletar_filmes' => 'backend/deletar/filmes.php',
+    'deletar_categorias' => 'backend/deletar/categorias.php',
+    'deletar_usuarios' => 'backend/deletar/usuarios.php',
+
+    // rotas especificas
+    'filme_destaque' => 'backend/editar/filme_destaque.php',
+    'info' => 'pages/info.php',
+    'assistir' => 'pages/assistir.php',
+    'toggle_minha_lista' => 'backend/minha_lista/toggle.php',
+];
+
+if (array_key_exists($url, $routes)) {
+    require $routes[$url];
+    exit;
+}
+
+http_response_code(404);
+echo "Página não encontrada!";

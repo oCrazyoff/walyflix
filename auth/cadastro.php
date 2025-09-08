@@ -4,7 +4,7 @@ $n_valida = true;
 include("includes/inicio.php");
 ?>
     <div class="container-form">
-        <form action="../backend/auth/cadastro.php" method="POST">
+        <form action="fazer_cadastro" method="POST">
             <h1 class="logo">Waly<span>Flix</span></h1>
             <h2 class="text-2xl font-bold mt-5">Criar conta</h2>
             <p class="text-white/70">Junte-se ao WalyFlix gratuitamente</p>

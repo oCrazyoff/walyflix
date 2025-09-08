@@ -1,8 +1,7 @@
 <?php
 session_start();
 require_once("funcoes.php");
-require_once("../funcoes/geral.php");
-require_once("../conexao.php");
+require __DIR__ . '/../conexao.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = trim(strip_tags($_POST['email']));
