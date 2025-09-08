@@ -1,51 +1,63 @@
 <?php
 require __DIR__ . '/../valida.php';
-header("Content-type: application/json");
+header('Content-Type: application/json; charset=utf-8');
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Número inteiro
+try {
+    $usuario_id = $_SESSION['id'] ?? null;
     $filme_id = filter_input(INPUT_POST, 'filme_id', FILTER_VALIDATE_INT);
-    $usuario_id = $_SESSION['id'];
 
-    // Verificar token CSRF
-    $csrf = trim(strip_tags($_POST["csrf"]));
-    if (validarCSRF($csrf) == false) {
-        $_SESSION['resposta'] = "Token Inválido";
-        header("Location: " . BASE_URL . "filmes");
-        exit;
+    if (!$usuario_id || !$filme_id) {
+        throw new Exception("Dados inválidos");
     }
 
-    try {
-        // verificando se existe na lista
-        $sql = "SELECT id FROM minha_lista WHERE filme_id = ? AND usuario_id = ?";
+    // Verifica se já existe
+    $sql = "SELECT 1 FROM minha_lista WHERE usuario_id = ? AND filme_id = ?";
+    $stmt = $conexao->prepare($sql);
+    $stmt->bind_param("ii", $usuario_id, $filme_id);
+    $stmt->execute();
+    $res = $stmt->get_result();
+    $exists = $res->num_rows > 0;
+    $stmt->close();
+
+    if ($exists) {
+        // Remover da lista
+        $sql = "DELETE FROM minha_lista WHERE usuario_id = ? AND filme_id = ?";
         $stmt = $conexao->prepare($sql);
-        $stmt->bind_param("ii", $filme_id, $usuario_id);
+        $stmt->bind_param("ii", $usuario_id, $filme_id);
         $stmt->execute();
-        $resultado = $stmt->get_result();
-        $resultado = $resultado->fetch_assoc();
         $stmt->close();
 
-        if ($resultado) {
-            // existe então - remover
-            $deletar = $conexao->prepare("DELETE FROM minha_lista WHERE id = ?");
-            $deletar->bind_param("i", $resultado['id']);
-            $deletar->execute();
-            $deletar->close();
-            echo json_encode(['sucesso' => true, 'acao' => 'removido']);
-        } else {
-            // não existe então - adicionar
-            $inserir = $conexao->prepare("INSERT INTO minha_lista (filme_id, usuario_id) VALUES (?, ?)");
-            $inserir->bind_param("ii", $filme_id, $usuario_id);
-            $inserir->execute();
-            $inserir->close();
-            echo json_encode(['sucesso' => true, 'acao' => 'adicionado']);
-        }
-    } catch (Exception $erro) {
-        registrarErro($_SESSION['id'], "Erro ao adicionar a minha lista!", $erro);
-        echo json_encode(['sucesso' => false]);
+        // Pegar a nova contagem de filmes do usuário
+        $sql = "SELECT COUNT(*) AS total FROM minha_lista WHERE usuario_id = ?";
+        $stmt = $conexao->prepare($sql);
+        $stmt->bind_param("i", $usuario_id);
+        $stmt->execute();
+        $stmt->bind_result($total);
+        $stmt->fetch();
+        $stmt->close();
+
+        echo json_encode([
+            'sucesso' => true,
+            'acao' => 'removido',
+            'nova_contagem' => (int)$total
+        ], JSON_UNESCAPED_UNICODE);
+
+    } else {
+        // Adicionar na lista
+        $sql = "INSERT INTO minha_lista (usuario_id, filme_id) VALUES (?, ?)";
+        $stmt = $conexao->prepare($sql);
+        $stmt->bind_param("ii", $usuario_id, $filme_id);
+        $stmt->execute();
+        $stmt->close();
+
+        echo json_encode([
+            'sucesso' => true,
+            'acao' => 'adicionado'
+        ], JSON_UNESCAPED_UNICODE);
     }
+
+} catch (Exception $e) {
+    registrarErro($_SESSION['id'] ?? 0, "Erro toggle_minha_lista", $e);
+    echo json_encode(['sucesso' => false, 'erro' => 'Ocorreu um erro interno.']);
     exit;
 }
-
-echo json_encode(['sucesso' => false, 'erro' => 'Método inválido']);
-exit;

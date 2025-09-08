@@ -19,16 +19,21 @@ document.querySelectorAll("form.form-minha-lista").forEach(form => {
             if (resultado.acao === "adicionado") {
                 btn.classList.remove("bi-plus-lg");
                 btn.classList.add("bi-check2");
+
             } else if (resultado.acao === "removido") {
                 btn.classList.add("bi-plus-lg");
                 btn.classList.remove("bi-check2");
 
-                // remover o card do filme e diminui a contagem de filmes
+                // remover o card
                 form.closest("a").remove();
-                num_filmes.textContent = parseInt(num_filmes.textContent, 10) - 1;
 
-                if (parseInt(num_filmes.textContent, 10) === 0) {
-                    location.reload();
+                // atualizar a contagem com o valor vindo do backend
+                if (resultado.hasOwnProperty("nova_contagem")) {
+                    num_filmes.textContent = resultado.nova_contagem;
+
+                    if (resultado.nova_contagem === 0) {
+                        location.reload();
+                    }
                 }
             }
         } else {

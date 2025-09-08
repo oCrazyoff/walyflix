@@ -25,7 +25,7 @@ include __DIR__ . "/../includes/inicio.php";
             <h3 id="txt-resultados"></h3>
             <p id="qtd-resultados" class="text-branco-texto-opaco"></p>
         </div>
-        <div id="resultados" class="flex flex-wrap gap-3 mt-5"></div>
+        <div id="resultados" class="grid grid-cols-2 lg:flex lg:flex-wrap gap-3 mt-5"></div>
     </div>
 </main>
 <script>

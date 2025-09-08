@@ -2,7 +2,7 @@
 $n_valida = true;
 include("includes/inicio.php");
 ?>
-    <header class="sticky top-0 left-0 h-[5rem] py-5">
+    <header class="sticky top-0 left-0 h-[5rem] py-5 bg-preto/50 backdrop-blur-xl">
         <div class="interface flex justify-between w-full">
             <h1 class="logo">Waly<span>Flix</span></h1>
             <div class="flex gap-5">
@@ -12,7 +12,8 @@ include("includes/inicio.php");
             </div>
         </div>
     </header>
-    <section class="flex items-center justify-center text-center h-auto lg:h-[calc(100dvh-5rem)]">
+    <section
+            class="flex items-center justify-center text-center h-auto lg:h-[calc(100dvh-5rem)]">
         <div class="interface flex flex-col gap-5 items-center justify-center">
             <h2 class="text-5xl lg:text-6xl font-bold">Filmes e séries ilimitados</h2>
             <p class="text-3xl text-white/70">
@@ -55,15 +56,18 @@ include("includes/inicio.php");
             <p class="text-branco-texto-opaco text-xl text-center">Junte-se a milhões de pessoas que já descobriram uma
                 nova forma de assistir filmes e séries.</p>
             <div class="flex items-center justify-center gap-5">
-                <a class="rounded-lg px-5 lg:px-10 py-3 text-xl bg-azul hover:bg-azul-hover" href="cadastro">Criar Conta</a>
-                <a class="rounded-lg px-5 lg:px-10 py-3 text-xl border border-borda hover:bg-cinza-claro" href="login">Já tenho
+                <a class="rounded-lg px-5 lg:px-10 py-3 text-xl bg-azul hover:bg-azul-hover" href="cadastro">Criar
+                    Conta</a>
+                <a class="rounded-lg px-5 lg:px-10 py-3 text-xl border border-borda hover:bg-cinza-claro" href="login">Já
+                    tenho
                     conta</a>
             </div>
         </div>
     </section>
     <footer class="py-5">
         <div class="interface flex flex-col gap-3 items-center justify-center">
-            <p>© <span id="ano-atual"></span> <a class="border-b hover:text-azul" href="https://www.walysson.com.br/">Walysson</a>. Todos os direitos
+            <p>© <span id="ano-atual"></span> <a class="border-b hover:text-azul" href="https://www.walysson.com.br/">Walysson</a>.
+                Todos os direitos
                 reservados.</p>
         </div>
     </footer>
