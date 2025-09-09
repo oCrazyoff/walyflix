@@ -1822,6 +1822,16 @@
     translate: var(--tw-translate-x) var(--tw-translate-y);
     rotate: 0deg;
   }
+  #player:fullscreen {
+    height: 100%;
+    width: 100%;
+    --tw-translate-x: calc(var(--spacing) * 0);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+    --tw-translate-y: calc(var(--spacing) * 0);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+    rotate: 0deg;
+    object-fit: contain;
+  }
 }
 @layer base {
   * {
