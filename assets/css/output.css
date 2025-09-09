@@ -1822,15 +1822,19 @@
     translate: var(--tw-translate-x) var(--tw-translate-y);
     rotate: 0deg;
   }
-  #player:fullscreen {
-    height: 100%;
-    width: 100%;
-    --tw-translate-x: calc(var(--spacing) * 0);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-    --tw-translate-y: calc(var(--spacing) * 0);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-    rotate: 0deg;
-    object-fit: contain;
+  .plyr:fullscreen {
+    position: relative !important;
+    top: calc(var(--spacing) * 0) !important;
+    left: calc(var(--spacing) * 0) !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    --tw-translate-x: calc(var(--spacing) * 0) !important;
+    translate: var(--tw-translate-x) var(--tw-translate-y) !important;
+    --tw-translate-y: calc(var(--spacing) * 0) !important;
+    translate: var(--tw-translate-x) var(--tw-translate-y) !important;
+    rotate: 0deg !important;
   }
 }
 @layer base {
