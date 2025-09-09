@@ -393,9 +393,6 @@
   .\!w-max {
     width: max-content !important;
   }
-  .w-1\/2 {
-    width: calc(1/2 * 100%);
-  }
   .w-12 {
     width: calc(var(--spacing) * 12);
   }
@@ -920,11 +917,6 @@
       width: 20rem;
     }
   }
-  .lg\:w-full {
-    @media (width >= 64rem) {
-      width: 100%;
-    }
-  }
   .lg\:w-max {
     @media (width >= 64rem) {
       width: max-content;
@@ -950,9 +942,19 @@
       flex-wrap: wrap;
     }
   }
+  .lg\:items-center {
+    @media (width >= 64rem) {
+      align-items: center;
+    }
+  }
   .lg\:justify-between {
     @media (width >= 64rem) {
       justify-content: space-between;
+    }
+  }
+  .lg\:justify-center {
+    @media (width >= 64rem) {
+      justify-content: center;
     }
   }
   .lg\:p-4 {
@@ -1756,42 +1758,69 @@
   }
 }
 @layer components {
-  .assistir-filme {
+  .player-container-custom .plyr {
     position: absolute;
     top: calc(1/2 * 100%);
     left: calc(1/2 * 100%);
-    height: 100vw;
+    height: 100dvw;
     max-height: none;
     width: 100dvh;
     max-width: none;
-    transform-origin: center;
     --tw-translate-x: calc(calc(1/2 * 100%) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
     --tw-translate-y: calc(calc(1/2 * 100%) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
     rotate: 90deg;
-    object-fit: contain;
     @media (width >= 64rem) {
-      height: 100dvh;
+      position: relative;
     }
     @media (width >= 64rem) {
-      width: 100dvw;
+      top: auto;
+    }
+    @media (width >= 64rem) {
+      left: auto;
+    }
+    @media (width >= 64rem) {
+      height: 100%;
+    }
+    @media (width >= 64rem) {
+      width: 100%;
+    }
+    @media (width >= 64rem) {
+      --tw-translate-x: calc(var(--spacing) * 0);
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+    @media (width >= 64rem) {
+      --tw-translate-y: calc(var(--spacing) * 0);
+      translate: var(--tw-translate-x) var(--tw-translate-y);
     }
     @media (width >= 64rem) {
       rotate: 0deg;
     }
   }
-}
-@layer utilities {
-  .assistir-filme:fullscreen {
+  .player-container-custom video {
     height: 100%;
     width: 100%;
+    object-fit: contain;
+  }
+  .plyr {
+    max-width: none !important;
+  }
+}
+@layer utilities {
+  .player-container-custom .plyr--fullscreen-active {
+    position: relative;
+    top: calc(var(--spacing) * 0);
+    left: calc(var(--spacing) * 0);
+    height: 100%;
+    max-height: 100%;
+    width: 100%;
+    max-width: 100%;
     --tw-translate-x: calc(var(--spacing) * 0);
     translate: var(--tw-translate-x) var(--tw-translate-y);
     --tw-translate-y: calc(var(--spacing) * 0);
     translate: var(--tw-translate-x) var(--tw-translate-y);
     rotate: 0deg;
-    object-fit: contain;
   }
 }
 @layer base {
