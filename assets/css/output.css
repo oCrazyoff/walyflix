@@ -354,8 +354,8 @@
   .h-50 {
     height: calc(var(--spacing) * 50);
   }
-  .h-96 {
-    height: calc(var(--spacing) * 96);
+  .h-75 {
+    height: calc(var(--spacing) * 75);
   }
   .h-\[4\.5rem\] {
     height: 4.5rem;
@@ -675,9 +675,6 @@
   .text-center {
     text-align: center;
   }
-  .text-justify {
-    text-align: justify;
-  }
   .text-2xl {
     font-size: var(--text-2xl);
     line-height: var(--tw-leading, var(--text-2xl--line-height));
@@ -686,10 +683,6 @@
     font-size: var(--text-3xl);
     line-height: var(--tw-leading, var(--text-3xl--line-height));
   }
-  .text-4xl {
-    font-size: var(--text-4xl);
-    line-height: var(--tw-leading, var(--text-4xl--line-height));
-  }
   .text-5xl {
     font-size: var(--text-5xl);
     line-height: var(--tw-leading, var(--text-5xl--line-height));
@@ -697,6 +690,10 @@
   .text-6xl {
     font-size: var(--text-6xl);
     line-height: var(--tw-leading, var(--text-6xl--line-height));
+  }
+  .text-base {
+    font-size: var(--text-base);
+    line-height: var(--tw-leading, var(--text-base--line-height));
   }
   .text-lg {
     font-size: var(--text-lg);
@@ -872,6 +869,11 @@
       display: none;
     }
   }
+  .lg\:h-80 {
+    @media (width >= 64rem) {
+      height: calc(var(--spacing) * 80);
+    }
+  }
   .lg\:h-\[5rem\] {
     @media (width >= 64rem) {
       height: 5rem;
@@ -942,19 +944,19 @@
       flex-wrap: wrap;
     }
   }
-  .lg\:items-center {
-    @media (width >= 64rem) {
-      align-items: center;
-    }
-  }
   .lg\:justify-between {
     @media (width >= 64rem) {
       justify-content: space-between;
     }
   }
-  .lg\:justify-center {
+  .lg\:gap-5 {
     @media (width >= 64rem) {
-      justify-content: center;
+      gap: calc(var(--spacing) * 5);
+    }
+  }
+  .lg\:p-3 {
+    @media (width >= 64rem) {
+      padding: calc(var(--spacing) * 3);
     }
   }
   .lg\:p-4 {
@@ -985,11 +987,6 @@
   .lg\:pb-0 {
     @media (width >= 64rem) {
       padding-bottom: calc(var(--spacing) * 0);
-    }
-  }
-  .lg\:text-center {
-    @media (width >= 64rem) {
-      text-align: center;
     }
   }
   .lg\:text-2xl {
@@ -1758,83 +1755,42 @@
   }
 }
 @layer components {
-  .player-container-custom .plyr {
+  .assistir-filme {
     position: absolute;
     top: calc(1/2 * 100%);
     left: calc(1/2 * 100%);
-    height: 100dvw;
+    height: 100vw;
     max-height: none;
     width: 100dvh;
     max-width: none;
+    transform-origin: center;
     --tw-translate-x: calc(calc(1/2 * 100%) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
     --tw-translate-y: calc(calc(1/2 * 100%) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
     rotate: 90deg;
+    object-fit: contain;
     @media (width >= 64rem) {
-      position: relative;
+      height: 100dvh;
     }
     @media (width >= 64rem) {
-      top: auto;
-    }
-    @media (width >= 64rem) {
-      left: auto;
-    }
-    @media (width >= 64rem) {
-      height: 100%;
-    }
-    @media (width >= 64rem) {
-      width: 100%;
-    }
-    @media (width >= 64rem) {
-      --tw-translate-x: calc(var(--spacing) * 0);
-      translate: var(--tw-translate-x) var(--tw-translate-y);
-    }
-    @media (width >= 64rem) {
-      --tw-translate-y: calc(var(--spacing) * 0);
-      translate: var(--tw-translate-x) var(--tw-translate-y);
+      width: 100dvw;
     }
     @media (width >= 64rem) {
       rotate: 0deg;
     }
   }
-  .player-container-custom video {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-  }
-  .plyr {
-    max-width: none !important;
-  }
 }
 @layer utilities {
-  .player-container-custom .plyr--fullscreen-active {
-    position: relative;
-    top: calc(var(--spacing) * 0);
-    left: calc(var(--spacing) * 0);
+  .assistir-filme:fullscreen {
     height: 100%;
-    max-height: 100%;
     width: 100%;
-    max-width: 100%;
     --tw-translate-x: calc(var(--spacing) * 0);
     translate: var(--tw-translate-x) var(--tw-translate-y);
     --tw-translate-y: calc(var(--spacing) * 0);
     translate: var(--tw-translate-x) var(--tw-translate-y);
     rotate: 0deg;
-  }
-  .plyr:fullscreen {
-    position: relative !important;
-    top: calc(var(--spacing) * 0) !important;
-    left: calc(var(--spacing) * 0) !important;
-    height: 100% !important;
-    max-height: 100% !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    --tw-translate-x: calc(var(--spacing) * 0) !important;
-    translate: var(--tw-translate-x) var(--tw-translate-y) !important;
-    --tw-translate-y: calc(var(--spacing) * 0) !important;
-    translate: var(--tw-translate-x) var(--tw-translate-y) !important;
-    rotate: 0deg !important;
+    object-fit: contain;
   }
 }
 @layer base {

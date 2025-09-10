@@ -14,18 +14,20 @@ include("includes/inicio.php");
     </header>
     <section
             class="flex items-center justify-center text-center h-auto lg:h-[calc(100dvh-5rem)]">
-        <div class="interface flex flex-col gap-5 items-center justify-center">
+        <div class="interface flex flex-col gap-3 lg:gap-5 items-center justify-center">
             <h2 class="text-3xl lg:text-6xl font-bold">Filmes e séries ilimitados</h2>
-            <p class="text-xl lg:text-3xl text-white/70">
+            <p class="text-lg lg:text-3xl text-white/70">
                 Assista onde quiser. Cancele quando quiser.
             </p>
-            <p class="text-justify lg:text-center lg:text-2xl text-white/70">
+            <p class="text-center text-base lg:text-2xl text-white/70">
                 Pronto para assistir? Informe seu email para criar ou reiniciar sua assinatura.
             </p>
             <a href="cadastro"
-               class="flex items-center justify-center gap-2 rounded-lg p-3 lg:p-4 text-2xl w-full lg:w-1/2 bg-azul hover:bg-azul-hover"><i
-                        class="bi bi-play"></i> Começar Agora</a>
-            <img class="h-96 rounded-lg" src="<?= BASE_URL . "assets/img/capa_landing.png" ?>"
+               class="flex items-center justify-center gap-2 rounded-lg p-2 lg:p-3 lg:p-4 text-xl lg:text-2xl w-full lg:w-1/2
+               bg-azul hover:bg-azul-hover">
+                <i class="bi bi-play"></i> Começar Agora
+            </a>
+            <img class="h-75 lg:h-80 rounded-lg" src="<?= BASE_URL . "assets/img/capa_landing.png" ?>"
                  alt="Capas variadas de filmes">
         </div>
     </section>
@@ -35,25 +37,25 @@ include("includes/inicio.php");
                 <article>
                     <i class="bi bi-play"></i>
                     <h2>Assista em qualquer lugar</h2>
-                    <p>Transmita filmes e programas de TV ilimitados no seu telefone, tablet, laptop e TV.</p>
+                    <p>Transmita filmes ilimitados no seu telefone, tablet e laptop.</p>
                 </article>
                 <article>
                     <i class="bi bi-bookmark"></i>
                     <h2>Crie sua lista</h2>
-                    <p>Salve seus filmes e séries favoritos para assistir depois. Conteúdo premium</p>
+                    <p>Salve seus filmes favoritos para assistir depois. Conteúdo premium</p>
                 </article>
                 <article>
                     <i class="bi bi-star"></i>
                     <h2>Conteúdo premium</h2>
-                    <p>Acesse milhares de filmes e séries em alta qualidade.</p>
+                    <p>Acesse milhares de filmes selecionados em alta qualidade.</p>
                 </article>
             </div>
         </div>
     </section>
     <section class="py-10 border-y border-borda bg-cinza text-center">
         <div class="interface flex flex-col gap-5 items-center justify-center">
-            <h2 class="text-4xl font-bold">Pronto para começar?</h2>
-            <p class="text-branco-texto-opaco text-xl text-center">Junte-se a milhões de pessoas que já descobriram uma
+            <h2 class="text-3xl lg:text-4xl font-bold">Pronto para começar?</h2>
+            <p class="text-branco-texto-opaco text-lg lg:text-xl text-center">Junte-se a milhões de pessoas que já descobriram uma
                 nova forma de assistir filmes e séries.</p>
             <div class="flex items-center justify-center gap-5">
                 <a class="rounded-lg px-5 lg:px-10 py-3 text-xl bg-azul hover:bg-azul-hover" href="cadastro">Criar
@@ -64,7 +66,7 @@ include("includes/inicio.php");
             </div>
         </div>
     </section>
-    <footer class="py-5">
+    <footer class="bg-black py-5">
         <div class="interface flex flex-col gap-3 items-center justify-center">
             <p>© <span id="ano-atual"></span> <a class="border-b hover:text-azul" href="https://www.walysson.com.br/">Walysson</a>.
                 Todos os direitos
