@@ -426,9 +426,6 @@
   .w-\[80\%\] {
     width: 80%;
   }
-  .w-\[85\%\] {
-    width: 85%;
-  }
   .w-\[90\%\] {
     width: 90%;
   }
@@ -1397,12 +1394,9 @@
 @layer components {
   .section-destaque {
     position: relative;
-    height: 70dvh;
+    height: 75dvh;
     width: 100%;
     overflow: hidden;
-    @media (width >= 64rem) {
-      height: 80dvh;
-    }
     & .container-info-destaque {
       position: absolute;
       bottom: calc(var(--spacing) * 20);
@@ -1411,7 +1405,7 @@
       display: flex;
       width: 100%;
       flex-direction: column;
-      gap: calc(var(--spacing) * 5);
+      gap: calc(var(--spacing) * 3);
       padding-inline: calc(var(--spacing) * 5);
       @media (width >= 64rem) {
         width: calc(3/5 * 100%);
@@ -1474,20 +1468,21 @@
       }
       .container-btn-destaque {
         display: flex;
-        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         gap: calc(var(--spacing) * 3);
         @media (width >= 64rem) {
-          flex-direction: row;
+          justify-content: flex-start;
         }
         & .btn-assistir {
           display: flex;
-          width: 100%;
+          width: calc(1/2 * 100%);
           align-items: center;
           justify-content: center;
           gap: calc(var(--spacing) * 2);
           border-radius: var(--radius-lg);
           background-color: var(--color-white);
-          padding-inline: calc(var(--spacing) * 15);
+          padding-inline: calc(var(--spacing) * 5);
           padding-block: calc(var(--spacing) * 1);
           font-size: var(--text-2xl);
           line-height: var(--tw-leading, var(--text-2xl--line-height));
@@ -1506,9 +1501,8 @@
           @media (width >= 64rem) {
             width: auto;
           }
-          & i {
-            font-size: var(--text-3xl);
-            line-height: var(--tw-leading, var(--text-3xl--line-height));
+          @media (width >= 64rem) {
+            padding-inline: calc(var(--spacing) * 15);
           }
         }
         & .btn-minha-lista {
@@ -1526,8 +1520,8 @@
           @supports (color: color-mix(in lab, red, red)) {
             background-color: color-mix(in oklab, var(--color-cinza-claro) 70%, transparent);
           }
-          font-size: var(--text-4xl);
-          line-height: var(--tw-leading, var(--text-4xl--line-height));
+          font-size: var(--text-3xl);
+          line-height: var(--tw-leading, var(--text-3xl--line-height));
           &:hover {
             @media (hover: hover) {
               border-color: var(--color-white);
@@ -1542,53 +1536,50 @@
             }
           }
           @media (width >= 64rem) {
-            height: calc(var(--spacing) * 14);
+            height: calc(var(--spacing) * 12);
           }
           @media (width >= 64rem) {
-            width: calc(var(--spacing) * 14);
+            width: calc(var(--spacing) * 12);
           }
         }
-        & .btn-minha-lista-info {
-          display: flex;
-          width: 100%;
-          cursor: pointer;
-          align-items: center;
-          justify-content: center;
-          gap: calc(var(--spacing) * 2);
-          border-radius: var(--radius-lg);
-          border-style: var(--tw-border-style);
-          border-width: 3px;
-          border-color: var(--color-borda);
-          background-color: color-mix(in srgb, #2B2B2B 70%, transparent);
-          @supports (color: color-mix(in lab, red, red)) {
-            background-color: color-mix(in oklab, var(--color-cinza-claro) 70%, transparent);
-          }
-          padding-inline: calc(var(--spacing) * 3);
-          padding-block: calc(var(--spacing) * 1);
-          &:hover {
-            @media (hover: hover) {
-              border-color: var(--color-white);
+        & .form-minha-lista-info {
+          width: calc(1/2 * 100%);
+          & .btn-minha-lista-info {
+            display: flex;
+            width: 100%;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            gap: calc(var(--spacing) * 2);
+            border-radius: var(--radius-lg);
+            border-style: var(--tw-border-style);
+            border-width: 3px;
+            border-color: var(--color-borda);
+            background-color: color-mix(in srgb, #2B2B2B 70%, transparent);
+            @supports (color: color-mix(in lab, red, red)) {
+              background-color: color-mix(in oklab, var(--color-cinza-claro) 70%, transparent);
             }
-          }
-          &:hover {
-            @media (hover: hover) {
-              background-color: color-mix(in srgb, #2B2B2B 40%, transparent);
-              @supports (color: color-mix(in lab, red, red)) {
-                background-color: color-mix(in oklab, var(--color-cinza-claro) 40%, transparent);
+            padding-inline: calc(var(--spacing) * 3);
+            padding-block: calc(var(--spacing) * 1);
+            font-size: var(--text-xl);
+            line-height: var(--tw-leading, var(--text-xl--line-height));
+            color: var(--color-branco-texto-opaco);
+            &:hover {
+              @media (hover: hover) {
+                border-color: var(--color-white);
               }
             }
-          }
-          @media (width >= 64rem) {
-            width: max-content;
-          }
-          & i {
-            font-size: var(--text-3xl);
-            line-height: var(--tw-leading, var(--text-3xl--line-height));
-          }
-          & p {
-            font-size: var(--text-2xl);
-            line-height: var(--tw-leading, var(--text-2xl--line-height));
-            color: var(--color-branco-texto-opaco);
+            &:hover {
+              @media (hover: hover) {
+                background-color: color-mix(in srgb, #2B2B2B 40%, transparent);
+                @supports (color: color-mix(in lab, red, red)) {
+                  background-color: color-mix(in oklab, var(--color-cinza-claro) 40%, transparent);
+                }
+              }
+            }
+            @media (width >= 64rem) {
+              width: max-content;
+            }
           }
         }
       }

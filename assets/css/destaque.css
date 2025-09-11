@@ -1,9 +1,9 @@
 @layer components {
     .section-destaque {
-        @apply relative w-full h-[70dvh] lg:h-[80dvh] overflow-hidden;
+        @apply relative w-full h-[75dvh] overflow-hidden;
 
         & .container-info-destaque {
-            @apply flex flex-col gap-5 absolute bottom-20 px-5 lg:px-20 left-0 w-full lg:w-3/5 z-500;
+            @apply flex flex-col gap-3 absolute bottom-20 px-5 lg:px-20 left-0 w-full lg:w-3/5 z-500;
 
             & .titulo-destaque {
                 @apply text-center lg:text-left text-4xl lg:text-6xl font-bold text-shadow-lg/30;
@@ -26,32 +26,25 @@
             }
 
             .container-btn-destaque {
-                @apply flex flex-col lg:flex-row gap-3;
+                @apply flex items-center justify-center lg:justify-start gap-3;
 
                 & .btn-assistir {
-                    @apply flex items-center justify-center px-15 py-1 gap-2 rounded-lg w-full lg:w-50 lg:w-auto text-2xl bg-white
+                    @apply flex items-center justify-center px-5 lg:px-15 py-1 gap-2 rounded-lg w-1/2 lg:w-50 lg:w-auto text-2xl bg-white
                     text-black hover:bg-white/80;
-
-                    & i {
-                        @apply text-3xl;
-                    }
                 }
 
                 & .btn-minha-lista {
-                    @apply flex items-center justify-center border-3 border-borda w-12 lg:w-14 h-12 lg:h-14 rounded-full
-                    bg-cinza-claro/70 text-4xl cursor-pointer hover:border-white hover:bg-cinza-claro/40;
+                    @apply flex items-center justify-center border-3 border-borda w-12 lg:w-12 h-12 lg:h-12 rounded-full
+                    bg-cinza-claro/70 text-3xl cursor-pointer hover:border-white hover:bg-cinza-claro/40;
                 }
 
-                & .btn-minha-lista-info {
-                    @apply flex items-center gap-2 justify-center border-3 border-borda w-full lg:w-max rounded-lg
-                    bg-cinza-claro/70 cursor-pointer px-3 py-1 hover:border-white hover:bg-cinza-claro/40;
+                & .form-minha-lista-info {
+                    @apply w-1/2;
 
-                    & i {
-                        @apply text-3xl;
-                    }
-
-                    & p {
-                        @apply text-2xl text-branco-texto-opaco;
+                    & .btn-minha-lista-info {
+                        @apply flex items-center gap-2 justify-center border-3 border-borda w-full lg:w-max rounded-lg
+                        bg-cinza-claro/70 cursor-pointer px-3 py-1 text-xl text-branco-texto-opaco hover:border-white
+                        hover:bg-cinza-claro/40;
                     }
                 }
             }
