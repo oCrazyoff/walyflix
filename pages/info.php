@@ -85,12 +85,13 @@ include __DIR__ . "/../includes/inicio.php";
                         <input type="hidden" name="filme_id" id="filme_id"
                                value="<?= htmlspecialchars($filme_id) ?>">
                         <button type="submit"
-                                class="btn-minha-lista">
+                                class="btn-minha-lista-info">
                             <?php if ($resultado_lista->num_rows > 0): ?>
                                 <i class="bi bi-check2"></i>
                             <?php else: ?>
                                 <i class="bi bi-plus-lg"></i>
                             <?php endif; ?>
+                            <p>Minha Lista</p>
                         </button>
                     </form>
                 </div>

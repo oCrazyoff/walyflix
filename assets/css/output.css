@@ -11,7 +11,6 @@
     --color-red-600: oklch(57.7% 0.245 27.325);
     --color-red-700: oklch(50.5% 0.213 27.518);
     --color-amber-500: oklch(76.9% 0.188 70.08);
-    --color-blue-500: oklch(62.3% 0.214 259.815);
     --color-purple-700: oklch(49.6% 0.265 301.924);
     --color-gray-300: oklch(87.2% 0.01 258.338);
     --color-black: #000;
@@ -424,6 +423,12 @@
   .w-\[10rem\] {
     width: 10rem;
   }
+  .w-\[80\%\] {
+    width: 80%;
+  }
+  .w-\[85\%\] {
+    width: 85%;
+  }
   .w-\[90\%\] {
     width: 90%;
   }
@@ -471,6 +476,9 @@
   }
   .flex-col {
     flex-direction: column;
+  }
+  .flex-row {
+    flex-direction: row;
   }
   .items-center {
     align-items: center;
@@ -560,9 +568,6 @@
   }
   .border-t-azul {
     border-top-color: var(--color-azul);
-  }
-  .border-t-blue-500 {
-    border-top-color: var(--color-blue-500);
   }
   .bg-azul {
     background-color: var(--color-azul);
@@ -949,6 +954,11 @@
   .lg\:w-\[20rem\] {
     @media (width >= 64rem) {
       width: 20rem;
+    }
+  }
+  .lg\:w-auto {
+    @media (width >= 64rem) {
+      width: auto;
     }
   }
   .lg\:w-max {
@@ -1464,17 +1474,23 @@
       }
       .container-btn-destaque {
         display: flex;
+        flex-direction: column;
         gap: calc(var(--spacing) * 3);
+        @media (width >= 64rem) {
+          flex-direction: row;
+        }
         & .btn-assistir {
           display: flex;
           width: 100%;
           align-items: center;
           justify-content: center;
+          gap: calc(var(--spacing) * 2);
           border-radius: var(--radius-lg);
           background-color: var(--color-white);
           padding-inline: calc(var(--spacing) * 15);
-          font-size: var(--text-3xl);
-          line-height: var(--tw-leading, var(--text-3xl--line-height));
+          padding-block: calc(var(--spacing) * 1);
+          font-size: var(--text-2xl);
+          line-height: var(--tw-leading, var(--text-2xl--line-height));
           color: var(--color-black);
           &:hover {
             @media (hover: hover) {
@@ -1485,7 +1501,14 @@
             }
           }
           @media (width >= 64rem) {
+            width: calc(var(--spacing) * 50);
+          }
+          @media (width >= 64rem) {
             width: auto;
+          }
+          & i {
+            font-size: var(--text-3xl);
+            line-height: var(--tw-leading, var(--text-3xl--line-height));
           }
         }
         & .btn-minha-lista {
@@ -1523,6 +1546,49 @@
           }
           @media (width >= 64rem) {
             width: calc(var(--spacing) * 14);
+          }
+        }
+        & .btn-minha-lista-info {
+          display: flex;
+          width: 100%;
+          cursor: pointer;
+          align-items: center;
+          justify-content: center;
+          gap: calc(var(--spacing) * 2);
+          border-radius: var(--radius-lg);
+          border-style: var(--tw-border-style);
+          border-width: 3px;
+          border-color: var(--color-borda);
+          background-color: color-mix(in srgb, #2B2B2B 70%, transparent);
+          @supports (color: color-mix(in lab, red, red)) {
+            background-color: color-mix(in oklab, var(--color-cinza-claro) 70%, transparent);
+          }
+          padding-inline: calc(var(--spacing) * 3);
+          padding-block: calc(var(--spacing) * 1);
+          &:hover {
+            @media (hover: hover) {
+              border-color: var(--color-white);
+            }
+          }
+          &:hover {
+            @media (hover: hover) {
+              background-color: color-mix(in srgb, #2B2B2B 40%, transparent);
+              @supports (color: color-mix(in lab, red, red)) {
+                background-color: color-mix(in oklab, var(--color-cinza-claro) 40%, transparent);
+              }
+            }
+          }
+          @media (width >= 64rem) {
+            width: max-content;
+          }
+          & i {
+            font-size: var(--text-3xl);
+            line-height: var(--tw-leading, var(--text-3xl--line-height));
+          }
+          & p {
+            font-size: var(--text-2xl);
+            line-height: var(--tw-leading, var(--text-2xl--line-height));
+            color: var(--color-branco-texto-opaco);
           }
         }
       }

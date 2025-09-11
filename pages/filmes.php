@@ -61,8 +61,8 @@ if ($resultado->num_rows > 0) {
                     <span class="span-categoria-ano">•</span>
                     <?= htmlspecialchars($ano_destaque) ?>
                 </p>
-                <div class="container-btn-destaque">
-                    <a class="btn-assistir" href="assistir?filme=<?= htmlspecialchars($id_destaque) ?>"><i
+                <div class="container-btn-destaque flex-row">
+                    <a class="btn-assistir w-[80%] lg:w-auto" href="assistir?filme=<?= htmlspecialchars($id_destaque) ?>"><i
                                 class="bi bi-play-fill"></i> Assistir</a>
                     <?php
                     // verificando se o filme esta na lista ou não

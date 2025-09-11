@@ -20,22 +20,39 @@
             & p {
                 @apply flex items-center text-white justify-center gap-2 lg:block;
 
-                & .span-categoria-ano{
+                & .span-categoria-ano {
                     @apply text-azul;
                 }
             }
 
             .container-btn-destaque {
-                @apply flex gap-3;
+                @apply flex flex-col lg:flex-row gap-3;
 
                 & .btn-assistir {
-                    @apply flex items-center justify-center px-15 rounded-lg w-full lg:w-auto text-3xl bg-white
+                    @apply flex items-center justify-center px-15 py-1 gap-2 rounded-lg w-full lg:w-50 lg:w-auto text-2xl bg-white
                     text-black hover:bg-white/80;
+
+                    & i {
+                        @apply text-3xl;
+                    }
                 }
 
                 & .btn-minha-lista {
                     @apply flex items-center justify-center border-3 border-borda w-12 lg:w-14 h-12 lg:h-14 rounded-full
                     bg-cinza-claro/70 text-4xl cursor-pointer hover:border-white hover:bg-cinza-claro/40;
+                }
+
+                & .btn-minha-lista-info {
+                    @apply flex items-center gap-2 justify-center border-3 border-borda w-full lg:w-max rounded-lg
+                    bg-cinza-claro/70 cursor-pointer px-3 py-1 hover:border-white hover:bg-cinza-claro/40;
+
+                    & i {
+                        @apply text-3xl;
+                    }
+
+                    & p {
+                        @apply text-2xl text-branco-texto-opaco;
+                    }
                 }
             }
         }
