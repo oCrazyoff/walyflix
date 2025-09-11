@@ -3,26 +3,26 @@
         @apply relative w-full h-[70dvh] lg:h-[80dvh] overflow-hidden;
 
         & .container-info-destaque {
-            @apply flex flex-col gap-5 absolute top-2/5 lg:top-1/4 px-5 lg:px-20 left-0 w-full lg:w-3/5 z-500;
+            @apply flex flex-col gap-5 absolute bottom-20 px-5 lg:px-20 left-0 w-full lg:w-3/5 z-500;
 
             & .titulo-destaque {
                 @apply text-center lg:text-left text-4xl lg:text-6xl font-bold text-shadow-lg/30;
             }
 
             & .descricao-destaque {
-                @apply text-center lg:text-left text-white/80 text-lg lg:text-2xl text-shadow-lg/30;
+                @apply text-justify lg:text-left font-normal text-white/80 text-lg lg:text-2xl text-shadow-lg/30;
                 display: -webkit-box;
-                -webkit-line-clamp: 2;
+                -webkit-line-clamp: 3;
                 -webkit-box-orient: vertical;
                 overflow: hidden;
             }
 
             & p {
-                @apply flex items-center justify-center gap-2 hidden lg:block;
-            }
+                @apply flex items-center text-white justify-center gap-2 lg:block;
 
-            & .categoria-span {
-                @apply rounded-sm bg-white/20 border px-1;
+                & .span-categoria-ano{
+                    @apply text-azul;
+                }
             }
 
             .container-btn-destaque {

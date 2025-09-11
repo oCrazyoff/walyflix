@@ -56,9 +56,11 @@ if ($resultado->num_rows > 0) {
             </video>
             <div class="container-info-destaque">
                 <h2 class="titulo-destaque"><?= htmlspecialchars($titulo_destaque) ?></h2>
-                <p class="descricao-destaque"><?= htmlspecialchars($descricao_destaque) ?></p>
-                <p><span class="categoria-span"><?= htmlspecialchars($nome_categoria_destaque) ?></span>
-                    • <?= htmlspecialchars($ano_destaque) ?></p>
+                <p>
+                    <?= htmlspecialchars($nome_categoria_destaque) ?>
+                    <span class="span-categoria-ano">•</span>
+                    <?= htmlspecialchars($ano_destaque) ?>
+                </p>
                 <div class="container-btn-destaque">
                     <a class="btn-assistir" href="assistir?filme=<?= htmlspecialchars($id_destaque) ?>"><i
                                 class="bi bi-play-fill"></i> Assistir</a>

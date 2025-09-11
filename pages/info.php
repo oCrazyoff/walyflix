@@ -45,7 +45,7 @@ include __DIR__ . "/../includes/inicio.php";
     <?php
     // trocando a altura da section caso tenha recomendações
     if ($resultado_recomendacao->num_rows > 0) : ?>
-    <section class="section-destaque h-[60dvh] lg:h-[calc(90dvh-5rem)]">
+    <section class="section-destaque lg:h-[calc(90dvh-5rem)]">
         <?php else: ?>
         <section class="section-destaque h-[calc(100dvh-5rem)]">
             <?php endif; ?>
@@ -62,8 +62,11 @@ include __DIR__ . "/../includes/inicio.php";
             <div class="container-info-destaque">
                 <h2 class="titulo-destaque"><?= htmlspecialchars($titulo_filme) ?></h2>
                 <p class="descricao-destaque"><?= htmlspecialchars($descricao) ?></p>
-                <p><span class="categoria-span"><?= htmlspecialchars($nome_categoria) ?></span>
-                    • <?= htmlspecialchars($ano) ?></p>
+                <p>
+                    <?= htmlspecialchars($nome_categoria) ?>
+                    <span class="span-categoria-ano">•</span>
+                    <?= htmlspecialchars($ano) ?>
+                </p>
                 <div class="container-btn-destaque">
                     <a class="btn-assistir" href="assistir?filme=<?= htmlspecialchars($filme_id) ?>"><i
                                 class="bi bi-play-fill"></i> Assistir</a>
@@ -95,7 +98,7 @@ include __DIR__ . "/../includes/inicio.php";
             <div class="sombra-preto-destaque"></div>
         </section>
         <?php if ($resultado_recomendacao->num_rows > 0) : ?>
-            <section class="bg-black px-5 lg:px-20 pt-10 lg:pt-0 pb-15 lg:pb-0">
+            <section class="bg-black lg:px-5 lg:px-20 pt-0 pb-15 lg:pb-0">
                 <h2 class="w-full border-b font-bold text-2xl lg:text-3xl pb-2">Você também pode gostar</h2>
                 <div class="swiper w-full">
                     <div class="swiper-wrapper">
