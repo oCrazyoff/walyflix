@@ -26,10 +26,10 @@
             }
 
             .container-btn-destaque {
-                @apply flex items-center justify-center lg:justify-start gap-3;
+                @apply flex items-center justify-between lg:justify-start gap-3;
 
                 & .btn-assistir {
-                    @apply flex items-center justify-center px-5 lg:px-15 py-1 gap-2 rounded-lg w-1/2 lg:w-50 lg:w-auto text-2xl bg-white
+                    @apply flex items-center justify-center px-5 lg:px-15 py-1 lg:py-2 gap-2 rounded-lg w-1/2 lg:w-50 lg:w-auto text-2xl bg-white
                     text-black hover:bg-white/80;
                 }
 
@@ -43,7 +43,7 @@
 
                     & .btn-minha-lista-info {
                         @apply flex items-center gap-2 justify-center border-3 border-borda w-full lg:w-max rounded-lg
-                        bg-cinza-claro/70 cursor-pointer px-3 py-1 text-xl text-branco-texto-opaco hover:border-white
+                        bg-cinza-claro/70 cursor-pointer px-3 py-1 lg:py-2 text-xl text-branco-texto-opaco hover:border-white
                         hover:bg-cinza-claro/40;
                     }
                 }

@@ -9,15 +9,16 @@ include __DIR__ . "/../includes/inicio.php";
             <p class="text-branco-texto-opaco text-lg lg:text-xl">Encontre seus conteúdos favoritos</p>
         </div>
         <div class="flex items-center justify-center my-5 w-full">
-            <input class="w-full lg:w-2/3 border border-borda h-full p-3 text-xl rounded-lg ring-2 ring-azul" type="search"
+            <input class="w-full lg:w-2/3 border border-borda h-full p-3 text-xl rounded-lg ring-2 ring-azul"
+                   type="search"
                    name="buscar"
                    id="buscar"
                    placeholder="Buscar...">
         </div>
         <div id="placeholder-buscar" class="flex flex-col items-center jutifiy-center w-full">
-            <i class="bi bi-search text-6xl lg:text-7xl text-branco-texto-opaco mt-0 lg:mt-10"></i>
+            <i id="icone" class="bi bi-search text-6xl lg:text-7xl text-branco-texto-opaco mt-0 lg:mt-10"></i>
             <h3 class="text-3xl my-5">Comece a pesquisar</h3>
-            <p class="text-branco-texto-opaco text-xl text-center max-w-full lg:max-w-1/2">
+            <p id="subtitulo" class="text-branco-texto-opaco text-xl text-center max-w-full lg:max-w-1/2">
                 Digite o nome do filme, série ou categoria que você está procurando na barra de busca acima.
             </p>
         </div>
@@ -25,14 +26,14 @@ include __DIR__ . "/../includes/inicio.php";
             <h3 id="txt-resultados"></h3>
             <p id="qtd-resultados" class="text-branco-texto-opaco"></p>
         </div>
-        <div id="resultados" class="grid grid-cols-2 lg:flex lg:flex-wrap gap-3 mt-5"></div>
+        <div id="resultados" class="grid grid-cols-2 lg:grid-cols-5 wrap gap-3 mt-5"></div>
     </div>
 </main>
 <script>
     document.getElementById("buscar").addEventListener("input", function () {
         let query = this.value;
 
-        if (query.length > 2) { // só busca depois de 3 letras
+        if (query.length > 0) { // só busca depois de 3 letras
             fetch("procurar_filmes?q=" + encodeURIComponent(query))
                 .then(res => res.json())
                 .then(data => {
@@ -55,14 +56,20 @@ include __DIR__ . "/../includes/inicio.php";
 
                             container.innerHTML += `
                             <a class="p-1" href="info?filme=${filme.id}">
-                                <img class="ml-1 p-1 w-[10rem] h-[15rem] object-cover rounded-lg hover:ring-2"
+                                <img class="p-1 w-full h-[15rem] lg:h-[22rem] object-cover rounded-lg hover:ring-2"
                                      src="${imagem}"
                                      alt="Capa do filme ${filme.titulo}">
                             </a>
                         `;
                         });
                     } else {
-                        container.innerHTML = "<p>Nenhum resultado encontrado.</p>";
+                        placeholder.style.display = "flex";
+                        txt_resultado.innerHTML = "";
+                        qtd_resultado.innerHTML = "";
+                        document.getElementById("icone").classList.remove("bi-search");
+                        document.getElementById("icone").classList.add("bi-x-circle");
+                        document.querySelector("h3").textContent = "Nenhum resultado encontrado";
+                        document.getElementById("subtitulo").textContent = "Tente pesquisar com termos diferentes ou verifique a ortografia.";
                     }
                 });
         }

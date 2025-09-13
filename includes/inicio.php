@@ -21,11 +21,6 @@ if (isset($n_valida) && $n_valida == true) {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
         <link href="<?= BASE_URL ?>assets/css/output.css?v=<?= time() ?>" rel="stylesheet">
         <link rel="shortcut icon" href="<?= BASE_URL ?>assets/img/logo.png" type="image/x-icon">
-        <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
-
-        <!--SWIPER-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
         <!--CHART JS-->
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

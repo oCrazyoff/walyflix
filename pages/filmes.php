@@ -62,7 +62,8 @@ if ($resultado->num_rows > 0) {
                     <?= htmlspecialchars($ano_destaque) ?>
                 </p>
                 <div class="container-btn-destaque flex-row">
-                    <a class="btn-assistir w-[80%] lg:w-auto" href="assistir?filme=<?= htmlspecialchars($id_destaque) ?>"><i
+                    <a class="btn-assistir w-[80%] lg:w-auto"
+                       href="assistir?filme=<?= htmlspecialchars($id_destaque) ?>"><i
                                 class="bi bi-play-fill"></i> Assistir</a>
                     <?php
                     // verificando se o filme esta na lista ou não
@@ -113,33 +114,25 @@ if ($resultado->num_rows > 0) {
                 $stmt_filmes->close();
 
                 if ($resultado_filmes->num_rows > 0) : ?>
-                    <h3 class="mt-5 lg:mt-8 -mb-5 pl-2 text-2xl lg:text-3xl font-bold !z-500 text-white"><?= htmlspecialchars($row_categoria['nome']) ?></h3>
-                    <div class="swiper w-full">
-                        <div class="swiper-wrapper">
+                    <h3 class="mt-5 lg:mt-8 pl-2 text-2xl lg:text-3xl font-bold text-white"><?= htmlspecialchars($row_categoria['nome']) ?></h3>
+                    <div class="max-w-full overflow-auto">
+                        <div class="flex gap-1 lg:gap-3">
                             <?php while ($row_filmes = $resultado_filmes->fetch_assoc()) : ?>
-                                <div class="swiper-slide !w-max">
-                                    <a class="p-1" href="info?filme=<?= htmlspecialchars($row_filmes['id']) ?>">
-                                        <?php
-                                        // verificando se tem capa ou não
-                                        if (!empty($row_filmes['imagem_url'])): ?>
-                                            <img class="capa-filme"
-                                                 src="<?= htmlspecialchars($row_filmes['imagem_url']) ?>"
-                                                 alt="Capa do filme <?= htmlspecialchars($row_filmes['titulo']) ?>">
-                                        <?php else: ?>
-                                            <img class="ml-1 p-1 w-[9rem] h-[13rem] lg:w-[20rem] lg:h-[30rem] object-cover rounded-lg hover:ring-2"
-                                                 src="https://www.protrusmoto.com/wp-content/uploads/revslider/home5/placeholder-1200x500.png"
-                                                 alt="Filme sem capa">
-                                        <?php endif; ?>
-                                    </a>
-                                </div>
+                                <a class="p-1" href="info?filme=<?= htmlspecialchars($row_filmes['id']) ?>">
+                                    <?php
+                                    // verificando se tem capa ou não
+                                    if (!empty($row_filmes['imagem_url'])): ?>
+                                        <img class="capa-filme"
+                                             src="<?= htmlspecialchars($row_filmes['imagem_url']) ?>"
+                                             alt="Capa do filme <?= htmlspecialchars($row_filmes['titulo']) ?>">
+                                    <?php else: ?>
+                                        <img class="ml-1 p-1 w-[9rem] h-[13rem] lg:w-[20rem] lg:h-[30rem] object-cover rounded-lg hover:ring-2"
+                                             src="https://www.protrusmoto.com/wp-content/uploads/revslider/home5/placeholder-1200x500.png"
+                                             alt="Filme sem capa">
+                                    <?php endif; ?>
+                                </a>
                             <?php endwhile; ?>
                         </div>
-
-                        <!-- Botão anterior -->
-                        <div class="swiper-button-prev"></div>
-
-                        <!-- Botão próximo -->
-                        <div class="swiper-button-next"></div>
                     </div>
 
                 <?php endif; ?>

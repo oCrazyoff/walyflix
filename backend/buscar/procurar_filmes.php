@@ -7,7 +7,7 @@ try {
     $q = isset($_GET['q']) ? trim(strip_tags($_GET['q'])) : '';
 
 
-    if (!$q || mb_strlen($q) < 3) {
+    if (!$q || mb_strlen($q) < 0) {
         echo json_encode([]);
         exit;
     }
@@ -18,7 +18,7 @@ try {
     $sql = "SELECT id, imagem_url, titulo
         FROM filmes
         WHERE titulo LIKE ?
-        LIMIT 20";
+        LIMIT 10";
 
     $stmt = $conexao->prepare($sql);
     $stmt->bind_param("s", $busca);

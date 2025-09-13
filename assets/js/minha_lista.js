@@ -1,5 +1,5 @@
-// btn minha lista via fetch
-document.querySelectorAll("form.form-minha-lista").forEach(form => {
+// Seleciona todos os formulários possíveis (de detalhes ou da lista)
+document.querySelectorAll("form.form-minha-lista, form.form-minha-lista-info").forEach(form => {
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
@@ -21,16 +21,20 @@ document.querySelectorAll("form.form-minha-lista").forEach(form => {
                 btn.classList.add("bi-check2");
 
             } else if (resultado.acao === "removido") {
-                btn.classList.add("bi-plus-lg");
-                btn.classList.remove("bi-check2");
+                // Troca o ícone caso seja botão de adicionar/remover
+                if (btn) {
+                    btn.classList.add("bi-plus-lg");
+                    btn.classList.remove("bi-check2");
+                }
 
-                // remover o card
-                form.closest("a").remove();
+                // Se estiver na lista de filmes -> remove o card inteiro
+                form.closest("a")?.remove();
 
-                // atualizar a contagem com o valor vindo do backend
+                // Atualiza a contagem com valor do backend
                 if (resultado.hasOwnProperty("nova_contagem")) {
                     num_filmes.textContent = resultado.nova_contagem;
 
+                    // Se não restar nenhum filme, recarrega a página para exibir msg "lista vazia"
                     if (resultado.nova_contagem === 0) {
                         location.reload();
                     }
