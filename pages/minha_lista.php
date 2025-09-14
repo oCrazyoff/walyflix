@@ -87,5 +87,5 @@ $stmt_lista->close();
             <?php endif; ?>
         </div>
     </main>
-    <script src="<?= BASE_URL . "assets/js/minha_lista.js" ?>"></script>
+    <script src="<?= BASE_URL ?>assets/js/minha_lista.js?v=<?= time() ?>"></script>
 <?php include __DIR__ . "/../includes/final.php"; ?>

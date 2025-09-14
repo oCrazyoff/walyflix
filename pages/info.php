@@ -124,5 +124,5 @@ include __DIR__ . "/../includes/inicio.php";
             <script src="<?= BASE_URL . "assets/js/swiper.js" ?>"></script>
         <?php endif; ?>
 </main>
-<script src="<?= BASE_URL . "assets/js/minha_lista.js" ?>"></script>
+<script src="<?= BASE_URL ?>assets/js/minha_lista.js?v=<?= time() ?>"></script>
 <?php include __DIR__ . "/../includes/final.php"; ?>

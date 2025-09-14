@@ -17,7 +17,7 @@ include __DIR__ . "/../includes/inicio.php";
         </div>
         <div id="placeholder-buscar" class="flex flex-col items-center jutifiy-center w-full">
             <i id="icone" class="bi bi-search text-6xl lg:text-7xl text-branco-texto-opaco mt-0 lg:mt-10"></i>
-            <h3 class="text-3xl my-5">Comece a pesquisar</h3>
+            <h3 class="text-center text-3xl my-5">Comece a pesquisar</h3>
             <p id="subtitulo" class="text-branco-texto-opaco text-xl text-center max-w-full lg:max-w-1/2">
                 Digite o nome do filme, série ou categoria que você está procurando na barra de busca acima.
             </p>
