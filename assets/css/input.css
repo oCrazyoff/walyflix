@@ -130,6 +130,6 @@
     }
 
     .ativo {
-        @apply font-bold text-white border-b border-white p-0 lg:pb-1 hover:text-white;
+        @apply font-bold text-white border-b-2 border-white hover:text-white;
     }
 }

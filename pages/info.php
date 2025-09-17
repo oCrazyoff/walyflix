@@ -100,11 +100,13 @@ include __DIR__ . "/../includes/inicio.php";
         </section>
         <?php if ($resultado_recomendacao->num_rows > 0) : ?>
             <section class="bg-black lg:px-5 lg:px-20 pt-0 pb-15 lg:pb-0">
-                <h2 class="w-full border-b font-bold text-2xl lg:text-3xl pb-2">Você também pode gostar</h2>
-                <div class="max-w-full overflow-auto">
-                    <div class="flex py-5 gap-1 lg:gap-3">
+                <h2 class="w-full border-b font-bold text-2xl lg:text-3xl pb-2 mb-5">Você também pode gostar</h2>
+                <div class="filmes-container group">
+                    <button class="scroll-btn scroll-left hidden lg:block"><i class="bi bi-chevron-left"></i>
+                    </button>
+                    <div class="container-filmes">
                         <?php while ($row_filmes = $resultado_recomendacao->fetch_assoc()) : ?>
-                            <a class="p-1" href="info?filme=<?= htmlspecialchars($row_filmes['id']) ?>">
+                            <a class="p-1"   href="info?filme=<?= htmlspecialchars($row_filmes['id']) ?>">
                                 <?php
                                 // verificando se tem capa ou não
                                 if (!empty($row_filmes['imagem_url'])): ?>
@@ -119,10 +121,12 @@ include __DIR__ . "/../includes/inicio.php";
                             </a>
                         <?php endwhile; ?>
                     </div>
+                    <button class="scroll-btn scroll-right hidden lg:block"><i class="bi bi-chevron-right"></i>
+                    </button>
                 </div>
             </section>
-            <script src="<?= BASE_URL . "assets/js/swiper.js" ?>"></script>
         <?php endif; ?>
 </main>
+<script src="<?= BASE_URL . "assets/js/btn_carrossel.js" ?>"></script>
 <script src="<?= BASE_URL ?>assets/js/minha_lista.js?v=<?= time() ?>"></script>
 <?php include __DIR__ . "/../includes/final.php"; ?>

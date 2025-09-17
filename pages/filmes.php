@@ -103,7 +103,9 @@ if ($resultado->num_rows > 0) {
         $stmt->close();
 
         if ($resultado->num_rows > 0) :
+            $top10 = 0;
             while ($row_categoria = $resultado->fetch_assoc()) :
+                $top10++;
 
                 // puxando todos filmes da categoria
                 $sql = "SELECT id, titulo, imagem_url FROM filmes WHERE categoria_id = ?";
@@ -115,26 +117,72 @@ if ($resultado->num_rows > 0) {
 
                 if ($resultado_filmes->num_rows > 0) : ?>
                     <h3 class="mt-5 lg:mt-8 pl-2 text-2xl lg:text-3xl font-bold text-white"><?= htmlspecialchars($row_categoria['nome']) ?></h3>
-                    <div class="max-w-full overflow-auto">
-                        <div class="flex gap-1 lg:gap-3">
+                    <div class="filmes-container group">
+                        <button class="scroll-btn scroll-left hidden lg:block"><i class="bi bi-chevron-left"></i>
+                        </button>
+                        <div class="container-filmes">
                             <?php while ($row_filmes = $resultado_filmes->fetch_assoc()) : ?>
                                 <a class="p-1" href="info?filme=<?= htmlspecialchars($row_filmes['id']) ?>">
-                                    <?php
-                                    // verificando se tem capa ou não
-                                    if (!empty($row_filmes['imagem_url'])): ?>
+                                    <?php if (!empty($row_filmes['imagem_url'])): ?>
                                         <img class="capa-filme"
                                              src="<?= htmlspecialchars($row_filmes['imagem_url']) ?>"
                                              alt="Capa do filme <?= htmlspecialchars($row_filmes['titulo']) ?>">
                                     <?php else: ?>
-                                        <img class="ml-1 p-1 w-[9rem] h-[13rem] lg:w-[20rem] lg:h-[30rem] object-cover rounded-lg hover:ring-2"
+                                        <img class="capa-filme"
                                              src="https://www.protrusmoto.com/wp-content/uploads/revslider/home5/placeholder-1200x500.png"
                                              alt="Filme sem capa">
                                     <?php endif; ?>
                                 </a>
                             <?php endwhile; ?>
                         </div>
+                        <button class="scroll-btn scroll-right hidden lg:block"><i class="bi bi-chevron-right"></i>
+                        </button>
                     </div>
+                    <?php
+                    // mostrando os top 10 filmes mais salvos
+                    if ($top10 == 2) : ?>
+                        <h3 class="mt-5 lg:mt-8 pl-2 text-2xl lg:text-3xl font-bold text-white">
+                            Top 10 filmes
+                        </h3>
+                        <div class="filmes-container group">
+                            <button class="scroll-btn scroll-left hidden lg:block"><i class="bi bi-chevron-left"></i>
+                            </button>
+                            <div class="container-filmes">
+                                <?php
+                                $sql = "SELECT f.id, f.titulo, f.imagem_url, COUNT(ml.id) AS total_salvos
+                                        FROM filmes f
+                                        LEFT JOIN minha_lista ml ON f.id = ml.filme_id
+                                        GROUP BY f.id, f.titulo, f.imagem_url
+                                        ORDER BY total_salvos DESC, f.titulo ASC LIMIT 10;";
+                                $stmt = $conexao->prepare($sql);
+                                $stmt->execute();
+                                $resultado_top = $stmt->get_result();
+                                $stmt->close();
 
+                                // controle dos numeros das posicoes
+                                $posicao_top_10 = 1;
+
+                                while ($row_top = $resultado_top->fetch_assoc()) : ?>
+                                    <div class="container-top-10">
+                                        <span class="posicao-top-10 text-outline"><?= $posicao_top_10 ?></span>
+                                        <a class="p-1" href="info?filme=<?= htmlspecialchars($row_top['id']) ?>">
+                                            <?php if (!empty($row_top['imagem_url'])): ?>
+                                                <img class="capa-filme"
+                                                     src="<?= htmlspecialchars($row_top['imagem_url']) ?>"
+                                                     alt="Capa do filme <?= htmlspecialchars($row_top['titulo']) ?>">
+                                            <?php else: ?>
+                                                <img class="capa-filme"
+                                                     src="https://www.protrusmoto.com/wp-content/uploads/revslider/home5/placeholder-1200x500.png"
+                                                     alt="Filme sem capa">
+                                            <?php endif; ?>
+                                        </a>
+                                    </div>
+                                    <?php $posicao_top_10++; endwhile; ?>
+                            </div>
+                            <button class="scroll-btn scroll-right hidden lg:block"><i class="bi bi-chevron-right"></i>
+                            </button>
+                        </div>
+                    <?php endif; ?>
                 <?php endif; ?>
             <?php endwhile;
         else:
@@ -143,7 +191,6 @@ if ($resultado->num_rows > 0) {
         ?>
     </section>
 </main>
-<script src="<?= BASE_URL . "assets/js/swiper.js" ?>"></script>
 <script>
     // botão de desmutar filme destaque
     const btn_desmutar = document.getElementById("btn-desmutar");
@@ -174,5 +221,6 @@ if ($resultado->num_rows > 0) {
         video.currentTime = video.duration / 2;
     });
 </script>
+<script src="<?= BASE_URL . "assets/js/btn_carrossel.js" ?>"></script>
 <script src="<?= BASE_URL . "assets/js/minha_lista.js" ?>"></script>
 <?php include __DIR__ . "/../includes/final.php"; ?>

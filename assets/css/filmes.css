@@ -1,5 +1,73 @@
 @layer components {
+    .filmes-container {
+        @apply relative max-w-full;
+    }
+
+    .container-filmes {
+        @apply flex gap-1 lg:gap-3 overflow-x-auto overflow-y-hidden;
+
+        @media (min-width: 1024px) {
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE e Edge */
+        }
+    }
+
+    .container-filmes::-webkit-scrollbar {
+        display: none; /* Chrome, Safari */
+    }
+
     .capa-filme {
-        @apply ml-1 p-1 min-w-[9rem] h-[13rem] lg:min-w-[20rem] lg:h-[30rem] object-cover rounded-lg hover:ring-2;
+        @apply p-1 min-w-[9rem] h-[13rem] lg:min-w-[20rem] lg:h-[30rem] object-cover rounded-lg hover:ring-2;
+    }
+
+    /* Botões */
+    .scroll-btn {
+        @apply absolute w-12 h-12 top-1/2 -translate-y-1/2 bg-black/60 text-white text-xl rounded-full opacity-0
+        transition-opacity duration-300 z-10 cursor-pointer;
+
+        &:hover {
+            @apply transform scale-110;
+        }
+    }
+
+    .filmes-container:hover .scroll-btn {
+        @apply opacity-100;
+    }
+
+    .scroll-left {
+        @apply left-2;
+    }
+
+    .scroll-right {
+        @apply right-2;
+    }
+
+    .container-top-10 {
+        @apply flex;
+
+        & .posicao-top-10 {
+            @apply flex items-center justify-center font-bold text-preto text-[10rem] lg:text-[20rem] tracking-[-2.5rem] lg:tracking-[-4.5rem];
+        }
+
+        & .capa-filme {
+            @apply hover:ring-0;
+        }
+
+        &:hover .posicao-top-10 {
+            @apply text-azul;
+        }
+    }
+}
+
+@layer utilities {
+    .text-outline {
+        text-shadow: -3px -3px 0 #398FF9,
+        3px -3px 0 #398FF9,
+        -3px 3px 0 #398FF9,
+        3px 3px 0 #398FF9,
+        -3px 0 0 #398FF9,
+        3px 0 0 #398FF9,
+        0 -3px 0 #398FF9,
+        0 3px 0 #398FF9;
     }
 }

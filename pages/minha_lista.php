@@ -61,14 +61,14 @@ $stmt_lista->close();
                                 <img class="w-15 lg:w-30 rounded-lg border border-borda"
                                      src="<?= htmlspecialchars($row_filme['imagem_url']) ?>"
                                      alt="Capa do filme <?= htmlspecialchars($row_filme['titulo']) ?>">
-                                <div class="flex flex-col gap-3">
+                                <div class="flex flex-col gap-1">
                                     <h3 class="text-lg lg:text-2xl font-bold"><?= htmlspecialchars($row_filme['titulo']) ?></h3>
-                                    <div class="flex gap-1 text-branco-texto-opaco text-sm lg:text-md">
-                                        <p class="bg-azul/20 text-azul font-bold px-2 rounded-lg"><?= htmlspecialchars($nome_categoria) ?></p>
-                                        •
+                                    <div class="flex gap-1 text-branco-texto-opaco lg:text-md">
+                                        <p><?= htmlspecialchars($nome_categoria) ?></p>
+                                        <span class="text-azul">•</span>
                                         <p><?= htmlspecialchars($row_filme['ano']) ?></p>
                                     </div>
-                                    <p class="text-branco-texto-opaco hidden lg:block"><?= htmlspecialchars($row_filme['descricao']) ?></p>
+                                    <p class="hidden lg:block"><?= htmlspecialchars($row_filme['descricao']) ?></p>
                                 </div>
                             </div>
                             <form class="form-minha-lista" action="toggle_minha_lista" method="POST">
