@@ -68,3 +68,9 @@
         @apply object-cover !h-full !w-full brightness-50 z-200;
     }
 }
+
+@media screen and (max-width: 360px) {
+    .btn-minha-lista-info p {
+        @apply hidden;
+    }
+}

@@ -34,7 +34,7 @@ include __DIR__ . "/../includes/inicio.php";
         let query = this.value;
 
         if (query.length > 0) { // só busca depois de 3 letras
-            fetch("procurar_filmes?q=" + encodeURIComponent(query))
+            fetch("procurar_filmes?q=" + encodeURIComponent(query))git p
                 .then(res => res.json())
                 .then(data => {
                     let container = document.getElementById("resultados");

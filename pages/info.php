@@ -101,7 +101,7 @@ include __DIR__ . "/../includes/inicio.php";
         <?php if ($resultado_recomendacao->num_rows > 0) : ?>
             <section class="bg-black lg:px-5 lg:px-20 pt-0 pb-15 lg:pb-0">
                 <h2 class="w-full border-b font-bold text-2xl lg:text-3xl pb-2 mb-5">Você também pode gostar</h2>
-                <div class="filmes-container group">
+                <div class="filmes-container pb-5 group">
                     <button class="scroll-btn scroll-left hidden lg:block"><i class="bi bi-chevron-left"></i>
                     </button>
                     <div class="container-filmes">
