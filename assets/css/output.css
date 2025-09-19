@@ -320,9 +320,6 @@
   .mb-5 {
     margin-bottom: calc(var(--spacing) * 5);
   }
-  .ml-1 {
-    margin-left: calc(var(--spacing) * 1);
-  }
   .flex {
     display: flex;
   }
@@ -359,9 +356,6 @@
   .h-\[5rem\] {
     height: 5rem;
   }
-  .h-\[13rem\] {
-    height: 13rem;
-  }
   .h-\[15rem\] {
     height: 15rem;
   }
@@ -391,9 +385,6 @@
   }
   .w-50 {
     width: calc(var(--spacing) * 50);
-  }
-  .w-\[9rem\] {
-    width: 9rem;
   }
   .w-\[80\%\] {
     width: 80%;
@@ -844,11 +835,6 @@
       height: 22rem;
     }
   }
-  .lg\:h-\[30rem\] {
-    @media (width >= 64rem) {
-      height: 30rem;
-    }
-  }
   .lg\:h-\[calc\(90dvh-5rem\)\] {
     @media (width >= 64rem) {
       height: calc(90dvh - 5rem);
@@ -877,11 +863,6 @@
   .lg\:w-30 {
     @media (width >= 64rem) {
       width: calc(var(--spacing) * 30);
-    }
-  }
-  .lg\:w-\[20rem\] {
-    @media (width >= 64rem) {
-      width: 20rem;
     }
   }
   .lg\:w-auto {
@@ -1705,23 +1686,26 @@
   .container-filmes::-webkit-scrollbar {
     display: none;
   }
-  .capa-filme {
-    height: 13rem;
-    min-width: 9rem;
-    border-radius: var(--radius-lg);
-    object-fit: cover;
+  .link-filme {
     padding: calc(var(--spacing) * 1);
-    &:hover {
-      @media (hover: hover) {
-        --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
-        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    & img {
+      height: 10rem;
+      min-width: 7rem;
+      border-radius: var(--radius-lg);
+      object-fit: cover;
+      padding: calc(var(--spacing) * 1);
+      &:hover {
+        @media (hover: hover) {
+          --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+          box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+        }
       }
-    }
-    @media (width >= 64rem) {
-      height: 30rem;
-    }
-    @media (width >= 64rem) {
-      min-width: 20rem;
+      @media (width >= 64rem) {
+        height: 22rem;
+      }
+      @media (width >= 64rem) {
+        min-width: 15rem;
+      }
     }
   }
   .scroll-btn {
@@ -1770,21 +1754,21 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 10rem;
+      font-size: 8rem;
       --tw-font-weight: var(--font-weight-bold);
       font-weight: var(--font-weight-bold);
-      --tw-tracking: -2.5rem;
-      letter-spacing: -2.5rem;
+      --tw-tracking: -2rem;
+      letter-spacing: -2rem;
       color: var(--color-preto);
       @media (width >= 64rem) {
-        font-size: 20rem;
+        font-size: 18rem;
       }
       @media (width >= 64rem) {
         --tw-tracking: -4.5rem;
         letter-spacing: -4.5rem;
       }
     }
-    & .capa-filme {
+    & .link-filme img {
       &:hover {
         @media (hover: hover) {
           --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);

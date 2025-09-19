@@ -16,8 +16,12 @@
         display: none; /* Chrome, Safari */
     }
 
-    .capa-filme {
-        @apply p-1 min-w-[9rem] h-[13rem] lg:min-w-[20rem] lg:h-[30rem] object-cover rounded-lg hover:ring-2;
+    .link-filme {
+        @apply p-1;
+
+        & img {
+            @apply p-1 min-w-[7rem] h-[10rem] lg:min-w-[15rem] lg:h-[22rem] object-cover rounded-lg hover:ring-2;
+        }
     }
 
     /* Botões */
@@ -46,10 +50,10 @@
         @apply flex;
 
         & .posicao-top-10 {
-            @apply flex items-center justify-center font-bold text-preto text-[10rem] lg:text-[20rem] tracking-[-2.5rem] lg:tracking-[-4.5rem];
+            @apply flex items-center justify-center font-bold text-preto text-[8rem] lg:text-[18rem] tracking-[-2rem] lg:tracking-[-4.5rem];
         }
 
-        & .capa-filme {
+        & .link-filme img {
             @apply hover:ring-0;
         }
 

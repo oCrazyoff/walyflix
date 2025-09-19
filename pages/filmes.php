@@ -116,20 +116,18 @@ if ($resultado->num_rows > 0) {
                 $stmt_filmes->close();
 
                 if ($resultado_filmes->num_rows > 0) : ?>
-                    <h3 class="mt-5 lg:mt-8 pl-2 text-2xl lg:text-3xl font-bold text-white"><?= htmlspecialchars($row_categoria['nome']) ?></h3>
+                    <h3 class="mt-5 lg:mt-8 pl-2 text-xl lg:text-3xl font-bold text-white"><?= htmlspecialchars($row_categoria['nome']) ?></h3>
                     <div class="filmes-container group">
                         <button class="scroll-btn scroll-left hidden lg:block"><i class="bi bi-chevron-left"></i>
                         </button>
                         <div class="container-filmes">
                             <?php while ($row_filmes = $resultado_filmes->fetch_assoc()) : ?>
-                                <a class="p-1" href="info?filme=<?= htmlspecialchars($row_filmes['id']) ?>">
+                                <a class="link-filme" href="info?filme=<?= htmlspecialchars($row_filmes['id']) ?>">
                                     <?php if (!empty($row_filmes['imagem_url'])): ?>
-                                        <img class="capa-filme"
-                                             src="<?= htmlspecialchars($row_filmes['imagem_url']) ?>"
+                                        <img src="<?= htmlspecialchars($row_filmes['imagem_url']) ?>"
                                              alt="Capa do filme <?= htmlspecialchars($row_filmes['titulo']) ?>">
                                     <?php else: ?>
-                                        <img class="capa-filme"
-                                             src="https://www.protrusmoto.com/wp-content/uploads/revslider/home5/placeholder-1200x500.png"
+                                        <img src="https://www.protrusmoto.com/wp-content/uploads/revslider/home5/placeholder-1200x500.png"
                                              alt="Filme sem capa">
                                     <?php endif; ?>
                                 </a>
@@ -165,14 +163,12 @@ if ($resultado->num_rows > 0) {
                                 while ($row_top = $resultado_top->fetch_assoc()) : ?>
                                     <div class="container-top-10">
                                         <span class="posicao-top-10 text-outline"><?= $posicao_top_10 ?></span>
-                                        <a class="p-1" href="info?filme=<?= htmlspecialchars($row_top['id']) ?>">
+                                        <a class="link-filme" href="info?filme=<?= htmlspecialchars($row_top['id']) ?>">
                                             <?php if (!empty($row_top['imagem_url'])): ?>
-                                                <img class="capa-filme"
-                                                     src="<?= htmlspecialchars($row_top['imagem_url']) ?>"
+                                                <img src="<?= htmlspecialchars($row_top['imagem_url']) ?>"
                                                      alt="Capa do filme <?= htmlspecialchars($row_top['titulo']) ?>">
                                             <?php else: ?>
-                                                <img class="capa-filme"
-                                                     src="https://www.protrusmoto.com/wp-content/uploads/revslider/home5/placeholder-1200x500.png"
+                                                <img src="https://www.protrusmoto.com/wp-content/uploads/revslider/home5/placeholder-1200x500.png"
                                                      alt="Filme sem capa">
                                             <?php endif; ?>
                                         </a>
