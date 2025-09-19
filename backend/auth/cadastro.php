@@ -30,6 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         exit;
     }
 
+    // formata para tudo ficar minusculo
+    $email = mb_convert_case($email, MB_CASE_LOWER, "UTF-8");
+
     // Validar se as senhas coincidem
     if ($senha !== $confirmar_senha) {
         $_SESSION['resposta'] = "As senhas não coincidem!";

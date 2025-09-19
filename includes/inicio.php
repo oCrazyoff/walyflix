@@ -10,6 +10,20 @@ if (isset($n_valida) && $n_valida == true) {
     include(__DIR__ . "/../backend/valida.php");
 }
 
+// login automatico
+if (tentarLoginAutomatico() == true) {
+
+    // redirecionando corretamente
+    if ($_SESSION['cargo'] == 0) {
+        // caso o usuario for comum
+        header("Location: " . BASE_URL . "filmes");
+        exit;
+    } elseif ($_SESSION['cargo'] == 1) {
+        // caso o usuario for adm
+        header("Location: " . BASE_URL . "dashboard");
+        exit;
+    }
+}
 ?>
     <!doctype html>
     <html lang="pt-br">

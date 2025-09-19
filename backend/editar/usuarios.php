@@ -27,6 +27,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         exit;
     }
 
+    // formatando tudo para minusculo
+    $email = mb_convert_case($email, MB_CASE_LOWER, "UTF-8");
+
     if (!empty($senha)) {
         //Validar senha
         if (validarSenha($senha) == false) {

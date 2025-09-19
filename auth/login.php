@@ -18,8 +18,13 @@ include("includes/inicio.php");
                 <label for="senha">Senha</label>
                 <input type="password" name="senha" id="senha" placeholder="Sua senha" required>
             </div>
-            <button class="btn-enviar"> Entrar</button>
 
+            <div class="flex items-center justify-start gap-2 w-full mt-4">
+                <input type="checkbox" name="lembrar" id="lembrar" value="1">
+                <label for="lembrar" class="text-branco-texto-opaco">Lembrar-me</label>
+            </div>
+
+            <button class="btn-enviar"> Entrar</button>
             <div class="container-links">
                 <p>Não tem uma conta? <a href="cadastro">Cadastre-se aqui</a></p>
                 <a href="./"><i class="bi bi-arrow-left"></i> Voltar para a página inicial</a>

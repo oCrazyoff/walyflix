@@ -56,7 +56,8 @@ function validarCSRF($csrf)
     return true;
 }
 
-function registrarErro($usuario, $mensagem, $erro){
+function registrarErro($usuario, $mensagem, $erro)
+{
     global $conexao;
 
     $stmt = $conexao->prepare("INSERT INTO erros (usuario_id, mensagem, erro) VALUES (?,?,?)");
@@ -69,7 +70,8 @@ function registrarErro($usuario, $mensagem, $erro){
     }
 }
 
-function validarURL(string $url): bool {
+function validarURL(string $url): bool
+{
     $url = trim($url);
 
     // Valida a URL usando FILTER_VALIDATE_URL
@@ -80,7 +82,8 @@ function validarURL(string $url): bool {
     return true;
 }
 
-function ajustarDropboxLink($url) {
+function ajustarDropboxLink($url)
+{
     if (strpos($url, "dropbox.com") !== false) {
         // Se o link já tiver "raw=1", retorna direto
         if (strpos($url, "raw=1") !== false) {
@@ -98,5 +101,49 @@ function ajustarDropboxLink($url) {
     return $url;
 }
 
+function tentarLoginAutomatico()
+{
+    global $conexao;
+
+    // A função só executa se o usuário NÃO tiver uma sessão e TIVER um cookie
+    if (!isset($_SESSION["id"]) && isset($_COOKIE['lembrar_me'])) {
+        // Separa o seletor e o verificador
+        list($seletor, $verificador) = explode(':', $_COOKIE['lembrar_me'], 2);
+
+        if ($seletor && $verificador) {
+            $sql_token = "SELECT * FROM tokens_autenticacao WHERE seletor = ?";
+            $stmt_token = $conexao->prepare($sql_token);
+            $stmt_token->bind_param("s", $seletor);
+            $stmt_token->execute();
+            $resultado = $stmt_token->get_result();
+            $token_info = $resultado->fetch_assoc();
+            $stmt_token->close();
+
+            // Se o token existe, é válido e não expirou...
+            if ($token_info && hash_equals($token_info['verificador_hashed'], hash('sha256', $verificador)) && (strtotime($token_info['expira_em']) > time())) {
+
+                // Busca os dados mais recentes do usuário
+                $id_usuario = $token_info['usuario_id'];
+                $stmt_usuario = $conexao->prepare("SELECT nome, email, cargo, img_perfil FROM usuarios WHERE id = ?");
+                $stmt_usuario->bind_param("i", $id_usuario);
+                $stmt_usuario->execute();
+                $stmt_usuario->bind_result($nome, $email, $cargo, $img_perfil);
+
+                if ($stmt_usuario->fetch()) {
+                    // Recria a sessão para o usuário
+                    $_SESSION["id"] = $id_usuario;
+                    $_SESSION["nome"] = $nome;
+                    $_SESSION["email"] = $email;
+                    $_SESSION["cargo"] = $cargo;
+                    // A imagem será carregada pelo valida.php ou outra lógica
+                    $stmt_usuario->close();
+                    return true; // Login bem-sucedido
+                }
+                $stmt_usuario->close();
+            }
+        }
+    }
+    return false; // Não foi possível logar automaticamente
+}
 
 ?>
