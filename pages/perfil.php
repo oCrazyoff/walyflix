@@ -21,7 +21,7 @@ $stmt->close();
         </div>
         <div class="interface-perfil">
             <form id="form-perfil"
-                  class="flex flex-col justify-center items-center gap-8 w-full lg:max-w-1/2"
+                  class="flex flex-col justify-center items-center gap-3 w-full lg:max-w-1/2"
                   action="atualizar_perfil"
                   method="POST">
                 <div class="flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-2 w-full">
@@ -51,9 +51,10 @@ $stmt->close();
                         </div>
                     </div>
                 </div>
-                <div class="w-full border-t-3 border-borda pt-8">
-                    <h3 class="text-3xl font-bold">Troca de senha</h3>
-                    <p class="text-xl text-branco-texto-opaco mb-5">Por favor, digite a sua senha atual e, em seguida,
+                <div class="w-full border-t-3 border-borda pt-2">
+                    <h3 class="text-2xl lg:text-3xl font-bold">Troca de senha</h3>
+                    <p class="text-lg lg:text-xl text-branco-texto-opaco mb-5">Por favor, digite a sua senha atual e, em
+                        seguida,
                         escolha
                         uma nova senha para que a troca seja realizada com sucesso!</p>
                     <input type="password" name="senha" id="senha"
@@ -64,10 +65,10 @@ $stmt->close();
                            placeholder="Digite sua nova senha">
                 </div>
                 <button type="submit"
-                        class="rounded-lg p-2 text-2xl w-full bg-azul hover:bg-azul-hover cursor-pointer">
+                        class="btn-enviar-perfil">
                     Salvar
                 </button>
-                <a href="deslogar" class="rounded-lg p-2 text-2xl text-center w-full bg-red-500 hover:bg-red-700">
+                <a href="deslogar" class="btn-deslogar">
                     <i class="bi bi-box-arrow-in-left"></i> Deslogar
                 </a>
             </form>
@@ -76,20 +77,20 @@ $stmt->close();
 </main>
 <!--modal das fotos de perfil-->
 <div class="flex items-center hidden justify-center fixed top-0 left-0 w-full h-full bg-black/60" id="modal-perfil">
-    <div class="flex w-[90%] lg:w-max gap-3 bg-cinza p-5 rounded-lg border border-borda">
+    <div class="grid grid-cols-3 gap-3 w-[90%] lg:w-max bg-cinza p-4 lg:p-5 rounded-lg border border-borda overflow-auto">
         <button onclick="mudarFoto(0, '<?= BASE_URL . "assets/img/perfil/macaco.webp" ?>')">
             <img src="<?= BASE_URL . "assets/img/perfil/macaco.webp" ?>"
-                 class="p-1 w-35 h-35 object-cover rounded-lg hover:ring cursor-pointer"
+                 class="foto-perfil-carrossel"
                  alt="Imagem do perfil">
         </button>
         <button onclick="mudarFoto(1, '<?= BASE_URL . "assets/img/perfil/macaca.webp" ?>')">
             <img src="<?= BASE_URL . "assets/img/perfil/macaca.webp" ?>"
-                 class="p-1 w-35 h-35 object-cover rounded-lg hover:ring cursor-pointer"
+                 class="foto-perfil-carrossel"
                  alt="Imagem do perfil">
         </button>
         <button onclick="mudarFoto(2, '<?= BASE_URL . "assets/img/perfil/macagay.webp" ?>')">
             <img src="<?= BASE_URL . "assets/img/perfil/macagay.webp" ?>"
-                 class="p-1 w-35 h-35 object-cover rounded-lg hover:ring cursor-pointer"
+                 class="foto-perfil-carrossel"
                  alt="Imagem do perfil">
         </button>
     </div>

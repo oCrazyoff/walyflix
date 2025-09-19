@@ -20,7 +20,7 @@
         @apply p-1;
 
         & img {
-            @apply p-1 min-w-[7rem] h-[10rem] lg:min-w-[15rem] lg:h-[22rem] object-cover rounded-lg hover:ring-2;
+            @apply p-1 min-w-[9rem] h-[12rem] lg:min-w-[15rem] lg:h-[22rem] object-cover rounded-lg hover:ring-2;
         }
     }
 

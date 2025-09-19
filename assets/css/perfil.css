@@ -2,7 +2,7 @@
     .interface-perfil {
         @apply flex items-center justify-center w-full;
 
-        .input-group {
+        & .input-group {
             @apply flex flex-col gap-1 w-full h-1/2;
 
             & label {
@@ -10,12 +10,24 @@
             }
 
             & input {
-                @apply border border-borda h-full w-full px-3 py-2 lg:px-10 text-2xl rounded-lg;
+                @apply border border-borda h-full w-full px-3 py-1 lg:py-2 lg:px-10 text-2xl rounded-lg;
             }
         }
 
         & .input-senha {
-            @apply border border-borda w-full py-2 my-2 px-5 text-2xl rounded-lg;
+            @apply border border-borda w-full py-1 lg:py-2 my-2 px-5 text-2xl rounded-lg;
         }
+
+        & .btn-enviar-perfil {
+            @apply rounded-lg p-1 lg:p-2 text-xl lg:text-2xl w-full bg-azul hover:bg-azul-hover cursor-pointer;
+        }
+
+        & .btn-deslogar {
+            @apply rounded-lg p-1 lg:p-2 text-xl lg:text-2xl text-center w-full bg-red-500 hover:bg-red-700;
+        }
+    }
+
+    .foto-perfil-carrossel {
+        @apply p-1 w-25 lg:w-35 h-25 lg:h-35 object-cover rounded-lg hover:ring cursor-pointer;
     }
 }
