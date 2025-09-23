@@ -37,6 +37,8 @@
     --text-6xl--line-height: 1;
     --text-7xl: 4.5rem;
     --text-7xl--line-height: 1;
+    --text-9xl: 8rem;
+    --text-9xl--line-height: 1;
     --font-weight-normal: 400;
     --font-weight-bold: 700;
     --radius-sm: 0.25rem;
@@ -362,8 +364,14 @@
   .h-auto {
     height: auto;
   }
+  .h-dvh {
+    height: 100dvh;
+  }
   .h-full {
     height: 100%;
+  }
+  .min-h-dvh {
+    min-height: 100dvh;
   }
   .min-h-full {
     min-height: 100%;
@@ -564,6 +572,9 @@
   .bg-purple-700 {
     background-color: var(--color-purple-700);
   }
+  .bg-white {
+    background-color: var(--color-white);
+  }
   .object-cover {
     object-fit: cover;
   }
@@ -590,6 +601,9 @@
   }
   .px-5 {
     padding-inline: calc(var(--spacing) * 5);
+  }
+  .px-10 {
+    padding-inline: calc(var(--spacing) * 10);
   }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
@@ -635,6 +649,10 @@
     font-size: var(--text-3xl);
     line-height: var(--tw-leading, var(--text-3xl--line-height));
   }
+  .text-4xl {
+    font-size: var(--text-4xl);
+    line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
   .text-5xl {
     font-size: var(--text-5xl);
     line-height: var(--tw-leading, var(--text-5xl--line-height));
@@ -642,6 +660,10 @@
   .text-6xl {
     font-size: var(--text-6xl);
     line-height: var(--tw-leading, var(--text-6xl--line-height));
+  }
+  .text-9xl {
+    font-size: var(--text-9xl);
+    line-height: var(--tw-leading, var(--text-9xl--line-height));
   }
   .text-base {
     font-size: var(--text-base);
@@ -827,6 +849,11 @@
   .lg\:h-\[calc\(100dvh-5rem\)\] {
     @media (width >= 64rem) {
       height: calc(100dvh - 5rem);
+    }
+  }
+  .lg\:h-full {
+    @media (width >= 64rem) {
+      height: 100%;
     }
   }
   .lg\:w-1\/2 {
