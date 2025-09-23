@@ -173,7 +173,8 @@ if ($resultado->num_rows > 0) {
                                             <?php endif; ?>
                                         </a>
                                     </div>
-                                    <?php $posicao_top_10++; endwhile; ?>
+                                    <?php $posicao_top_10++;
+                                endwhile; ?>
                             </div>
                             <button class="scroll-btn scroll-right hidden lg:block"><i class="bi bi-chevron-right"></i>
                             </button>
