@@ -61,6 +61,31 @@
             @apply text-azul;
         }
     }
+
+    .continue-container {
+        @apply flex lg:grid lg:grid-cols-5 gap-2 overflow-auto;
+
+        & a {
+            @apply relative p-1;
+
+            & img {
+                @apply p-1 min-w-[12rem] lg:w-full h-[8rem] lg:h-[13rem] object-cover rounded-lg hover:ring-2;
+            }
+
+            & .btn-play {
+                @apply flex gap-2 items-center justify-center max-w-5/6 px-3 lg:px-5 absolute bottom-3 lg:bottom-5
+                left-3 lg:left-5 bg-black/70 rounded-xl;
+
+                & i {
+                    @apply text-2xl lg:text-5xl;
+                }
+
+                & p {
+                    @apply truncate w-full;
+                }
+            }
+        }
+    }
 }
 
 @layer utilities {

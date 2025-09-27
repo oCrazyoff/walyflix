@@ -104,8 +104,10 @@ if ($resultado->num_rows > 0) {
 
         if ($resultado->num_rows > 0) :
             $top10 = 0;
+            $continue = 0;
             while ($row_categoria = $resultado->fetch_assoc()) :
                 $top10++;
+                $continue++;
 
                 // puxando todos filmes da categoria
                 $sql = "SELECT id, titulo, imagem_url FROM filmes WHERE categoria_id = ?";
@@ -135,6 +137,43 @@ if ($resultado->num_rows > 0) {
                         </div>
                         <button class="scroll-btn scroll-right hidden lg:block"><i class="bi bi-chevron-right"></i>
                         </button>
+                    </div>
+                    <?php if ($continue == 2): ?>
+                        <?php
+                        // caso tenha filmes vistos mostrar onde parou para continuar
+                        $sql_continuar = "SELECT filme_id FROM filmes_progresso WHERE usuario_id = ? ORDER BY atualizado_em DESC LIMIT 5";
+                        $stmt_continuar = $conexao->prepare($sql_continuar);
+                        $stmt_continuar->bind_param("i", $_SESSION['id']);
+                        $stmt_continuar->execute();
+                        $resultado_continuar = $stmt_continuar->get_result();
+                        $stmt_continuar->close();
+                        if ($resultado_continuar->num_rows > 0) : ?>
+                            <!--continue assistindo-->
+                            <h3 class="mt-5 lg:mt-8 pl-2 text-2xl lg:text-3xl font-bold text-white">Continue
+                                assistindo</h3>
+                            <div class="continue-container">
+                            <?php while ($continuar = $resultado_continuar->fetch_assoc()) : ?>
+                                <?php
+                                // puxando informações do filme
+                                $sql_filme_continue = "SELECT titulo, imagem_deitada_url FROM filmes WHERE id = ?";
+                                $stmt_filme_continue = $conexao->prepare($sql_filme_continue);
+                                $stmt_filme_continue->bind_param("i", $continuar['filme_id']);
+                                $stmt_filme_continue->execute();
+                                $resultado_filme_continue = $stmt_filme_continue->get_result();
+                                $filme_continue = $resultado_filme_continue->fetch_assoc();
+                                $stmt_filme_continue->close();
+                                ?>
+                                <a href="assistir?filme=<?= $continuar['filme_id'] ?>">
+                                    <img src="<?= htmlspecialchars($filme_continue['imagem_deitada_url']) ?>"
+                                         alt="Capa do filme <?= htmlspecialchars($filme_continue['titulo']) ?>">
+                                    <span class="btn-play">
+                                        <i class="bi bi-play-fill"></i>
+                                        <p><?= htmlspecialchars($filme_continue['titulo']) ?></p>
+                                    </span>
+                                </a>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
+                    <?php endif; ?>
                     </div>
                     <?php
                     // mostrando os top 10 filmes mais salvos

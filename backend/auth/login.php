@@ -55,40 +55,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $_SESSION["email"] = $email;
                 $_SESSION["cargo"] = $cargo;
 
-                // caso o usuario marque para ser lembrado
-                if (isset($_POST['lembrar'])) {
-
-                    // gerar tokens seguros
-                    $seletor = bin2hex(random_bytes(16));
-                    $verificador = bin2hex(random_bytes(32));
-                    $verificador_hashed = hash('sha256', $verificador);
-
-                    // data de expiração (30 dias)
-                    $expira_em_timestamp = time() + (86400 * 30);
-                    $expira_em_data = date('Y-m-d H:i:s', $expira_em_timestamp);
-
-                    // armazenar no banco de dados
-                    $sql_token = "INSERT INTO tokens_autenticacao (seletor, verificador_hashed, usuario_id, expira_em) VALUES (?, ?, ?, ?)";
-                    $stmt_token = $conexao->prepare($sql_token);
-                    $stmt_token->bind_param("ssis", $seletor, $verificador_hashed, $id, $expira_em_data);
-                    $stmt_token->execute();
-                    $stmt_token->close();
-
-                    // cookie no navegador
-                    $cookie_value = $seletor . ':' . $verificador;
-                    setcookie(
-                        'lembrar_me',
-                        $cookie_value,
-                        [
-                            'expires' => $expira_em_timestamp,
-                            'path' => '/',
-                            'secure' => true,
-                            'httponly' => true,
-                            'samesite' => 'Lax'
-                        ]
-                    );
-                }
-
                 // trocando o caminho da imagem de perfil conforme o banco
                 if ($img_perfil == 0) {
                     $_SESSION["img_perfil"] = BASE_URL . "assets/img/perfil/macaco.webp";

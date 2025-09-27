@@ -52,6 +52,7 @@ $routes = [
     'info' => 'pages/info.php',
     'assistir' => 'pages/assistir.php',
     'toggle_minha_lista' => 'backend/minha_lista/toggle.php',
+    'salvar_progresso_filme' => 'backend/cadastrar/salvar_progresso_filme.php',
 ];
 
 if (array_key_exists($url, $routes)) {

@@ -10,11 +10,7 @@
             }
 
             & .descricao-destaque {
-                @apply text-justify lg:text-left font-normal text-white/80 text-lg lg:text-2xl text-shadow-lg/30;
-                display: -webkit-box;
-                -webkit-line-clamp: 3;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
+                @apply text-justify line-clamp-3 lg:text-left font-normal text-white/80 text-lg lg:text-2xl text-shadow-lg/30;
             }
 
             & p {

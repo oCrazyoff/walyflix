@@ -24,6 +24,7 @@ if (!isset($_SESSION["cargo"]) || $_SESSION["cargo"] == 0) {
         $rota != "atualizar_perfil" &&
         $rota != "toggle_minha_lista" &&
         $rota != "procurar_filmes" &&
+        $rota != "salvar_progresso_filme" &&
         $rota != ""
     ) {
         $_SESSION['resposta'] = "Acesso negado!";
