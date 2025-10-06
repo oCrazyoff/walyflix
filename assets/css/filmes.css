@@ -87,7 +87,7 @@
                 left-3 lg:left-5 bg-black/70 rounded-xl;
 
                 & i {
-                    @apply -mt-1 text-2xl lg:text-4xl;
+                    @apply mt-0 lg:-mt-1 text-2xl lg:text-4xl;
                 }
 
                 & p {

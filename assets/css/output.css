@@ -1894,9 +1894,12 @@
           padding-inline: calc(var(--spacing) * 5);
         }
         & i {
-          margin-top: calc(var(--spacing) * -1);
+          margin-top: calc(var(--spacing) * 0);
           font-size: var(--text-2xl);
           line-height: var(--tw-leading, var(--text-2xl--line-height));
+          @media (width >= 64rem) {
+            margin-top: calc(var(--spacing) * -1);
+          }
           @media (width >= 64rem) {
             font-size: var(--text-4xl);
             line-height: var(--tw-leading, var(--text-4xl--line-height));
