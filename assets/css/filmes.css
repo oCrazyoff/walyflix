@@ -66,6 +66,15 @@
     .continue-container {
         @apply flex lg:grid lg:grid-cols-5 gap-2 overflow-auto;
 
+        &::-webkit-scrollbar {
+            display: none; /* Chrome, Safari */
+        }
+
+        @media (min-width: 1024px) {
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE e Edge */
+        }
+
         & a {
             @apply relative p-1;
 
@@ -78,7 +87,7 @@
                 left-3 lg:left-5 bg-black/70 rounded-xl;
 
                 & i {
-                    @apply text-2xl lg:text-5xl;
+                    @apply -mt-1 text-2xl lg:text-4xl;
                 }
 
                 & p {
