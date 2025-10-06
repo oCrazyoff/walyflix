@@ -50,7 +50,8 @@
         @apply flex;
 
         & .posicao-top-10 {
-            @apply flex items-center justify-center font-bold text-preto text-[8rem] lg:text-[18rem] tracking-[-2rem] lg:tracking-[-4.5rem];
+            @apply flex items-center justify-center font-bold text-preto text-[8rem] lg:text-[18rem] tracking-[-2rem]
+            lg:tracking-[-4.5rem];
         }
 
         & .link-filme img {
@@ -86,17 +87,21 @@
             }
         }
     }
+
+    .subtitulo-filmes {
+        @apply mt-5 lg:mt-8 pl-2 text-2xl lg:text-3xl font-bold text-white;
+    }
 }
 
 @layer utilities {
     .text-outline {
-        text-shadow: -3px -3px 0 #398FF9,
-        3px -3px 0 #398FF9,
-        -3px 3px 0 #398FF9,
-        3px 3px 0 #398FF9,
-        -3px 0 0 #398FF9,
-        3px 0 0 #398FF9,
-        0 -3px 0 #398FF9,
-        0 3px 0 #398FF9;
+        text-shadow: -1px -1px 0 #398FF9,
+        1px -1px 0 #398FF9,
+        -1px 1px 0 #398FF9,
+        1px 1px 0 #398FF9,
+        -1px 0 0 #398FF9,
+        1px 0 0 #398FF9,
+        0 -1px 0 #398FF9,
+        0 1px 0 #398FF9;
     }
 }

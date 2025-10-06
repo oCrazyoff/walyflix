@@ -118,7 +118,7 @@ if ($resultado->num_rows > 0) {
                 $stmt_filmes->close();
 
                 if ($resultado_filmes->num_rows > 0) : ?>
-                    <h3 class="mt-5 lg:mt-8 pl-2 text-xl lg:text-3xl font-bold text-white"><?= htmlspecialchars($row_categoria['nome']) ?></h3>
+                    <h3 class="subtitulo-filmes"><?= htmlspecialchars($row_categoria['nome']) ?></h3>
                     <div class="filmes-container group">
                         <button class="scroll-btn scroll-left hidden lg:block"><i class="bi bi-chevron-left"></i>
                         </button>
@@ -149,8 +149,7 @@ if ($resultado->num_rows > 0) {
                         $stmt_continuar->close();
                         if ($resultado_continuar->num_rows > 0) : ?>
                             <!--continue assistindo-->
-                            <h3 class="mt-5 lg:mt-8 pl-2 text-2xl lg:text-3xl font-bold text-white">Continue
-                                assistindo</h3>
+                            <h3 class="subtitulo-filmes">Continue assistindo</h3>
                             <div class="continue-container">
                             <?php while ($continuar = $resultado_continuar->fetch_assoc()) : ?>
                                 <?php
@@ -178,9 +177,7 @@ if ($resultado->num_rows > 0) {
                     <?php
                     // mostrando os top 10 filmes mais salvos
                     if ($top10 == 2) : ?>
-                        <h3 class="mt-5 lg:mt-8 pl-2 text-2xl lg:text-3xl font-bold text-white">
-                            Top 10 filmes
-                        </h3>
+                        <h3 class="subtitulo-filmes">Top 10 filmes</h3>
                         <div class="filmes-container group">
                             <button class="scroll-btn scroll-left hidden lg:block"><i class="bi bi-chevron-left"></i>
                             </button>
