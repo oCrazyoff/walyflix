@@ -2,12 +2,29 @@
 $titulo = "Gerenciar Filmes";
 include __DIR__ . "/../includes/inicio.php";
 
+// sistema de busca
+$busca = $_GET['s'] ?? NULL;
+
+if ($busca != NULL) {
+    $busca_param = "%" . $busca . "%";
+    $sql = "SELECT id, titulo, descricao, categoria_id, ano, imagem_url, imagem_deitada_url, destaque 
+            FROM filmes 
+            WHERE titulo LIKE ? 
+            ORDER BY titulo ASC";
+    $stmt = $conexao->prepare($sql);
+    $stmt->bind_param("s", $busca_param);
+} else {
+    $sql = "SELECT id, titulo, descricao, categoria_id, ano, imagem_url, imagem_deitada_url, destaque 
+            FROM filmes 
+            ORDER BY titulo ASC";
+    $stmt = $conexao->prepare($sql);
+}
+
 // puxando todos os filmes
-$sql = "SELECT id, titulo, descricao, categoria_id, ano, imagem_url, imagem_deitada_url, destaque FROM filmes";
-$stmt = $conexao->prepare($sql);
 $stmt->execute();
 $resultado = $stmt->get_result();
 $stmt->close();
+$qtd_filmes = 0;
 ?>
 <main>
     <div class="interface">
@@ -23,6 +40,13 @@ $stmt->close();
             <p>
                 <?= $resultado->num_rows ?> filmes encontrados
             </p>
+            <div class="flex items-center justify-center gap-3 bg-cinza w-full mt-3 mb-4 rounded-lg overflow-hidden
+            border border-borda">
+                <i class="bi bi-search flex items-center justify-center pl-5 text-2xl text-azul"></i>
+                <input class="p-3 w-full focus:outline-0 focus:border-0" type="search" name="busca-filme"
+                       id="busca-filme"
+                       placeholder="Pesquise por nome">
+            </div>
             <div class="container-table">
                 <?php if ($resultado->num_rows > 0): ?>
                     <table>
@@ -39,7 +63,8 @@ $stmt->close();
                         </tr>
                         </thead>
                         <tbody>
-                        <?php while ($row = $resultado->fetch_assoc()): ?>
+                        <?php while (($row = $resultado->fetch_assoc()) && $qtd_filmes != 20): ?>
+                            <?php $qtd_filmes++; ?>
                             <tr>
                                 <td>
                                     <?php
@@ -48,7 +73,8 @@ $stmt->close();
                                         <img class="capa" src="<?= htmlspecialchars($row['imagem_url']) ?>"
                                              alt="Capa do filme <?= htmlspecialchars($row['titulo']) ?>">
                                     <?php else: ?>
-                                        <img class="capa" src="https://i0.wp.com/www.bishoprook.com/wp-content/uploads/2021/05/placeholder-image-gray-16x9-1.png?ssl=1"
+                                        <img class="capa"
+                                             src="https://i0.wp.com/www.bishoprook.com/wp-content/uploads/2021/05/placeholder-image-gray-16x9-1.png?ssl=1"
                                              alt="Filme sem capa">
                                     <?php endif; ?>
                                 </td>
@@ -59,7 +85,8 @@ $stmt->close();
                                         <img class="capa" src="<?= htmlspecialchars($row['imagem_deitada_url']) ?>"
                                              alt="Capa do filme <?= htmlspecialchars($row['titulo']) ?>">
                                     <?php else: ?>
-                                        <img class="capa" src="https://i0.wp.com/www.bishoprook.com/wp-content/uploads/2021/05/placeholder-image-gray-16x9-1.png?ssl=1"
+                                        <img class="capa"
+                                             src="https://i0.wp.com/www.bishoprook.com/wp-content/uploads/2021/05/placeholder-image-gray-16x9-1.png?ssl=1"
                                              alt="Filme sem capa">
                                     <?php endif; ?>
 
@@ -130,6 +157,26 @@ $stmt->close();
         </div>
     </div>
 </main>
+<script>
+    // lógica de buscar filmes
+    const input_busca = document.getElementById('busca-filme');
+
+    input_busca.addEventListener('keypress', function (e) {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            const busca = this.value.trim();
+
+            const url = new URL(window.location.href);
+            if (busca) {
+                url.searchParams.set('s', busca);
+            } else {
+                url.searchParams.delete('s');
+            }
+
+            window.location.href = url.toString();
+        }
+    });
+</script>
 <?php
 $tipoModal = 'filmes';
 include __DIR__ . "/../includes/modal.php";
