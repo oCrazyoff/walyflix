@@ -55,7 +55,8 @@ include("includes/inicio.php");
     <section class="py-10 border-y border-borda bg-cinza text-center">
         <div class="interface flex flex-col gap-5 items-center justify-center">
             <h2 class="text-3xl lg:text-4xl font-bold">Pronto para começar?</h2>
-            <p class="text-branco-texto-opaco text-lg lg:text-xl text-center">Junte-se a milhões de pessoas que já descobriram uma
+            <p class="text-branco-texto-opaco text-lg lg:text-xl text-center">Junte-se a milhões de pessoas que já
+                descobriram uma
                 nova forma de assistir filmes e séries.</p>
             <div class="flex items-center justify-center gap-5">
                 <a class="rounded-lg px-5 lg:px-10 py-3 text-xl bg-azul hover:bg-azul-hover" href="cadastro">Criar
@@ -66,7 +67,7 @@ include("includes/inicio.php");
             </div>
         </div>
     </section>
-    <footer class="bg-black py-5">
+    <footer class="bg-black py-5 text-center">
         <div class="interface flex flex-col gap-3 items-center justify-center">
             <p>© <span id="ano-atual"></span> <a class="border-b hover:text-azul" href="https://www.walysson.com.br/">Walysson</a>.
                 Todos os direitos
